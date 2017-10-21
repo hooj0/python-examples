@@ -45,17 +45,21 @@
 # 转义字符、多行输出
 
 # 字符转义
-print("转义字符\"")
+print("转义字符\"") # 转义字符"
 
-print("转义字符\\n")
+print("转义字符\\n") # 转义字符\n
 # r"..." 表示字符串原样输出，忽略特殊字符
-print(r"\r\n\t")
-print(R"this is content \r\n\t")
+print(r"\r\n\t") # \r\n\t
+print(R"this is content \r\n\t") # this is content \r\n\t
 
 # 多行输出 '''......''' 中间可以进行换行
 print('''line
 line2
 line3''')
+# line
+# line2
+# line3
+
 
 print(
 '''
@@ -67,21 +71,21 @@ print(
 # \ 进行续行, 当一行不够显示，要换行而又不进行拼接
 str = 'hello world,\
 new world'
-print('续行字符串：', str)
+print('续行字符串：', str) # 续行字符串： hello world,new world
 
 # 加号拼接
 str = 'a' + 'b'
-print('拼接字符串：', str)
+print('拼接字符串：', str) # 拼接字符串： ab
 
 # 相邻字符在同一行也可以拼接
 str = 'a' 'b'
-print('拼接字符串：', str)
+print('拼接字符串：', str) # 拼接字符串： ab
 
 # u'......' 表示Unicode编码字符串
 print(u"中国") # 中国
 print(U"中国") # 中国
 
 
-print('\a')
-print('\e')
-print('00')
+print('\a') # 
+print('\e') # \e
+print('00') # 00
