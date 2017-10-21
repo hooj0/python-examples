@@ -8,7 +8,7 @@
 # @changelog Added python3 `string->str function` example
 
 
-# str_function.py
+
 
 '''
 字符串函数
