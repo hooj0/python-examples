@@ -26,7 +26,7 @@
 
 # 纯小写字符变量
 a = '123'
-print('var a =', a)
+print('var a =', a)     # var a = 123
 
 # 不能以数字开头
 # 23b = 'no think'
@@ -34,28 +34,28 @@ print('var a =', a)
 
 # 大小写混合变量
 Name = 'python'
-print('var Name =', Name)
+print('var Name =', Name)   # var Name = python
 
 # 带_组合变量
 user_age = 22
-print('var user_age =', user_age)
+print('var user_age =', user_age)   # var user_age = 22
 
 # 带_和数字、字母组合变量
 t_0 = -1
-print('var t_0 =', t_0)
+print('var t_0 =', t_0)     # var t_0 = -1
 
 # _ 下划线开头变量
 _super = 2
-print('var _super =', _super)
+print('var _super =', _super)   # var _super = 2
 
 __self = 2
-print('var _super =', __self)
+print('var _super =', __self)   # var _super = 2
 
 print()
 
 # 常量，由全大写字符串和下划线、数字组成 
 MAX_COUNT = 20
-print('MAX_COUNT =', MAX_COUNT)
+print('MAX_COUNT =', MAX_COUNT) # MAX_COUNT = 20
 print()
 
 # 删除变量
@@ -64,7 +64,7 @@ del user_age, Name
 
 # 多个变量赋值
 a = b = c = 5
-print(a, b, c)
+print(a, b, c)  # 5 5 5
 
 a, b, c = 1, 'a', False
-print(a, b, c)
+print(a, b, c)  # 1 a False
