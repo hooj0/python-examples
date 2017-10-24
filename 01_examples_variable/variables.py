@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2017-10-23 21:03:13
 # @copyright by hoojo@2018
-# @changelog Added python3 `variable->variables` example
+# @changelog Added python3 `variable -> variables` example
 
 
 #===============================================================================
