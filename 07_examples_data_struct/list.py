@@ -52,93 +52,93 @@ API：
 
 # 创建一个list
 names = [ 'jack', 'jason', 'lily', 'tom', 'coco' ]
-print('user names: ', names)
+print('user names: ', names) # user names:  ['jack', 'jason', 'lily', 'tom', 'coco']
 
 # len() 获取list长度
-print('user count: ', len(names))
+print('user count: ', len(names)) # user count:  5
 
 # 通过索引、下标 访问；索引从0开始
-print('first user: ', names[0])
-print('three user: ', names[2])
+print('first user: ', names[0]) # first user:  jack
+print('three user: ', names[2]) # three user:  lily
 
 # 当索引越界超出长度就会出现错误
 # print('unknow user: ', names[10])
 
 # -1 获取最后一个元素
-print('last user: ', names[-1])
-print('last 2 user: ', names[-2])
+print('last user: ', names[-1]) # last user:  coco
+print('last 2 user: ', names[-2]) # last 2 user:  tom
 
 # append 添加新的元素
 names.append('charry')
-print('names: ', names)
+print('names: ', names) # names:  ['jack', 'jason', 'lily', 'tom', 'coco', 'charry']
 
 # insert 插入元素到指定索引位置
 names.insert(2, 'blom')
-print('names:', names)
+print('names:', names) # names: ['jack', 'jason', 'blom', 'lily', 'tom', 'coco', 'charry']
 # 当索引比长度还大时，元素会添加到末尾
 names.insert(12, 'blom2')
 names.append('charry2')
-print('names:', names)
+print('names:', names) # names: ['jack', 'jason', 'blom', 'lily', 'tom', 'coco', 'charry', 'blom2', 'charry2']
 
 # 对已知存在的元素进行赋值
 names[len(names) - 1] = 'last element'
-print('names:', names)
+print('names:', names) # names: ['jack', 'jason', 'blom', 'lily', 'tom', 'coco', 'charry', 'blom2', 'last element']
 
 # pop 删除末尾的元素
 names.pop()
 # 删除指定索引位置的元素 pop(index)
 names.pop(3)
-print('names: ', names)
+print('names: ', names) # names:  ['jack', 'jason', 'blom', 'tom', 'coco', 'charry', 'blom2']
 
 # 删除指定索引位置的元素
 del names[0]
-print('del names[0]', names)
+print('del names[0]', names) # del names[0] ['jason', 'blom', 'tom', 'coco', 'charry', 'blom2']
 
 # 不同类型的元素的list
 objects = [ 1, 'user', [ '5', '6'] ]
-print('objects:', objects)
+print('objects:', objects) # objects: [1, 'user', ['5', '6']]
 print('objects[0]:', objects[0])
-print('objects[-1][1]:', objects[-1][1])
+print('objects[-1][1]:', objects[-1][1]) # objects[-1][1]: 6
 
 # list 进行叠加，会出现并集结果
 list1 = [ 1, 3, 5 ]
 list2 = list1 + [ 2, 4, 8 ]
-print('list2: ', list2)
+print('list2: ', list2) # list2:  [1, 3, 5, 2, 4, 8]
 
 # list[index-start, index-end] 对列表进行分片处理，同字符串分片一样，不包含截止下标的元素
 list = [ 0, 1, 2, 3, 4, 5 ]
-print('list[2:5]:', list[2:5])
-print('list[2:-1]:', list[2:-1])
-print('list[2:-1]:', list[2:-2])
+print('list[2:5]:', list[2:5])  # list[2:5]: [2, 3, 4]
+print('list[2:-1]:', list[2:-1])# list[2:-1]: [2, 3, 4]
+print('list[2:-1]:', list[2:-2])# list[2:-1]: [2, 3]
 # 从3开始，到最后
-print('list[2:-1]:', list[3:])
+print('list[2:-1]:', list[3:]) # list[2:-1]: [3, 4, 5]
 # 输出全部元素
-print('list[:]:', list[:])
+print('list[:]:', list[:]) # list[:]: [0, 1, 2, 3, 4, 5]
 
 # 删除某个区间的元素
-print('remove list before:', list)
+print('remove list before:', list) # remove list before: [0, 1, 2, 3, 4, 5]
 list[1:2] = []
-print('remove list after:', list)
+print('remove list after:', list) # remove list after: [0, 2, 3, 4, 5]
 
 # 在指定区间插入值，如果区间有元素将被覆盖
 list[1:3] = [ 'a', 'b', 'c', 'd' ]
-print('list[1:3] = [...]:', list)
+print('list[1:3] = [...]:', list) # list[1:3] = [...]: [0, 'a', 'b', 'c', 'd', 4, 5]
 
 # 判断list中是否存在某个元素
-print('1 in list ->', 1 in list)
-print('3 not in list ->', 3 not in list)
+print('1 in list ->', 1 in list) # 1 in list -> False
+print('3 not in list ->', 3 not in list) # 3 not in list -> True
 
 # list 进行排序
 list = [5, 3, 6, 2, 1, 9, 0]
 list.sort()
-print('list sort:', list)
+print('list sort:', list) # list sort: [0, 1, 2, 3, 5, 6, 9]
 
 # 倒序
 list.sort(key=None, reverse=True)
-print('list sort reverse:', list)
+print('list sort reverse:', list) # list sort reverse: [9, 6, 5, 3, 2, 1, 0]
 
 list = sorted([5, 3, 6, 2, 1, 9, 0])
-print('list sort:', list)
+print('list sort:', list) # list sort: [0, 1, 2, 3, 5, 6, 9]
 
 # 清空元素
 list.clear()
@@ -150,12 +150,12 @@ del list
 
 list = [5, 3, 6, 2, 1, 9, 0, 2, 3, 1]
 # 复制
-print('list * 3:', list * 3)
+print('list * 3:', list * 3) #list * 3: [5, 3, 6, 2, 1, 9, 0, 2, 3, 1, 5, 3, 6, 2, 1, 9, 0, 2, 3, 1, 5, 3, 6, 2, 1, 9, 0, 2, 3, 1]
 
 L = list.copy()
 L.append('5')
-print('list.copy', L)
-print(list)
+print('list.copy', L) # list.copy [5, 3, 6, 2, 1, 9, 0, 2, 3, 1, '5']
+print(list) # [5, 3, 6, 2, 1, 9, 0, 2, 3, 1]
 
 # 元素出现次数
 print('count(el):', list.count(2))
@@ -170,12 +170,11 @@ print('min:', min(list))
 
 # 继承某个list集合，相当于两个集合进行拼接
 list.extend(L)
-print('list.extend', list)
+print('list.extend', list) # list.extend [5, 3, 6, 2, 1, 9, 0, 2, 3, 1, 5, 3, 6, 2, 1, 9, 0, 2, 3, 1, '5']
 
 list.remove(0)
 #list.remove('a') # ValueError: list.remove(x): x not in list
-print('list remove:', list)
+print('list remove:', list) # list remove: [5, 3, 6, 2, 1, 9, 2, 3, 1, 5, 3, 6, 2, 1, 9, 0, 2, 3, 1, '5']
 
 list.reverse()
-print('reverse: ', list)
-
+print('reverse: ', list) # reverse:  ['5', 1, 3, 2, 0, 9, 1, 2, 6, 3, 5, 1, 3, 2, 9, 1, 2, 6, 3, 5]
