@@ -35,11 +35,11 @@ API:
 
 # tuple 和 list 雷同，但是它创建数据后不能随意修改
 classes = ( 1, 2, 3)
-print('classes: ', classes)
+print('classes: ', classes) # classes:  (1, 2, 3)
 
 #构建元组
 classes2 = 'e', 'a', 'b', 'c', 'd'
-print('classes2: ', classes2)
+print('classes2: ', classes2) # classes2:  ('e', 'a', 'b', 'c', 'd')
 
 # TypeError: 'tuple' object does not support item assignment
 # classes[1] = 4
@@ -47,13 +47,13 @@ print('classes2: ', classes2)
 # classes.append(4)
 
 # 取值方法，用索引下标的方式
-print('first element:', classes[1]);
-print('last element:', classes[-1]);
+print('first element:', classes[1]); # 2
+print('last element:', classes[-1]); # 3
 
 # 分片获取数据
-print('classes[0:2]:', classes[0:2])
-print('classes[0:-2]:', classes[0:-2])
-print('classes[1:]:', classes[1:])
+print('classes[0:2]:', classes[0:2]) # classes[0:-2]: (1,)
+print('classes[0:-2]:', classes[0:-2]) # classes[0:-2]: (1,)
+print('classes[1:]:', classes[1:]) # classes[1:]: (2, 3)
 
 # 定义一个元素的tuple, 必须带一个 逗号，不然python不知道是否是运算操作
 tmp = (1, )
@@ -68,21 +68,21 @@ print(type(tmp))
 # 并集
 tuple1 = ( 1, 2, 3 )
 tuple2 = tuple1 + ( 'a', 'b' )
-print(tuple2)
+print(tuple2) # (1, 2, 3, 'a', 'b')
 
 # 删除对象
 del tmp
 # print('del tmp:', tmp) # NameError: name 'tmp' is not defined
 
 # 元组的长度
-print('classes length:', len(classes))
+print('classes length:', len(classes)) # 3
 
 # 复制
-print('classes * 3:', classes * 3)
+print('classes * 3:', classes * 3) # classes * 3: (1, 2, 3, 1, 2, 3, 1, 2, 3)
 
 # 判断元素是否存在元组中
-print('3 in classes:', 3 in classes)
-print('a not in classes:', 'a' not in classes)
+print('3 in classes:', 3 in classes) # 3 in classes: True
+print('a not in classes:', 'a' not in classes) # a not in classes: True
 
 # 循环遍历
 for x in classes:
@@ -90,12 +90,12 @@ for x in classes:
     
 print('------------------内置函数--------------------')
 strs = 'e', 'a', 'b', 'c', 'e', 'a', 'e'
-print('统计元素出现次数：', strs.count('e'))
-print('查找元素所在索引位置：', strs.index('e'))
-print('查找元素所在索引位置：', strs.index('e', 2))
-print('查找元素所在索引位置：', strs.index('e', 5, 15))     
+print('统计元素出现次数：', strs.count('e')) # 3
+print('查找元素所在索引位置：', strs.index('e')) # 0
+print('查找元素所在索引位置：', strs.index('e', 2)) # 4
+print('查找元素所在索引位置：', strs.index('e', 5, 15)) # 6     
 
 print('max:', max(strs))
 print('min:', min(strs))
 
-print('list to tuple:', tuple([ 1, 2, 3, 5 ]))
+print('list to tuple:', tuple([ 1, 2, 3, 5 ])) # list to tuple: (1, 2, 3, 5)
