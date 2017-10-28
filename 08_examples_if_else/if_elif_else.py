@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2017-10-28 18:34:02
 # @copyright by hoojo@2018
-# @changelog Added python3 `if else->if elif else` example
+# @changelog Added python3 `if else -> if elif else` example
 
 
 #################################################
