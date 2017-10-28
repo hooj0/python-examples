@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2017-10-28 21:28:42
 # @copyright by hoojo@2018
-# @changelog Added python3 `loop->for while` example
+# @changelog Added python3 `loop -> for while` example
 
 
 '''
