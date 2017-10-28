@@ -23,21 +23,21 @@ range 函数像是一个for 循环，它可以有循环的起止位置和步长
 '''
 
 # 生成指定截止区间的整数集合
-print('range(5): ', end = '')
+print('range(5): ', end = '') # range(5): 0; 1; 2; 3; 4; 
 ranges = range(5)
 for x in ranges:
 	print(x, end = '; ')
 print()
 	
 # 生成指定区间，带有起始位置的序列集合	
-print('range(3, 7): ', end = '')
+print('range(3, 7): ', end = '') # range(3, 7): 3; 4; 5; 6; 
 ranges = range(3, 7)
 for x in ranges:
 	print(x, end = '; ')
 print()
 
 # 生成指定区间，带有起始位置，并且有步长的序列集合	
-print('range(3, 11, 2): ', end = '')
+print('range(3, 11, 2): ', end = '') # range(3, 11, 2): 3; 5; 7; 9; 
 ranges = range(3, 11, 2)
 for x in ranges:
 	print(x, end = '; ')
