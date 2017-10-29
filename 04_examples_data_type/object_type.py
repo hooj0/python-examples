@@ -37,19 +37,19 @@
 '''
 
 a, b, c, d = 2, 3.12, False, 2.1 + 3j
-print(type(a), type(b), type(c), type(d))   
+print(type(a), type(b), type(c), type(d)) # <class 'int'> <class 'float'> <class 'bool'> <class 'complex'>  
 
 s1, s2 = 'haha', r"wowow\r\n"
-print(type(s1), type(s2)) 
+print(type(s1), type(s2)) # <class 'str'> <class 'str'>
 
 list = [ 1, 2, 3, 4 ]
-print(type(list))
+print(type(list)) # <class 'list'>
 
 tuple = ('a', 'b', 'c')
-print(type(tuple))
+print(type(tuple)) # <class 'tuple'>
 
 set = set([2, 3, 4])
-print(type(set))
+print(type(set))    # <class 'set'>
 
 dict = { 1: 45, 2: '33', "name": 'jack' }
-print(type(dict))
+print(type(dict))   # <class 'dict'>
