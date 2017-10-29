@@ -99,26 +99,26 @@ print('-----------------------')
 
 # 删除元素
 user_info.pop('name')
-print('user information: ', user_info)
+print('user information: ', user_info) # user information:  {'age': 27, 'brithday': (1990, 10, 22), 'sex': 'girl', 'wechat': '134234234'}
 
 # 删除元素，和JavaScript类似
 del user_info['sex']
-print('user information: ', user_info)
+print('user information: ', user_info) # user information:  {'age': 27, 'brithday': (1990, 10, 22), 'wechat': '134234234'}
 print('-----------------------')
 
 # 返回所有key
-print("all keys:", user_info.keys())
+print("all keys:", user_info.keys()) # all keys: dict_keys(['age', 'brithday', 'wechat'])
 
 # 返回所有value
-print('all values:', user_info.values())
+print('all values:', user_info.values()) # all values: dict_values([27, (1990, 10, 22), '134234234'])
 
 # 将value转换list
-print('将value转换list：', list(user_info.values()))
+print('将value转换list：', list(user_info.values())) # 将value转换list： [27, (1990, 10, 22), '134234234']
 
 # 排序
 user_info['xyz'] = None
 user_info['good'] = 1
-print(sorted(user_info.keys()))
+print(sorted(user_info.keys())) # ['age', 'brithday', 'good', 'wechat', 'xyz']
 print('-----------------------')
 
 # 清空字典
@@ -133,31 +133,31 @@ del tmp
 print('#########################内置API###########################')
 
 tmp = dict(name = 'tom', age = 22, address = 'china')
-print(tmp)
-print('len(dict) 长度:', len(tmp))
-print('str(len) 输出字典以可打印的字符串表示:', str(tmp))
-print('type(dict) 类型:', type(tmp))
+print(tmp)      # {'name': 'tom', 'age': 22, 'address': 'china'}
+print('len(dict) 长度:', len(tmp)) # len(dict) 长度: 3
+print('str(len) 输出字典以可打印的字符串表示:', str(tmp)) # str(len) 输出字典以可打印的字符串表示: {'name': 'tom', 'age': 22, 'address': 'china'}
+print('type(dict) 类型:', type(tmp)) # type(dict) 类型: <class 'dict'>
 
 # 字典浅拷贝
 L = tmp.copy()
-print('copy dict:', L)
+print('copy dict:', L) # copy dict: {'name': 'tom', 'age': 22, 'address': 'china'}
 
 seq = ('age', 'name', 'sex', 'qq', 'phone')
 # 创建一个字典对象，key值为seq对象，value为None
 N = dict.fromkeys(seq)
-print('new dict:', N)
+print('new dict:', N) # new dict: {'age': None, 'name': None, 'sex': None, 'qq': None, 'phone': None}
 # 创建一个字典对象，key值为seq对象，value为2
 N = dict.fromkeys(seq, 2)
-print('new dict:', N)
+print('new dict:', N) # new dict: {'age': 2, 'name': 2, 'sex': 2, 'qq': 2, 'phone': 2}
 
 print('---------------')
 # 将存在键值的字典N更新到字典tmp
 tmp.update(N)
-print('tmp.update(N):', tmp)
+print('tmp.update(N):', tmp) # tmp.update(N): {'name': 2, 'age': 2, 'address': 'china', 'sex': 2, 'qq': 2, 'phone': 2}
 print('---------------')
 
 # 返回可以直接遍历键值对
-print('dict.items:', tmp.items())
+print('dict.items:', tmp.items()) # dict.items: dict_items([('name', 2), ('age', 2), ('address', 'china'), ('sex', 2), ('qq', 2), ('phone', 2)])
 for e in tmp:
     print(e)
 for e in tmp.items():
