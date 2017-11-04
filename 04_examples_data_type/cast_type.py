@@ -31,7 +31,7 @@ oct(x)                    将一个整数转换为一个八进制字符串
 # int类型转换
 print('int(n)', int('123') + 1) # int(n) 124
 print('int(n)', int('123', base = 10) + 1) # int(n) 124
-print('int(n)', int('10', base = 36) + 1) # int(n) 37
+print('int(n)', int('10', base = 36) + 1)  # int(n) 37
 
 # float类型转换
 print('float(n)', float('123') + 1) # float(n) 124.0
