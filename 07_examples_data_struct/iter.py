@@ -30,14 +30,14 @@ API：
 it = iter({ 'name': 'jack', 'age': 22, 'brithday': (2010, 10, 22) })
 
 # next下一个元素
-print('next element:', next(it))
-print('next element:', next(it))
+print('next element:', next(it)) # next element: name
+print('next element:', next(it)) # next element: age
 
 list = [1, 3, 2, 5]
 # 循环遍历
 it = iter(list)
 for el in it:
-    print('iter el:', el, end = ',\t')
+    print('iter el:', el, end = ',\t') # iter el: 1,    iter el: 3,    iter el: 2,    iter el: 5,
 print()    
 
 # 循环遍历
