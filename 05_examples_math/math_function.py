@@ -12,7 +12,7 @@ import math
 from random import choice, randrange, random, seed, shuffle, uniform
 from math import sin, acos, asin
 
-# math_function.py
+
 
 '''
 ---------------------------------数学函数------------------------------------
@@ -121,37 +121,37 @@ print('math.sqrt:', math.sqrt(10))  # 3.1622776601683795
 print('---------------------随机数函数------------------------')
 # 从序列的元素中随机挑选一个元素
 print('choice:', choice(range(10))) # 5
-print('choice:', choice([ 'a', 3, 'b', 'd', 5 ]))   
-print('choice:', choice(('a', 3, 'b', 'd', 5)))
+print('choice:', choice([ 'a', 3, 'b', 'd', 5 ])) # choice: 5   
+print('choice:', choice(('a', 3, 'b', 'd', 5))) # choice: 3
 
 # 从指定范围内，按指定基数递增的集合中获取一个随机数，基数缺省值为1
-print('randrange:', randrange(1))
-print('randrange:', randrange(1, 10))
+print('randrange:', randrange(1))       # randrange: 0
+print('randrange:', randrange(1, 10))   # randrange: 8
 print('randrange:', randrange(1, 10, 3))
 print('randrange:', randrange(1, 10, 3))
 print('randrange:', randrange(1, 10, 3))
 
 # 随机生成下一个实数，它在[0,1)范围内。
-print('random:', random())
-print('random:', random())
-print('random:', math.floor(random() * 100))
+print('random:', random())  # random: 0.7803577704521725
+print('random:', random())  # random: 0.9502681500134833
+print('random:', math.floor(random() * 100)) # random: 70
 
 # 改变随机数生成器的种子seed。如果你不了解其原理，你不必特别去设定seed，Python会帮你选择seed。
-print('seed:', seed())
+print('seed:', seed())  # seed: None
 
 # 将序列的所有元素随机排序
 numbers = [1, 2, 3, 4, 5, 6]
 shuffle(numbers)
-print('shuffle:', numbers)
+print('shuffle:', numbers)  # shuffle: [4, 2, 1, 3, 6, 5]
 shuffle(numbers)
-print('shuffle:', numbers)
+print('shuffle:', numbers)  # shuffle: [1, 4, 2, 3, 6, 5]
 strs = list('abcdefg') 
 shuffle(strs)
-print('shuffle:', strs)
+print('shuffle:', strs)     # shuffle: ['d', 'f', 'g', 'e', 'c', 'b', 'a']
 
 # 随机生成下一个实数，它在[x,y]范围内。
-print('uniform:', uniform(2, 9))
-print('uniform:', uniform(2, 9))
+print('uniform:', uniform(2, 9))    # uniform: 7.317168189627886
+print('uniform:', uniform(2, 9))    # uniform: 2.09607801330631
 
 print('---------------------三角函数------------------------')
 # 返回的x弧度的正弦值。
