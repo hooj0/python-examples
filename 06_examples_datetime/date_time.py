@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2017-11-06 22:33:42
 # @copyright by hoojo@2018
-# @changelog Added python3 `datetime->date time` example
+# @changelog Added python3 `datetime -> date time` example
 
 
 import datetime
@@ -187,36 +187,36 @@ print('timestamp:', time.time()) # 1510066354.2148845
 # 当前时间，t.tm_isdst可取0或1，取决于当地当时是不是夏令时
 print('current local time:', time.localtime()) # time.struct_time(tm_year=2017, tm_mon=11, tm_mday=7, tm_hour=22, tm_min=52, tm_sec=34, tm_wday=1, tm_yday=311, tm_isdst=0)
 print('current local time:', time.localtime(time.time())) # time.struct_time(tm_year=2017, tm_mon=11, tm_mday=7, tm_hour=22, tm_min=52, tm_sec=34, tm_wday=1, tm_yday=311, tm_isdst=0)
-print('current local time:', time.localtime(60 * 60 * 24 * 360 * 10))
+print('current local time:', time.localtime(60 * 60 * 24 * 360 * 10)) # current local time: time.struct_time(tm_year=1979, tm_mon=11, tm_mday=10, tm_hour=8, tm_min=0, tm_sec=0, tm_wday=5, tm_yday=314, tm_isdst=0)
 
 # 可读时间
-print('asctime:', time.asctime())
-print('asctime:', time.asctime(time.localtime()))
-print('asctime:', time.asctime(time.localtime(60 * 60 * 24 * 360 * 10))) # 1970 + 10年
+print('asctime:', time.asctime())   # asctime: Mon Sep 24 12:26:56 2018
+print('asctime:', time.asctime(time.localtime())) # asctime: Mon Sep 24 12:26:56 2018
+print('asctime:', time.asctime(time.localtime(60 * 60 * 24 * 360 * 10))) # 1970 + 10年, asctime: Sat Nov 10 08:00:00 1979
 
 # 格式化时间
-print('format:', time.strftime('%Y-%m-%d %H:%M:%S'))
-print('format:', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time() - 60 * 30)))
-print('format:', time.strftime('%a %b %d %H:%M:%S %Y', time.localtime(time.time() - 60 * 30)))
+print('format:', time.strftime('%Y-%m-%d %H:%M:%S'))    # format: 2018-09-24 12:26:56
+print('format:', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time() - 60 * 30)))    # format: 2018-09-24 11:56:56
+print('format:', time.strftime('%a %b %d %H:%M:%S %Y', time.localtime(time.time() - 60 * 30))) # format: Mon Sep 24 11:56:56 2018
 
 # 字符串转时间
-timestamp = time.localtime()
+timestamp = time.localtime() 
 
-print('timestamp:', timestamp)
-print('mktime:', time.mktime(timestamp))
+print('timestamp:', timestamp) # timestamp: time.struct_time(tm_year=2018, tm_mon=9, tm_mday=24, tm_hour=12, tm_min=26, tm_sec=56, tm_wday=0, tm_yday=267, tm_isdst=0)
+print('mktime:', time.mktime(timestamp)) # mktime: 1537763216.0
 
 # 字符格式化成时间
-print('strptime:', time.strptime('2017', '%Y'))
-print('strptime:', time.strptime('2017-11-07 22:04:08', '%Y-%m-%d %H:%M:%S'))
+print('strptime:', time.strptime('2017', '%Y')) # strptime: time.struct_time(tm_year=2017, tm_mon=1, tm_mday=1, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=6, tm_yday=1, tm_isdst=-1) 
+print('strptime:', time.strptime('2017-11-07 22:04:08', '%Y-%m-%d %H:%M:%S')) # strptime: time.struct_time(tm_year=2017, tm_mon=11, tm_mday=7, tm_hour=22, tm_min=4, tm_sec=8, tm_wday=1, tm_yday=311, tm_isdst=-1)
 
 
 # 时区
-print('time.altzone:', time.altzone)
+print('time.altzone:', time.altzone) # time.altzone: -32400
 
 # 休眠时间
-print('start：', time.ctime())
+print('start：', time.ctime()) # start： Mon Sep 24 12:26:56 2018
 time.sleep(3)
-print('end：', time.ctime())
+print('end：', time.ctime()) # end： Mon Sep 24 12:26:59 2018
 
 # 用以浮点数计算的秒数返回当前的CPU时间
 '''
@@ -236,18 +236,18 @@ else:
     print('time.clock:', time.clock())
     
 # 当前时间；未给参数相当于asctime()
-print('time.ctime:', time.ctime())
+print('time.ctime:', time.ctime()) # time.ctime: Mon Sep 24 12:27:02 2018
 # 指定某个时间，传秒数；相当于asctime(localtime(secs))
-print('time.ctime:', time.ctime(60 * 60 * 24 * 360 * 10))   
+print('time.ctime:', time.ctime(60 * 60 * 24 * 360 * 10)) # time.ctime: Sat Nov 10 08:00:00 1979 
 
 # 接收时间戳，返回格林时间，t.tm_isdst始终为0
-print('time.gmtime:', time.gmtime()) # 相差8个时区，8小时
-print('time.gmtime:', time.gmtime(60 * 60 * 24 * 360 * 10))   
+print('time.gmtime:', time.gmtime()) # 相差8个时区，8小时 time.gmtime: time.struct_time(tm_year=2018, tm_mon=9, tm_mday=24, tm_hour=4, tm_min=27, tm_sec=2, tm_wday=0, tm_yday=267, tm_isdst=0)
+print('time.gmtime:', time.gmtime(60 * 60 * 24 * 360 * 10)) # time.gmtime: time.struct_time(tm_year=1979, tm_mon=11, tm_mday=10, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=5, tm_yday=314, tm_isdst=0)
 
 print(time.tzname)
 print(time.daylight)
-print(time.get_clock_info('clock'))
-print(time.monotonic())
-print(time.perf_counter())
-print(time.process_time())
+print(time.get_clock_info('clock')) # namespace(adjustable=False, implementation='QueryPerformanceCounter()', monotonic=True, resolution=4.5289301263073323e-07)
+print(time.monotonic())     # 16429.728
+print(time.perf_counter()) # 3.0229956427163254
+print(time.process_time()) # 0.156001
 
