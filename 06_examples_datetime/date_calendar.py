@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2017-11-07 22:19:55
 # @copyright by hoojo@2018
-# @changelog Added python3 `datetime->date calendar` example
+# @changelog Added python3 `datetime -> date calendar` example
 
 
 import calendar
