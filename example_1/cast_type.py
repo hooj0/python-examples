@@ -70,3 +70,8 @@ print('hex:', hex(136))
 # 整数转8进制
 print('oct:', oct(66))
 print('oct:', oct(96))
+
+# 类型转换
+print(bool(1))
+print(bool(0))
+print(bool(''))
