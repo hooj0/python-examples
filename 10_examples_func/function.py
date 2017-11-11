@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2017-11-11 17:29:46
 # @copyright by hoojo@2018
-# @changelog Added python3 `func->function` example
+# @changelog Added python3 `func -> function` example
 
 
 import string
@@ -39,13 +39,13 @@ def hello(arg):
     print('hello, ', arg)
 
 # 执行函数
-hello('world!')    
+hello('world!')    # hello,  world!
     
 # 带返回值的函数
 def say(content):
     return 'say ' + content
 
-print('exec say:', say('hi~'))    
+print('exec say:', say('hi~'))    # exec say: say hi~
     
 # 函数变量作用域
 x = 10
@@ -66,12 +66,12 @@ def get_user(name, age=23, sex='男', address='china'):
     print('name: %s, age=%s, sex=%s, address=%s' %(name, age, sex, address))
 
 # get_user() name为必传参数    
-get_user('jack')
-get_user(name = 'tom')
-get_user(name = 'jason', age=30)
-get_user('jason', address='gz')           
-get_user('jason', 30)
-get_user('jason', 16, 'unknown', 'cz')
+get_user('jack') # name: jack, age=23, sex=男, address=china
+get_user(name = 'tom') # name: tom, age=23, sex=男, address=china
+get_user(name = 'jason', age=30) # name: jason, age=30, sex=男, address=china
+get_user('jason', address='gz')  # name: jason, age=23, sex=男, address=gz
+get_user('jason', 30) # name: jason, age=30, sex=男, address=china
+get_user('jason', 16, 'unknown', 'cz') # name: jason, age=16, sex=unknown, address=cz
 
 # 函数返回值（命名参数）
 def get_result(y, z):
