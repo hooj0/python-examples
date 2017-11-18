@@ -25,40 +25,40 @@ import sys
 
 # 字符串输出
 a = "I'am is python!"
-print("str(a):", str(a))
+print("str(a):", str(a)) # str(a): I'am is python!
 
 b = dict([ ('a', 10), ('b', 20), ('c', 30) ])
-print("str(b):", str(b))
+print("str(b):", str(b)) # str(b): {'a': 10, 'b': 20, 'c': 30}
 
-print('path: ' + str(sys.path))
+print('path: ' + str(sys.path)) # path: ['F:\\Example Exercise\\Python\\03_examples_string', 'E:\\Python\\Python36\\DLLs', 'E:\\Python\\Python36\\lib', 'E:\\Python\\Python36', 'E:\\Python\\Python36\\lib\\site-packages', 'E:\\Python\\Python36\\lib\\site-packages\\win32', 'E:\\Python\\Python36\\lib\\site-packages\\win32\\lib', 'E:\\Python\\Python36\\lib\\site-packages\\Pythonwin', 'E:\\Python\\Python36\\lib\\site-packages\\setuptools-39.1.0-py3.6.egg', 'E:\\Python\\Python36\\lib\\site-packages\\pip-10.0.1-py3.6.egg', 'E:\\Python\\Python36\\python36.zip']
 
-print('1/7:', 1/7)
-print('1/7:', str(1/7))
+print('1/7:', 1/7)      # 1/7: 0.14285714285714285
+print('1/7:', str(1/7)) # 1/7: 0.14285714285714285
 
 # 表达式输出
-print('repr():', repr(a))
-print('repr():', repr(b))
+print('repr():', repr(a)) # repr(): "I'am is python!"
+print('repr():', repr(b)) # repr(): {'a': 10, 'b': 20, 'c': 30}
 print('repr():', repr(sys.path))
-print('repr 1/7:', type(repr(1/7)))
+print('repr 1/7:', type(repr(1/7))) # repr 1/7: <class 'str'>
 
 x = 3 ** 4.2
 y = 13 // 3
 result = 'x = ' + repr(x) + ', y = ' + repr(y)
-print('result:', result)
+print('result:', result)    # result: x = 100.90420610885693, y = 4
 
 result = 'x = ' + str(x) + ', y = ' + str(y)
-print('result:', result)
+print('result:', result)    # result: x = 100.90420610885693, y = 4
 
 result = 'hi, python\n\r'
-print('str(result):', str(result))
-print('repr(result):', repr(result))
+print('str(result):', str(result))  # str(result): hi, python
+print('repr(result):', repr(result)) # repr(result): 'hi, python\n\r'
 
 # 格式化输出
 for x in range(1, 9):
-    print(repr(x).rjust(2), repr(x * x).rjust(3), end = ' ')
+    print(repr(x).rjust(2), repr(x * x).rjust(3), end = ' ') #  3   9   27
     print(repr(x * x * x).rjust(4))
     
 print('--------------------------------------------')    
 for x in range(1, 9):
-    print('{0:2d}{1:4d}{2:6d}\n'.format(x, x * x, x * x * x))
+    print('{0:2d}{1:4d}{2:6d}\n'.format(x, x * x, x * x * x)) #  1   1     1
     
