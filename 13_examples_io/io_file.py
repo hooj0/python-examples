@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2017-11-19 13:23:57
 # @copyright by hoojo@2018
-# @changelog Added python3 `io->io file` example
+# @changelog Added python3 `io -> file overview` example
 
 
 '''
