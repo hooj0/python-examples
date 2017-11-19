@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2017-11-19 17:40:44
 # @copyright by hoojo@2018
-# @changelog Added python3 `serialization->io serialization` example
+# @changelog Added python3 `serialization -> io serialization` example
 
 
 import pickle
@@ -34,17 +34,17 @@ output = open('f:/serial.txt', 'rb')
 
 # 加载序列化的数据
 data = pickle.load(output)
-print('data:', data)
+print('data:', data) # data: {'list': [1, 2, 'a', 2.3, (4.3+4j)], 'dict': {'a': 1, 'b': '222'}, 'tuple': ('a', 233, 666)}
 
 # 格式化输出反序列数据
-pprint.pprint(data)
+pprint.pprint(data) # {'dict': {'a': 1, 'b': '222'}, 'list': [1, 2, 'a', 2.3, (4.3+4j)], 'tuple': ('a', 233, 666)}
 print()
 
 # 加载数据
 data2 = pickle.load(output)
-print('data2:', data2)
+print('data2:', data2) # data2: ['a', '2', 3, (2.2+2j), [...]]
 
 # 格式化输出反序列数据
-pprint.pprint(data2)
+pprint.pprint(data2) # ['a', '2', 3, (2.2+2j), <Recursion on list with id=43884232>]
 
 output.close()
