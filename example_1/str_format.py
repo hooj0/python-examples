@@ -28,6 +28,9 @@
 (var)        映射变量(字典参数)
 m.n.         m 是显示的最小总宽度,n 是小数点后的位数(如果可用的话)      
 '''
+import math
+import datetime
+import time
 
 ### % 用来格式化字符串的 ###
 # %s 用来格式化参：字符串
@@ -89,4 +92,30 @@ print('number: %+d' % 100)
 var = { 'age': 22, 'name': 'jack' }
 #m.n.         m 是显示的最小总宽度,n 是小数点后的位数(如果可用的话)
 
-#print('{1}, {2}, {0}'.format([ 'python', 'is', 'good']))
+# format
+print('{1}, {2}, {0}'.format('python', 'is', 'good'))
+print('{age}, {name}'.format(age = 22, name = 'jack'))
+
+# 混合模式
+print('{0} {age}, {1} {name}'.format('tom is', 'your', age = 22, name = 'jack'))
+
+# '!a' (使用 ascii()), '!s' (使用 str()) 和 '!r' (使用 repr()) 可以用于在格式化某个值之前对其进行转化:
+print('PI: {}'.format(math.pi))
+print('PI: {!r}'.format(math.pi))
+print('PI: {!s}'.format(math.pi))
+print('PI: {!a}'.format('c'))
+
+# 小数格式化
+print('PI: {0:.3f}, time: {1}'.format(math.pi, time.clock()))
+
+# d 针对整数类型， {n:size} size代表空格宽度
+var = { 'java': 234234, 'python': 34590}
+for key, val in var.items():
+    print('{0:9}-->{1:10d}'.format(key, val))
+    
+    
+# 访问字典值，结合索引和key进行访问
+print('A-> {0[java]}, B-> {0[python]:d}'.format(var))
+
+# 直接用key访问字典，** 参数转换
+print('A-> {java}, B-> {python:d}'.format(**var))    
