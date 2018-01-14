@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-01-14 22:53:25
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir->os sys` example
+# @changelog Added python3 `os dir -> sys` example
 
 
 ###进程管理
