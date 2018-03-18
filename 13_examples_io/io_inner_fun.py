@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-18 15:57:55
 # @copyright by hoojo@2018
-# @changelog Added python3 `io->io inner fun` example
+# @changelog Added python3 `io -> inner func` example
 
 
 '''
