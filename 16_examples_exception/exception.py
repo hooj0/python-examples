@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-18 16:38:08
 # @copyright by hoojo@2018
-# @changelog Added python3 `exception->exception` example
+# @changelog Added python3 `exception -> exception` example
 
 
 try:
