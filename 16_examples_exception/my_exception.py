@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-20 22:03:33
 # @copyright by hoojo@2018
-# @changelog Added python3 `exception->my exception` example
+# @changelog Added python3 `exception -> my exception` example
 
 
 class Error(Exception):
