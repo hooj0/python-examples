@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-20 21:18:56
 # @copyright by hoojo@2018
-# @changelog Added python3 `exception->raise exception` example
+# @changelog Added python3 `exception -> raise exception` example
 
 
 # 抛出异常
