@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-21 22:55:55
 # @copyright by hoojo@2018
-# @changelog Added python3 `io->io file read` example
+# @changelog Added python3 `io -> file read` example
 
 
 try:
