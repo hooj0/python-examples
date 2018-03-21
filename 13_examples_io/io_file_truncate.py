@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-21 23:10:07
 # @copyright by hoojo@2018
-# @changelog Added python3 `io->io file truncate` example
+# @changelog Added python3 `io -> file truncate` example
 
 
 try:
