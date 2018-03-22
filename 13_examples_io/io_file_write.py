@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-22 22:49:15
 # @copyright by hoojo@2018
-# @changelog Added python3 `io->io file write` example
+# @changelog Added python3 `io -> file write` example
 
 
 try:
