@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-23 22:41:40
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir->os chmod` example
+# @changelog Added python3 `os dir -> chmod` example
 
 
 import os
