@@ -20,4 +20,4 @@ flags -- 可以是以下值：
     stat.SF_SNAPSHOT: 快照文件(超级用户可设)
 '''
 
-print('非转储文件：%s' % os.lchflags('/tmp/open.txt', stat.UF_NODUMP))
+print('非转储文件：%s' % os.chflags('/tmp/open.txt', stat.UF_NODUMP))

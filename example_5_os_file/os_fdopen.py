@@ -23,9 +23,24 @@ import os
 '''
 
 # 打开文件
-fd = os.open('/tmp/foo.txt', os.O_RDONLY)
+fd = os.open('/tmp/foo.txt', os.O_RDWR)
 
-# 打开文件fd，获取文件对象
-file = os.fdopen(fd)
+# 打开文件fd，获取文件对象; 并且开启写入权限
+file = os.fdopen(fd, 'w+')
 
-print(file.tell())
+print('当前位置: %d' % file.tell())
+
+# 写入新内容
+file.write('fdopen file write line\n')
+
+# 移动指针
+os.lseek(fd, 0, 0)
+str = os.read(fd, 100)
+print('读到文本：%s' % str)
+
+# 当前位置
+print('当前位置: %d' % file.tell())
+
+#os.close(fd)
+
+
