@@ -2,6 +2,7 @@
 # encoding: utf-8
 # Created on 2017-11-11
 # @author: hoojo
+import string
 
 '''
 函数
@@ -75,8 +76,16 @@ def get_result2(y, z):
     x = y + z
     return
 
+def get_result3(y, z):
+    x = y + z
+    y = x + z
+    return x, y
+
 print('get_result:', get_result(1, 3))
 print('get_result2:', get_result2(1, 3))
+print('get_result3:', get_result3(1, 3))
+print('get_result3:', type(get_result3(1, 3))) #<class 'tuple'>
+
 
 # 可变参数（不定长参数）
 def get_sum(*args):
@@ -87,7 +96,18 @@ def get_sum(*args):
 
 print('get_sum:', get_sum())
 print('get_sum:', get_sum(2, 5))
-print('get_sum:', get_sum(2, 5, 3.3, 6.3))    
+print('get_sum:', get_sum(2, 5, 3.3, 6.3)) 
+
+# 可变参数（不定长参数） kw key-value 参数   
+'''
+*args是可变参数，args接收的是一个tuple；
+**kw 是关键字参数，kw接收的是一个dict。
+'''
+def get_user(name, age, **kw):
+    print('name: %s, age=%s, kw=%s' %(name, age, kw))   
+     
+get_user('tom', 22) #name: tom, age=22, kw={}
+get_user('tom', 22, a=2, b=3)   #name: tom, age=22, kw={'a': 2, 'b': 3}    
 
 # 按引用传递参数，传入list值，发现方法里面对list进行操作会影响外部定义的变量
 def get_reference(list):
@@ -108,4 +128,13 @@ lambda [arg1 [,arg2,.....argn]]:expression
 sum = lambda x, y: x + y
 print('lambda.sum:', sum(3, 4))
 print('lambda.sum:', sum(32, 44))
+
+'''
+isinstance 判断类型
+'''
+x = 3
+if isinstance(x, (int, float, list)):
+    print('x is int/float')
+    
+    
 
