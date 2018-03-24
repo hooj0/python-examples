@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-24 12:51:44
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir->os fchown` example
+# @changelog Added python3 `os dir -> fchown` example
 
 
 import os
