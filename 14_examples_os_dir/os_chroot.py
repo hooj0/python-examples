@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-24 09:43:50
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir->os chroot` example
+# @changelog Added python3 `os dir -> chroot` example
 
 
 import os
