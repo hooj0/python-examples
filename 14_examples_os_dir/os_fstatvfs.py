@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-24 20:11:17
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir->os fstatvfs` example
+# @changelog Added python3 `os dir -> fstatvfs` example
 
 
 import os
