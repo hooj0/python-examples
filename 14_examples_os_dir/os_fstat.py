@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-24 20:03:33
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir->os fstat` example
+# @changelog Added python3 `os dir -> fstat` example
 
 
 import os
