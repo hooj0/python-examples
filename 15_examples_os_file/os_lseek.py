@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-25 23:12:08
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os lseek` example
+# @changelog Added python3 `os file -> lseek` example
 
 
 import os
