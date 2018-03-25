@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-25 23:06:40
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir->os listdir` example
+# @changelog Added python3 `os dir -> listdir` example
 
 
 import os
