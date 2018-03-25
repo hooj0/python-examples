@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-25 17:18:57
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir-> os lchmod` example
+# @changelog Added python3 `os dir -> lchmod` example
 
 
 import os
