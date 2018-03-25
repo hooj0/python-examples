@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-25 11:26:42
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir->os getcwdu` example
+# @changelog Added python3 `os dir -> getcwdu` example
 
 
 import os
