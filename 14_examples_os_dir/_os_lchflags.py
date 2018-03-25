@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-25 12:06:31
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir-> os lchflags` example
+# @changelog Added python3 `os dir -> lchflags` example
 
 
 import os
