@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-25 11:05:02
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir->os getcwd` example
+# @changelog Added python3 `os dir -> getcwd` example
 
 
 import os
