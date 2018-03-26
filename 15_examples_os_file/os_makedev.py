@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-26 22:31:35
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os makedev` example
+# @changelog Added python3 `os file -> makedev` example
 
 
 import os
