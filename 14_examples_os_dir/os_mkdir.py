@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-29 22:49:01
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir->os mkdir` example
+# @changelog Added python3 `os dir -> mkdir` example
 
 
 import os
