@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-29 22:54:37
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os mkfifo` example
+# @changelog Added python3 `os file -> mkfifo` example
 
 
 import os
