@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-29 23:00:44
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os mknod` example
+# @changelog Added python3 `os file -> mknod` example
 
 
 import os
