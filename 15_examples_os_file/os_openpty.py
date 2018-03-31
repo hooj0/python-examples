@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-31 15:47:44
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os openpty` example
+# @changelog Added python3 `os file -> openpty` example
 
 
 import os
