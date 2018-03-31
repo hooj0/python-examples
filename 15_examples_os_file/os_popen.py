@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-03-31 22:54:53
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os popen` example
+# @changelog Added python3 `os file -> popen` example
 
 
 import os
