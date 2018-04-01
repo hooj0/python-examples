@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-01 17:14:10
 # @copyright by hoojo@2018
-# @changelog Added python3 `os dir->os utime` example
+# @changelog Added python3 `os dir -> utime` example
 
 
 import os
