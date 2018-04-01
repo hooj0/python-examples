@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-01 11:56:59
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os rename` example
+# @changelog Added python3 `os file -> rename` example
 
 
 import os
