@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-01 14:04:50
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os symlink` example
+# @changelog Added python3 `os file -> symlink` example
 
 
 import os
