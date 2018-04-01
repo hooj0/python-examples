@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-01 09:46:45
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os read` example
+# @changelog Added python3 `os file -> read` example
 
 
 import os
