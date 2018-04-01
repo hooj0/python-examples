@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-01 16:40:04
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os tmpfile` example
+# @changelog Added python3 `os file -> tmpfile` example
 
 
 import os
