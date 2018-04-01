@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-01 16:30:42
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os tempnam` example
+# @changelog Added python3 `os file -> tempnam` example
 
 
 import os
