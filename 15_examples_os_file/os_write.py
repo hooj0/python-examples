@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-01 17:42:04
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os write` example
+# @changelog Added python3 `os file -> write` example
 
 
 import os
