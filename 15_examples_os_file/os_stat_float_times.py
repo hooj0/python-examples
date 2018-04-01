@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-01 13:02:57
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os stat float times` example
+# @changelog Added python3 `os file -> stat float times` example
 
 
 import os
