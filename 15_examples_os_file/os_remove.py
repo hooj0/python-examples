@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-01 09:58:14
 # @copyright by hoojo@2018
-# @changelog Added python3 `os file->os remove` example
+# @changelog Added python3 `os file -> remove` example
 
 
 import os
