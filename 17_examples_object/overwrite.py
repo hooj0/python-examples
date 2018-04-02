@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-02 22:53:00
 # @copyright by hoojo@2018
-# @changelog Added python3 `object->overwrite` example
+# @changelog Added python3 `object -> overwrite` example
 
 
 class Phone:  
