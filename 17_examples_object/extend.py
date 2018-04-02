@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-02 22:21:06
 # @copyright by hoojo@2018
-# @changelog Added python3 `object->extend` example
+# @changelog Added python3 `object -> extend` example
 
 
 class Person:
