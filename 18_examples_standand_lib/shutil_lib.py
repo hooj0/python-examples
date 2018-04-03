@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-03 22:15:30
 # @copyright by hoojo@2018
-# @changelog Added python3 `standand lib->shutil lib` example
+# @changelog Added python3 `standand lib -> shutil lib` example
 
 
 import shutil
