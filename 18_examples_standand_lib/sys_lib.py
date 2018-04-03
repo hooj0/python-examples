@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-03 22:36:33
 # @copyright by hoojo@2018
-# @changelog Added python3 `standand lib->sys lib` example
+# @changelog Added python3 `standand lib -> sys lib` example
 
 
 import sys
