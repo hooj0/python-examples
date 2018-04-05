@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-05 22:02:22
 # @copyright by hoojo@2018
-# @changelog Added python3 `standand lib->zlib lib` example
+# @changelog Added python3 `standand lib -> zlib lib` example
 
 
 import zlib
