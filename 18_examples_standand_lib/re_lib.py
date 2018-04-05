@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-05 10:41:26
 # @copyright by hoojo@2018
-# @changelog Added python3 `standand lib->re lib` example
+# @changelog Added python3 `standand lib -> re lib` example
 
 
 import re
