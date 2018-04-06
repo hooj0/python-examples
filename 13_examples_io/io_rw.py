@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-06 11:36:18
 # @copyright by hoojo@2018
-# @changelog Added python3 `io->io rw` example
+# @changelog Added python3 `io -> file reader writer` example
 
 
 # 写文件
