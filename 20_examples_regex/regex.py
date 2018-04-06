@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-06 12:33:40
 # @copyright by hoojo@2018
-# @changelog Added python3 `regex->regex` example
+# @changelog Added python3 `regex expression` example
 
 
 import re
