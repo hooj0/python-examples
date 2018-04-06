@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-06 11:01:59
 # @copyright by hoojo@2018
-# @changelog Added python3 `standand lib->doctest lib` example
+# @changelog Added python3 `standand lib -> doctest lib` example
 
 
 import doctest
