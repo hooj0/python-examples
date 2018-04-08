@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-08 23:07:22
 # @copyright by hoojo@2018
-# @changelog Added python3 `socket->socket server` example
+# @changelog Added python3 `socket -> socket server` example
 
 
 import socket
