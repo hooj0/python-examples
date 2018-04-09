@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-09 23:09:36
 # @copyright by hoojo@2018
-# @changelog Added python3 `email->mail stmp` example
+# @changelog Added python3 `email -> mail stmp` example
 
 
 '''
