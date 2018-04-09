@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-09 23:24:52
 # @copyright by hoojo@2018
-# @changelog Added python3 `thread->thread function` example
+# @changelog Added python3 `thread -> thread function` example
 
 
 import _thread
