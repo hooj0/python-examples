@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-10 22:54:41
 # @copyright by hoojo@2018
-# @changelog Added python3 `socket->server` example
+# @changelog Added python3 `socket -> server` example
 
 
 # Echo server program
