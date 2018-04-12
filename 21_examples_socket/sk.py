@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-12 22:42:58
 # @copyright by hoojo@2018
-# @changelog Added python3 `socket->sk` example
+# @changelog Added python3 `socket -> sk` example
 
 
 import socket
