@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-14 23:01:28
 # @copyright by hoojo@2018
-# @changelog Added python3 `db->db insert` example
+# @changelog Added python3 `db -> db insert` example
 
 
 import pymysql
