@@ -23,6 +23,7 @@ import stat
         stat.S_IREAD: 对于拥有者读的权限
         stat.S_IWRITE: 对于拥有者写的权限
         stat.S_IEXEC: 对于拥有者执行的权限
+        
         stat.S_IRWXU:对于拥有者读、写、执行的权限
         stat.S_IRUSR: 对于拥有者读的权限
         stat.S_IWUSR: 对于拥有者写的权限
