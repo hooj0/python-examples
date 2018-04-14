@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-14 17:01:36
 # @copyright by hoojo@2018
-# @changelog Added python3 `email->send mail2` example
+# @changelog Added python3 `email -> send mail2` example
 
 
 import smtplib
