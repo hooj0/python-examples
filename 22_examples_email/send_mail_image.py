@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-14 18:37:55
 # @copyright by hoojo@2018
-# @changelog Added python3 `email->send mail image` example
+# @changelog Added python3 `email -> send mail image` example
 
 
 import smtplib
