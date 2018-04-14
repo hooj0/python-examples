@@ -39,27 +39,27 @@ API：
 
 # 构造一个dict 数据字典
 user_info = { 'name': 'jason', 'age': 27, 'brithday': (1990, 10, 22) }
-print('user information: ', user_info)
+print('user information: ', user_info) # {'name': 'jason', 'age': 27, 'brithday': (1990, 10, 22)}
 
 # 构造dict 方法2，用列表List 嵌套 元组
 tmp = dict([ ('a', 10), ('b', 20), ('c', 30) ])
-print("tmp:", tmp)
+print("tmp:", tmp) # {'a': 10, 'b': 20, 'c': 30}
 
 # 构造dict 方法3，有点像属性和值的对应
 tmp = dict(name = 'tom', age = 22, address = 'china')
-print("tmp:", tmp)
+print("tmp:", tmp) # {'name': 'tom', 'age': 22, 'address': 'china'}
 
 # 构造dict 动态方法
 tmp = { key: key + 1 for key in [ 2, 4, 6 ] }
-print("tmp:", tmp)
+print("tmp:", tmp) # {2: 3, 4: 5, 6: 7}
 
 print('-----------------------')
 
 # 通过get去获取key值
-print('user age information: ', user_info.get('age'))
-print('user age information: ', user_info.get('classes'))
+print('user age information: ', user_info.get('age')) # 27
+print('user age information: ', user_info.get('classes')) # None
 # 也可以通过 obj['xxx'] 这种形式取值，类似JavaScript中的对象取值
-print('user name information: ', user_info['name'])
+print('user name information: ', user_info['name']) # jason
 print('-----------------------')
 
 ############# 处理不存在的key ################
@@ -67,19 +67,19 @@ print('-----------------------')
 #print('不存在的key：', user_info['email'])
 
 # 'key' in obj，可以判断obj中是否存在key
-print('exist email key:', 'email' in user_info)
+print('exist email key:', 'email' in user_info) # exist email key: False
 if 'email' in user_info:
-    print('email', user_info['email'])
+    print('email', user_info['email'])  
 else:
     print('not exist email key') 
 
 # 不存在    
-print('not in name:', 'name' not in user_info)    
+print('not in name:', 'name' not in user_info)    # not in name: False
 
 # 通过get 方法，设置默认值。如果存在就返回值，不存在就返回默认值 = None
-print('不存在的key：', user_info.get('email'))
+print('不存在的key：', user_info.get('email')) # 不存在的key： None
 # 设置不存在的时候，默认值为 empty
-print('不存在的key：', user_info.get('email', 'empty'))
+print('不存在的key：', user_info.get('email', 'empty')) # 不存在的key： empty
 print('-----------------------')
 
 # 设置值

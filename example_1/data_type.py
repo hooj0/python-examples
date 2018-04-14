@@ -33,55 +33,64 @@ print('整数：', 0xa100)
 print('整数：', 0xa1b0c0f)
 print()
 
+'''
+输出：
+        整数： 0
+        整数： 100
+        整数： -100
+        整数： 41216
+        整数： 169544719
+'''
+
 ############## 长整数 是比较大的整数
-print('long:', 0x19323L)
+print('long:', 0x19323) #long: 103203
 
 ############## 浮点型 ##################
-print('浮点型：', 31.415 * 10)
-print('浮点型：', 3.1415 * 10)
-print('浮点型：', -3.1415)
+print('浮点型：', 31.415 * 10) #浮点型： 314.15
+print('浮点型：', 3.1415 * 10) #浮点型： 31.415000000000003
+print('浮点型：', -3.1415) #浮点型： -3.1415
 # E1小数点向后移动 1 位
-print('浮点型：3.1415 x 10^1 =', 3.1415E1)
+print('浮点型：3.1415 x 10^1 =', 3.1415E1) #浮点型：3.1415 x 10^1 = 31.415
 # E2小数点向后移动 2 位
-print('浮点型：3.1415 x 10^2 =', 3.1415E2)
+print('浮点型：3.1415 x 10^2 =', 3.1415E2) #浮点型：3.1415 x 10^2 = 314.15
 # E3小数点向后移动 3 位
-print('浮点型：3.1415 x 10^3 =', 3.1415E3)
-print('浮点型：3.1415 x 10^9 =', 3.1415E9)
-print('浮点型：31.415 x 10^8 =', 31.415E8)
-print('浮点型：0.1E8 =', 0.1E8)
+print('浮点型：3.1415 x 10^3 =', 3.1415E3) #浮点型：3.1415 x 10^9 = 3141500000.0
+print('浮点型：3.1415 x 10^9 =', 3.1415E9) #浮点型：31.415 x 10^8 = 3141500000.0
+print('浮点型：31.415 x 10^8 =', 31.415E8) #浮点型：0.1E8 = 10000000.0
+print('浮点型：0.1E8 =', 0.1E8) #浮点型：0.1E8 = 10000000.0
 
 # 浮点型 4 + 2 位小数
-print('浮点型：0.000123 =', 1.23E-4)
+print('浮点型：0.000123 =', 1.23E-4) #浮点型：0.000123 = 0.000123
 # 浮点型 6位小数
-print('浮点型：0.000123 =', 123E-6)
+print('浮点型：0.000123 =', 123E-6) #浮点型：0.000123 = 0.000123
 # 2 位小数
-print('浮点型：1.23 =', 123E-2)
+print('浮点型：1.23 =', 123E-2) #浮点型：1.23 = 1.23
 print()
 
 ################ 字符串 #################
-print('字符串：', 'abc')
-print('字符串：', "xyz")
-print('字符串：', "xy\"z")
-print('字符串：', "xy\'z")
-print('abcd'[1])
+print('字符串：', 'abc') #字符串： abc
+print('字符串：', "xyz") #字符串： xyz
+print('字符串：', "xy\"z") #字符串： xy"z
+print('字符串：', "xy\'z") #字符串： xy'z
+print('abcd'[1]) #b
 
 print()
 
 ################ 布尔值 ################
-print('真：', True)
-print('假：', False)
+print('真：', True) #真： True
+print('假：', False) #假： False
 # boolean 与 and 或 or 非 not
 # and
-print('True and False：', True and False)
-print('True and True: ', True and True)
+print('True and False：', True and False) #True and False： False
+print('True and True: ', True and True) #True and True:  True
 
 # or
-print('True or True: ', True or True)
-print('True or False: ', True or False)
+print('True or True: ', True or True) #True or True:  True
+print('True or False: ', True or False) #True or False:  True
 
 # not
-print('not True: ', not True)
-print('not False: ', not False)
+print('not True: ', not True) #not True:  False
+print('not False: ', not False) #not False:  True
 
 print()
 

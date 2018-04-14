@@ -24,54 +24,54 @@ oct(x)                    将一个整数转换为一个八进制字符串
 '''
 
 # int类型转换
-print('int(n)', int('123') + 1)
-print('int(n)', int('123', base = 10) + 1)
-print('int(n)', int('10', base = 36) + 1)
+print('int(n)', int('123') + 1) # int(n) 124
+print('int(n)', int('123', base = 10) + 1) # int(n) 124
+print('int(n)', int('10', base = 36) + 1) # int(n) 37
 
 # float类型转换
-print('float(n)', float('123') + 1)
-print('float(n)', float(30) + 1)
+print('float(n)', float('123') + 1) # float(n) 124.0
+print('float(n)', float(30) + 1) # float(n) 31.0
 
 # complex 复数转换
-print('complex:', complex(34.6))
+print('complex:', complex(34.6)) # complex: (34.6+0j)
 
 # 字符串转换
-print('str:', str(12.34))
-print('str:', str(tuple('abcdefg')) + 'oh')
+print('str:', str(12.34)) # str: 12.34
+print('str:', str(tuple('abcdefg')) + 'oh') # str: ('a', 'b', 'c', 'd', 'e', 'f', 'g')oh
 
 # 表达式转换
-print('repr:', repr('0 == 1'))
+print('repr:', repr('0 == 1')) # repr: '0 == 1'
 
 # 元组转换
-print('tuple:', tuple('ab1cd2of3'))
-print('tuple:', tuple([1, 2, 3]))
+print('tuple:', tuple('ab1cd2of3')) # tuple: ('a', 'b', '1', 'c', 'd', '2', 'o', 'f', '3')
+print('tuple:', tuple([1, 2, 3])) # tuple: (1, 2, 3)
 
 # list 列表转换
-print('list:', list('abcd'))
-print('list:', list(tuple('ab1cd2of3')))
+print('list:', list('abcd')) # list: ['a', 'b', 'c', 'd']
+print('list:', list(tuple('ab1cd2of3'))) # list: ['a', 'b', '1', 'c', 'd', '2', 'o', 'f', '3']
 
 # set 集合转换
-print('set:', set('abcabefg'))
-print('set:', set([1, 2, 3]))
+print('set:', set('abcabefg')) # set: {'b', 'g', 'c', 'f', 'a', 'e'}
+print('set:', set([1, 2, 3])) # set: {1, 2, 3}
 
 # dict字典转换
-print('dict:', dict([ tuple('ab'), tuple('cd') ]))
+print('dict:', dict([ tuple('ab'), tuple('cd') ])) # dict: {'a': 'b', 'c': 'd'}
 
 # 整数转字符
-print('chr:', chr(66))
+print('chr:', chr(66)) # chr: B
 
 # 字符转整数
-print('ord:', ord('A'))
+print('ord:', ord('A')) # ord: 65
 
 # 整数转16进制字符串
-print('hex:', hex(66))
-print('hex:', hex(136))
+print('hex:', hex(66)) #hex: 0x42
+print('hex:', hex(136)) #hex: 0x88
 
 # 整数转8进制
-print('oct:', oct(66))
-print('oct:', oct(96))
+print('oct:', oct(66)) # oct: 0o102
+print('oct:', oct(96)) # oct: 0o140
 
 # 类型转换
-print(bool(1))
-print(bool(0))
-print(bool(''))
+print(bool(1)) # True
+print(bool(0)) # False
+print(bool('')) # False
