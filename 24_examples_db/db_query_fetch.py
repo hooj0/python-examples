@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-15 15:10:28
 # @copyright by hoojo@2018
-# @changelog Added python3 `db->db query fetch` example
+# @changelog Added python3 `db -> query fetch` example
 
 
 '''
