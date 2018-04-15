@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-15 14:35:52
 # @copyright by hoojo@2018
-# @changelog Added python3 `db->db update` example
+# @changelog Added python3 `db -> db update` example
 
 
 import pymysql
