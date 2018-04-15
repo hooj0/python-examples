@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-15 15:58:20
 # @copyright by hoojo@2018
-# @changelog Added python3 `db->db call proc params` example
+# @changelog Added python3 `db -> db call proc params` example
 
 
 import pymysql
