@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-15 15:17:26
 # @copyright by hoojo@2018
-# @changelog Added python3 `db->db query cursors` example
+# @changelog Added python3 `db -> query cursors` example
 
 
 '''
