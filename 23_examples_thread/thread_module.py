@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-15 20:45:35
 # @copyright by hoojo@2018
-# @changelog Added python3 `thread->thread module` example
+# @changelog Added python3 `thread -> thread module` example
 
 
 import threading
