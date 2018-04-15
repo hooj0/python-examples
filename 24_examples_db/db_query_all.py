@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-15 14:33:48
 # @copyright by hoojo@2018
-# @changelog Added python3 `db->db query all` example
+# @changelog Added python3 `db -> query all` example
 
 
 '''
