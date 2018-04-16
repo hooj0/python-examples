@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-16 23:05:15
 # @copyright by hoojo@2018
-# @changelog Added python3 `thread->thread sync` example
+# @changelog Added python3 `thread -> thread sync` example
 
 
 import threading
