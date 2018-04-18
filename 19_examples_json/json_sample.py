@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-18 22:59:56
 # @copyright by hoojo@2018
-# @changelog Added python3 `json->json sample` example
+# @changelog Added python3 `json lib` example
 
 
 import json
