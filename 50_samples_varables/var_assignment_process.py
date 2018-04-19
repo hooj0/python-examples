@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-19 22:20:05
 # @copyright by hoojo@2018
-# @changelog Added python3 `varables->var assignment process` example
+# @changelog Added python3 `varables -> var assignment process` example
 
 
 from _collections_abc import ItemsView
