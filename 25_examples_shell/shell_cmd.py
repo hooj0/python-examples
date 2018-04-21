@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-04-21 09:52:29
 # @copyright by hoojo@2018
-# @changelog Added python3 `shell->shell cmd` example
+# @changelog Added python3 `shell -> shell cmd` example
 
 
 import subprocess
