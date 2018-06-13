@@ -48,5 +48,5 @@ encoding//23_examples_thread/thread_queue.py=utf-8
 encoding//23_examples_thread/thread_schedul.py=utf-8
 encoding//23_examples_thread/thread_sync.py=utf-8
 encoding//25_examples_shell/shell_cmd.py=utf-8
-encoding//50_samples_varables/iter_var_setter.py=utf-8
-encoding//50_samples_varables/mulit_var_setter.py=utf-8
+encoding//50_samples_varables/var_assignment_process.py=utf-8
+encoding//50_samples_varables/var_multi_assignment.py=utf-8
