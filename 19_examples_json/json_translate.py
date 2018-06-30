@@ -5,7 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-06-30 19:48:03
 # @copyright by hoojo@2018
-# @changelog Added python3 `json->json translate` example
+# @changelog Added python3 `json translate` example
 
 
 import json
