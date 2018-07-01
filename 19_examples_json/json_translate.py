@@ -60,6 +60,6 @@ for item in data:
     item["code"] = item["code"].ljust(30)
     item["description"] = record["description"]
 
-print(size)    
+#print(size)    
 #print(data)    
 print(json.dumps(data))    
