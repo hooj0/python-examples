@@ -1,7 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
-# Created on 2018-03-20
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2018-03-20 21:18:56
+# @copyright by hoojo@2018
+# @changelog Added python3 `exception->raise exception` example
+
 
 # 抛出异常
 #raise NameError('无效名称')
