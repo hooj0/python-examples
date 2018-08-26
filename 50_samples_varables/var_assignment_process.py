@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 # @author: hoojo
-# @email:    hoojo_@126.com
-# @github:   https://github.com/hooj0
-# @create date: 2018-06-28
-# @copyright by hoojo @ 2018
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2018-04-19 22:20:05
+# @copyright by hoojo@2018
+# @changelog Added python3 `varables->var assignment process` example
+
 
 from _collections_abc import ItemsView
 
