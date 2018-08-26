@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# encoding: utf-8
+# @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2018-01-14 22:53:25
+# @copyright by hoojo@2018
+# @changelog Added python3 `os dir->os sys` example
+
+
 ###进程管理
 ###os模块提供了许多进程管理相关的操作，如果熟悉Unix下的系统编程的话，那么看到这些函数会觉得很熟悉，因为这些函数都是对相应的C API的Python实现，让我们看看都有些什么函数：
 
