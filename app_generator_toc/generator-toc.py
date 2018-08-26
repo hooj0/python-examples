@@ -1,0 +1,144 @@
+#!/usr/bin/env python3
+# encoding: utf-8
+# @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2018-08-26
+# @copyright by hoojo @2018
+# @changelog Generator Project makedown —— TOC 
+import os
+
+
+#===============================================================================
+#     Generator Project makedown —— TOC  table of Contents
+#===============================================================================
+# 描述：生成项目工程的 makedown 格式的 目录索引 TOC 的文档
+#-------------------------------------------------------------------------------
+
+
+#-------------------------------------------------------------------------------
+# 生成 目录索引 TOC 的文档 工具类
+#-------------------------------------------------------------------------------
+class GeneratorTOCUtils:
+    
+    __rootDirectory = ".";
+    __makedownFile = ""
+    
+    __tableOfContents = []
+    
+    def __init__(self, rootDirectory, makedownFile):
+        self.__rootDirectory = rootDirectory
+        self.__makedownFile = makedownFile
+        
+        print("目标工程位置：%s，生成文件保存位置：%s" % (rootDirectory, makedownFile))
+    
+    
+    # 保存文件
+    def save(self):
+    
+        with open(self.__makedownFile, "w", encoding=u'utf-8') as file:  
+            file.seek(0)
+            file.truncate()   #清空文件
+        
+            file.writelines(self.__tableOfContents)
+            file.close()
+            
+            
+    #-------------------------------------------------------------------------------
+    # generator makedown toc file
+    #-------------------------------------------------------------------------------    
+    def genMakedownTOC(self, suffix):
+        self.scan(self.__rootDirectory, suffix)
+        
+        self.save()
+    
+    
+    #-------------------------------------------------------------------------------
+    # generator makedown readME file
+    #-------------------------------------------------------------------------------    
+    def genMakedownReadMe(self):
+        pass
+    
+    
+    
+    def makeFolderChapter(self, path):
+        path = path.replace(self.__rootDirectory, "").replace("\\", "/")
+        
+        return "+ [%s](%s)\n" % (path, "./" + path)
+    
+    def makeFileChapter(self, path, name):
+        path = path.replace(self.__rootDirectory, "").replace("\\", "/")
+        
+        return "\t- [%s](%s)\n" % (name, "./" + path + "/" + name)
+        
+        
+    def fetchContent(self):
+        pass
+        
+        
+    #-------------------------------------------------------------------------------
+    # each target folder, add comment to python file
+    #-------------------------------------------------------------------------------
+    def scan(self, dir, suffix):
+        
+        for parent, dirs, files in os.walk(dir, topdown=False):
+            
+            if parent.find(".git") != -1:
+                continue
+            if parent.find(".settings") != -1:
+                continue
+            if parent.find("pycache") != -1:
+                continue
+            
+            print('parent: %s' % parent)
+            
+            chapter = self.makeFolderChapter(parent)
+            self.__tableOfContents.append(chapter)
+
+            for name in files:
+                file = os.path.join(parent, name)
+                
+                if file.endswith(suffix) == False:
+                    continue
+                
+                print('files: %s' % name)
+                
+                chapter = self.makeFileChapter(parent, name)
+                self.__tableOfContents.append(chapter)
+                
+    
+    #-------------------------------------------------------------------------------
+    # each target folder, add comment to python file
+    #-------------------------------------------------------------------------------        
+    def scanFile(self, dir, suffix):
+        
+        for root, dirs, files in os.walk(dir, topdown=False):
+            
+            for name in files:
+                file = os.path.join(root, name)
+                
+                if file.endswith(suffix) == False:
+                    continue
+                if file.find(".git") != -1:
+                    continue
+                
+                print('files: %s' % file)
+                
+                self.__tableOfContents.append(file + "\n")
+                
+    
+    def scanFolder(self, dirs):
+        
+        for name in dirs:
+            folder = os.path.join(root, name)
+            
+            if folder.find(".git") != -1:
+                continue
+            if folder.find(".settings") != -1:
+                continue
+            
+            print('dirs: %s' % folder)
+            #self.scanFile(folder, suffix)
+    
+util = GeneratorTOCUtils("F:\\Example Exercise\\Python\\", "toc.md")    
+util.genMakedownTOC(".py") 
