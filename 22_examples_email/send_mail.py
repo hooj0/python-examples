@@ -1,6 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2018-04-14 14:55:33
+# @copyright by hoojo@2018
+# @changelog Added python3 `email->send mail` example
+
+
 from email.mime.text import MIMEText
 from email.header import Header
 import smtplib
