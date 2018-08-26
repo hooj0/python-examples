@@ -140,5 +140,5 @@ class GeneratorTOCUtils:
             print('dirs: %s' % folder)
             #self.scanFile(folder, suffix)
     
-util = GeneratorTOCUtils("F:\\Example Exercise\\Python\\", "toc.md")    
+util = GeneratorTOCUtils("F:\\Example Exercise\\Python\\", "F:\\Example Exercise\\Python\\toc.md")    
 util.genMakedownTOC(".py") 
