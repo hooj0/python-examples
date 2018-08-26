@@ -1,6 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Date    : 2017-10-28 18:31:02
+#!/usr/bin/env python3
+# encoding: utf-8
+# @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-10-28 18:34:02
+# @copyright by hoojo@2018
+# @changelog Added python3 `if else->if elif else` example
+
 
 #################################################
 #                   条件语句                                                      #
