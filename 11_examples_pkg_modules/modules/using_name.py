@@ -1,4 +1,13 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+# encoding: utf-8
+# @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-11-18 12:20:22
+# @copyright by hoojo@2018
+# @changelog Added python3 `pkg modules->modules->using name` example
+
+
 # Filename: using_name.py
 
 # 一个模块被另一个程序第一次引入时，其主程序将运行。
