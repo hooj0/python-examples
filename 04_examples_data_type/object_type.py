@@ -1,7 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
-# Created on 2017-10-29
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-10-29 14:35:43
+# @copyright by hoojo@2018
+# @changelog Added python3 `data type->object type` example
+
 
 '''
 以下类型是指对象类型，也就是数据在内存中的类型；
