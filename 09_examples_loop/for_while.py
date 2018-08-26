@@ -1,6 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Date    : 2017-10-28 21:28:16
+#!/usr/bin/env python3
+# encoding: utf-8
+# @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-10-28 21:28:42
+# @copyright by hoojo@2018
+# @changelog Added python3 `loop->for while` example
+
 
 '''
 遍历循环
