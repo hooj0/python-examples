@@ -1,7 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
-# Created on 2017-10-29
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-10-29 12:15:26
+# @copyright by hoojo@2018
+# @changelog Added python3 `data struct->dict` example
+
 
 '''
 dict 数据字典，全名：dictionary。
