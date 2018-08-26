@@ -1,6 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2018-03-24 09:43:50
+# @copyright by hoojo@2018
+# @changelog Added python3 `os dir->os chroot` example
+
 
 import os
 
