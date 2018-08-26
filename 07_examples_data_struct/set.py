@@ -1,7 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
-# Created on 2017-10-29
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-10-29 12:54:18
+# @copyright by hoojo@2018
+# @changelog Added python3 `data struct->set` example
+
 
 '''
 set 和dict类似，key集合。set 不能存放value，但key是不可重复的数据
