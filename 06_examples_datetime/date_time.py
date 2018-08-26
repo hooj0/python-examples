@@ -1,7 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
-# Created on 2017-11-06
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-11-06 22:33:42
+# @copyright by hoojo@2018
+# @changelog Added python3 `datetime->date time` example
+
+
 import datetime
 
 '''
@@ -130,7 +136,6 @@ localtime():  time.struct_time(tm_year=2016, tm_mon=2, tm_mday=15, tm_hour=11, t
         
 以下实例展示了 sleep()函数的使用方法：
 
-#!/usr/bin/python3
 import time
 
 print("Start : %s" % time.ctime())
