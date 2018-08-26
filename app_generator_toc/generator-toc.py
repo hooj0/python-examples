@@ -75,7 +75,7 @@ class GeneratorTOCUtils:
     def makeCommentChapter(self, path, name, line, comment):
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
         
-        return "\t\t+ [%s#%d](%s#%d)\n" % (comment, line, "./" + path + "/" + name, line)
+        return "\t\t+ [%s#L%d](%s#L%d)\n" % (comment, line, "./" + path + "/" + name, line)
         
         
     def fetchContent(self, file):
