@@ -161,5 +161,5 @@ print('dict.items:', tmp.items())
 for e in tmp:
     print(e)
 for e in tmp.items():
-    print(e)    
+    print(e[0], e[1])    
     
