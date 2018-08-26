@@ -70,11 +70,32 @@ class GeneratorTOCUtils:
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
         
         return "\t- [%s](%s)\n" % (name, "./" + path + "/" + name)
+    
+    
+    def makeCommentChapter(self, path, name, line, comment):
+        path = path.replace(self.__rootDirectory, "").replace("\\", "/")
+        
+        return "\t\t+ [%s#%d](%s#%d)\n" % (comment, line, "./" + path + "/" + name, line)
         
         
-    def fetchContent(self):
-        pass
+    def fetchContent(self, file):
         
+        comments, lineNumber = {}, 0 
+        with open(file, "r", encoding=u'utf-8') as file:  
+            
+            line = file.readline()
+            lineNumber += 1
+            
+            while len(line) > 0: 
+                if line.startswith("#") and not line.startswith("#-")  and not line.startswith("#=") and lineNumber >= 9:
+                    
+                    if lineNumber not in comments:
+                        comments[lineNumber] = line.replace("#", "").replace("\n", "").strip()
+                
+                line = file.readline()
+                lineNumber += 1    
+                
+        return comments        
         
     #-------------------------------------------------------------------------------
     # each target folder, add comment to python file
@@ -105,6 +126,12 @@ class GeneratorTOCUtils:
                 
                 chapter = self.makeFileChapter(parent, name)
                 self.__tableOfContents.append(chapter)
+
+                comments = self.fetchContent(file)
+                for line, comment in comments.items():
+                    content = self.makeCommentChapter(parent, name, line, comment)
+                    print(content)
+                    self.__tableOfContents.append(content)
                 
     
     #-------------------------------------------------------------------------------
