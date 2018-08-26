@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2018-04-15 14:33:48
+# @copyright by hoojo@2018
+# @changelog Added python3 `db->db query all` example
+
 
 '''
 Python查询Mysql使用 fetchone() 方法获取单条数据, 使用fetchall() 方法获取多条数据。
