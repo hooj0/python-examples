@@ -1,5 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+# encoding: utf-8
+# @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-10-23 20:15:44
+# @copyright by hoojo@2018
+# @changelog Added python3 `data type->data type` example
+
 
 # data_type.py
 
