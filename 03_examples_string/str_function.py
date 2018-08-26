@@ -1,5 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+# encoding: utf-8
+# @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-10-21 22:08:41
+# @copyright by hoojo@2018
+# @changelog Added python3 `string->str function` example
+
 
 # str_function.py
 
