@@ -1,6 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Date    : 2017-10-27 17:32:25
+#!/usr/bin/env python3
+# encoding: utf-8
+# @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-10-27 17:37:30
+# @copyright by hoojo@2018
+# @changelog Added python3 `data struct->tuple` example
+
 
 '''
 tuple 元组  不可变列表
