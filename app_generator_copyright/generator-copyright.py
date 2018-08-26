@@ -5,6 +5,7 @@
 # @github: https://github.com/hooj0
 # @create date: 2018-08-26
 # @copyright by hoojo@2018
+# @changelog Added Generator Copyright Information to file python
 
 
 #===============================================================================
