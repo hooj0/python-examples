@@ -1,7 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
-# Created on 2017-11-18
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-11-18 20:41:23
+# @copyright by hoojo@2018
+# @changelog Added python3 `string->str fmt func` example
+
+
 import sys
 
 '''
