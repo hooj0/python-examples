@@ -1,7 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
-# Created on 2017-11-14
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-11-14 22:12:54
+# @copyright by hoojo@2018
+# @changelog Added python3 `pkg modules->modules->module` example
+
 
 # import sys引入python标准库中的sys.py模块；这是引入某一模块的方法
 import sys
