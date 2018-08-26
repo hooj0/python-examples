@@ -1,7 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
-# Created on 2018-03-18
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2018-03-18 16:38:08
+# @copyright by hoojo@2018
+# @changelog Added python3 `exception->exception` example
+
 
 try:
     x = int(input('请输入一个数字：'))
