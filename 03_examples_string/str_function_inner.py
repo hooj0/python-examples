@@ -1,6 +1,13 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Date    : 2017-11-04 17:32:25
+#!/usr/bin/env python3
+# encoding: utf-8
+# @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2017-11-05 16:54:34
+# @copyright by hoojo@2018
+# @changelog Added python3 `string->str function inner` example
+
+
 import string
 
 '''
@@ -146,8 +153,8 @@ print('isupper:', 'aA23'.isupper())  # False
 print('isupper:', 'abc'.isupper())  # False
 print('isupper:', 'ABC'.isupper())  # True
 
-#string.join(seq)                                      
 #Merges (concatenates)以 string 作为分隔符，将 seq 中所有的元素(的字符串表示)合并为一个新的字符串
+#string.join(seq)                                      
 print('join:', ','.join(set('abcdef13'))) # c,e,f,1,a,b,d,3
 print('join:', ';'.join(set('abcdef13')))   # c;e;b;f;d;a;1;3
 
