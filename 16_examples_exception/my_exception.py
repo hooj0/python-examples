@@ -1,7 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
-# Created on 2018-03-20
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2018-03-20 22:03:33
+# @copyright by hoojo@2018
+# @changelog Added python3 `exception->my exception` example
+
 
 class Error(Exception):
     '''base excption module'''
