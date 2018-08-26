@@ -1,6 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2018-04-10 22:57:34
+# @copyright by hoojo@2018
+# @changelog Added python3 `socket->client` example
+
 
 # Echo client program
 import socket
