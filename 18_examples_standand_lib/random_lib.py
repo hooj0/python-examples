@@ -1,6 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
 # @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+# @create date: 2018-04-05 17:07:34
+# @copyright by hoojo@2018
+# @changelog Added python3 `standand lib->random lib` example
+
+
 import random
 
 print(help(random))
