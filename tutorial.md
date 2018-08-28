@@ -16,7 +16,7 @@ print('hello world')
 
 print('hello world');
  ```
-# 01_examples_variable 
+# 01_examples_variable 
 [**01_examples_variable**](./01_examples_variable)
 ## variables 
 [`variables`](./01_examples_variable/variables)
@@ -63,7 +63,7 @@ _super = 2
 print('var _super =', _super)
 
  ```
-# 02_examples_in_out 
+# 02_examples_in_out 
 [**02_examples_in_out**](./02_examples_in_out)
 ## io_input 
 [`io_input`](./02_examples_in_out/io_input)
@@ -90,7 +90,7 @@ print("name:", name)
 age = input("plase enter your age:")
 print("your age:", age)
  ```
-## io_print 
+## io_print 
 [`io_print`](./02_examples_in_out/io_print)
 ```python
 
@@ -134,7 +134,7 @@ print('a3', 'b3', 'c3', sep = ', ', end = '! \n', file = open(r'c:\a.txt', 'a+')
 
 input("按任意键退出")
  ```
-# 03_examples_string 
+# 03_examples_string 
 [**03_examples_string**](./03_examples_string)
 ## str_escape 
 [`str_escape`](./03_examples_string/str_escape)
@@ -181,7 +181,7 @@ print("转义字符\"")
 
 print("转义字符\\n")
  ```
-## str_fmt_func 
+## str_fmt_func 
 [`str_fmt_func`](./03_examples_string/str_fmt_func)
 ```python
 
@@ -226,7 +226,7 @@ print('result:', result)
 result = 'x = ' + str(x) + ', y = ' + str(y)
 print('result:', result)
  ```
-## str_format 
+## str_format 
 [`str_format`](./03_examples_string/str_format)
 ```python
 
@@ -271,7 +271,7 @@ import time
 # % 字符串替换传参， 格式化
 print('hello，%s' % 'world')
  ```
-## str_function 
+## str_function 
 [`str_function`](./03_examples_string/str_function)
 ```python
 
@@ -316,7 +316,7 @@ print(ord('A')) # 65
 print(u"中国".encode("utf-8")) # b'\xe4\xb8\xad\xe5\x9b\xbd'
 print(u"ABC".encode("UTF-8")) # b'ABC'
  ```
-## str_function_inner 
+## str_function_inner 
 [`str_function_inner`](./03_examples_string/str_function_inner)
 ```python
 
@@ -361,7 +361,7 @@ string.rstrip()                                       删除 string 字符串末
 string.split(str="", num=string.count(str))           以 str 为分隔符切片 string，如果 num有指定值，则仅分隔 num 个子字符串
 string.splitlines(num=string.count('\n'))             按照行分隔，返回一个包含各行作为元素的列表，如果 num 指定则仅切片 num 个行.
  ```
-# 04_examples_data_type 
+# 04_examples_data_type 
 [**04_examples_data_type**](./04_examples_data_type)
 ## cast_type 
 [`cast_type`](./04_examples_data_type/cast_type)
@@ -408,7 +408,7 @@ print('repr:', repr('0 == 1')) # repr: '0 == 1'
 
 # 元组转换
  ```
-## data_type 
+## data_type 
 [`data_type`](./04_examples_data_type/data_type)
 ```python
 
@@ -453,7 +453,7 @@ print()
         整数： 169544719
 '''
  ```
-## object_type 
+## object_type 
 [`object_type`](./04_examples_data_type/object_type)
 ```python
 
@@ -498,7 +498,7 @@ tuple = ('a', 'b', 'c')
 print(type(tuple))
 
  ```
-# 05_examples_math 
+# 05_examples_math 
 [**05_examples_math**](./05_examples_math)
 ## math_function 
 [`math_function`](./05_examples_math/math_function)
@@ -545,7 +545,7 @@ atan2(y, x)                               返回给定的 X 及 Y 坐标值的�
 cos(x)                                    返回x的弧度的余弦值。
 hypot(x, y)                               返回欧几里德范数 sqrt(x*x + y*y)。
  ```
-## math_operator 
+## math_operator 
 [`math_operator`](./05_examples_math/math_operator)
 ```python
 
@@ -590,7 +590,7 @@ Python运算符优先级
 + -                               加法减法
 >> <<                             右移，左移运算符
  ```
-# 06_examples_datetime 
+# 06_examples_datetime 
 [**06_examples_datetime**](./06_examples_datetime)
 ## date_calendar 
 [`date_calendar`](./06_examples_datetime/date_calendar)
@@ -637,7 +637,7 @@ print("2017-11:")
 print(cal)
 
  ```
-## date_time 
+## date_time 
 [`date_time`](./06_examples_datetime/date_time)
 ```python
 
@@ -682,7 +682,7 @@ API：
     %H             24小时制小时数（0-23）
     %I             12小时制小时数（01-12）
  ```
-# 07_examples_data_struct 
+# 07_examples_data_struct 
 [**07_examples_data_struct**](./07_examples_data_struct)
 ## data_struct 
 [`data_struct`](./07_examples_data_struct/data_struct)
@@ -729,7 +729,7 @@ print('queue:', queue)
 
 # 添加到最前面
  ```
-## dict 
+## dict 
 [`dict`](./07_examples_data_struct/dict)
 ```python
 
@@ -774,7 +774,7 @@ print('user information: ', user_info) # {'name': 'jason', 'age': 27, 'brithday'
 # 构造dict 方法2，用列表List 嵌套 元组
 tmp = dict([ ('a', 10), ('b', 20), ('c', 30) ])
  ```
-## iter 
+## iter 
 [`iter`](./07_examples_data_struct/iter)
 ```python
 
@@ -818,7 +818,7 @@ while True:
     except Exception:
         print('exit')
         sys.exit()     ```
-## list 
+## list 
 [`list`](./07_examples_data_struct/list)
 ```python
 
@@ -863,7 +863,7 @@ API：
     26、list.reverse()    倒序，按照默认插入先后顺序倒序
 '''
  ```
-## range 
+## range 
 [`range`](./07_examples_data_struct/range)
 ```python
 
@@ -903,7 +903,7 @@ for x in ranges:
 print()
 
  ```
-## set 
+## set 
 [`set`](./07_examples_data_struct/set)
 ```python
 
@@ -948,7 +948,7 @@ numbers.remove(6)
 print('numbers set:', numbers)
 
  ```
-## tuple 
+## tuple 
 [`tuple`](./07_examples_data_struct/tuple)
 ```python
 
@@ -993,7 +993,7 @@ print('classes2: ', classes2)
 # 取值方法，用索引下标的方式
 print('first element:', classes[1]);
  ```
-# 08_examples_if_else 
+# 08_examples_if_else 
 [**08_examples_if_else**](./08_examples_if_else)
 ## if_elif_else 
 [`if_elif_else`](./08_examples_if_else/if_elif_else)
@@ -1040,7 +1040,7 @@ or				x or y			布尔"或" - 如果 x 是 True，它返回 x的值，否则它�
 not				not x			布尔"非" - 如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。	not(a and b) 返回 False	
 ---------------------------------------------
  ```
-# 09_examples_loop 
+# 09_examples_loop 
 [**09_examples_loop**](./09_examples_loop)
 ## for_while 
 [`for_while`](./09_examples_loop/for_while)
@@ -1087,7 +1087,7 @@ for w in 'abcdef':
 else:
     print('循环结束时执行')    
  ```
-# 10_examples_func 
+# 10_examples_func 
 [**10_examples_func**](./10_examples_func)
 ## function 
 [`function`](./10_examples_func/function)
@@ -1134,7 +1134,7 @@ print('exec say:', say('hi~'))
     
 # 函数变量作用域
  ```
-# 11_examples_pkg_modules/modules 
+# 11_examples_pkg_modules/modules 
 [**11_examples_pkg_modules/modules**](./11_examples_pkg_modules/modules)
 ## module 
 [`module`](./11_examples_pkg_modules/modules/module)
@@ -1181,7 +1181,7 @@ print('module_name:', module_name)
 
 # 输出当前模块主程序函数名称
  ```
-## module_center 
+## module_center 
 [`module_center`](./11_examples_pkg_modules/modules/module_center)
 ```python
 
@@ -1199,7 +1199,7 @@ def kw():
     
 def min_value(*args):
     print('min:', min(args))     ```
-## using_name 
+## using_name 
 [`using_name`](./11_examples_pkg_modules/modules/using_name)
 ```python
 
@@ -1214,35 +1214,35 @@ else:
     print('我来自另一模块')
 
  ```
-# 11_examples_pkg_modules/packages/core/files 
+# 11_examples_pkg_modules/packages/core/files 
 [**11_examples_pkg_modules/packages/core/files**](./11_examples_pkg_modules/packages/core/files)
 ## a 
 [`a`](./11_examples_pkg_modules/packages/core/files/a)
 ```python
 
 print('import files.a') ```
-## b 
+## b 
 [`b`](./11_examples_pkg_modules/packages/core/files/b)
 ```python
 
 print('import files.b') ```
-## c 
+## c 
 [`c`](./11_examples_pkg_modules/packages/core/files/c)
 ```python
 
 print('import files.c') ```
-## d 
+## d 
 [`d`](./11_examples_pkg_modules/packages/core/files/d)
 ```python
 
 print('import files.d') ```
-## file 
+## file 
 [`file`](./11_examples_pkg_modules/packages/core/files/file)
 ```python
 
 def say_files():
     print('files module') ```
-## __init__ 
+## __init__ 
 [`__init__`](./11_examples_pkg_modules/packages/core/files/__init__)
 ```python
 
@@ -1251,7 +1251,7 @@ print('import core.files')
 __all__ = [ "a", "b", "c" ]
 
  ```
-# 11_examples_pkg_modules/packages/core/filters 
+# 11_examples_pkg_modules/packages/core/filters 
 [**11_examples_pkg_modules/packages/core/filters**](./11_examples_pkg_modules/packages/core/filters)
 ## filter 
 [`filter`](./11_examples_pkg_modules/packages/core/filters/filter)
@@ -1259,12 +1259,12 @@ __all__ = [ "a", "b", "c" ]
 
 def say_filters():
     print('filters module') ```
-## __init__ 
+## __init__ 
 [`__init__`](./11_examples_pkg_modules/packages/core/filters/__init__)
 ```python
 
 print('import core.filters') ```
-# 11_examples_pkg_modules/packages/core/parser 
+# 11_examples_pkg_modules/packages/core/parser 
 [**11_examples_pkg_modules/packages/core/parser**](./11_examples_pkg_modules/packages/core/parser)
 ## parser 
 [`parser`](./11_examples_pkg_modules/packages/core/parser/parser)
@@ -1274,19 +1274,19 @@ parser_name = 'my parser'
 
 def say_parser():
     print('files parser') ```
-## __init__ 
+## __init__ 
 [`__init__`](./11_examples_pkg_modules/packages/core/parser/__init__)
 ```python
 
 print('import core.parser') ```
-# 11_examples_pkg_modules/packages/core 
+# 11_examples_pkg_modules/packages/core 
 [**11_examples_pkg_modules/packages/core**](./11_examples_pkg_modules/packages/core)
 ## __init__ 
 [`__init__`](./11_examples_pkg_modules/packages/core/__init__)
 ```python
 
 print('import core') ```
-# 11_examples_pkg_modules/packages 
+# 11_examples_pkg_modules/packages 
 [**11_examples_pkg_modules/packages**](./11_examples_pkg_modules/packages)
 ## run 
 [`run`](./11_examples_pkg_modules/packages/run)
@@ -1333,14 +1333,14 @@ import core.files.file as f
 f.say_files()
 
  ```
-# 11_examples_pkg_modules 
+# 11_examples_pkg_modules 
 [**11_examples_pkg_modules**](./11_examples_pkg_modules)
 ## run 
 [`run`](./11_examples_pkg_modules/run)
 ```python
 
 print('files module') ```
-# 12_examples_serialization 
+# 12_examples_serialization 
 [**12_examples_serialization**](./12_examples_serialization)
 ## io_serialization 
 [`io_serialization`](./12_examples_serialization/io_serialization)
@@ -1387,7 +1387,7 @@ pprint.pprint(data2)
 
 output.close()
  ```
-# 13_examples_io 
+# 13_examples_io 
 [**13_examples_io**](./13_examples_io)
 ## io_file 
 [`io_file`](./13_examples_io/io_file)
@@ -1434,7 +1434,7 @@ output.close()
     f.tell()
            返回文件对象当前所处的位置, 它是从文件开头开始算起的字节数
  ```
-## io_file_next 
+## io_file_next 
 [`io_file_next`](./13_examples_io/io_file_next)
 ```python
 
@@ -1475,7 +1475,7 @@ else:
 
   
  ```
-## io_file_read 
+## io_file_read 
 [`io_file_read`](./13_examples_io/io_file_read)
 ```python
 
@@ -1520,7 +1520,7 @@ try:
     file.seek(0)
     print('当前位置：%d' % file.tell())
  ```
-## io_file_truncate 
+## io_file_truncate 
 [`io_file_truncate`](./13_examples_io/io_file_truncate)
 ```python
 
@@ -1565,7 +1565,7 @@ file.write('ABC def ghi jkl mno')
     
 # read 读取内容      
  ```
-## io_file_write 
+## io_file_write 
 [`io_file_write`](./13_examples_io/io_file_write)
 ```python
 
@@ -1610,7 +1610,7 @@ try:
 except NameError as e:
     print('error:', e)    
  ```
-## io_inner_fun 
+## io_inner_fun 
 [`io_inner_fun`](./13_examples_io/io_inner_fun)
 ```python
 
@@ -1655,7 +1655,7 @@ except NameError as e:
     
     13、file.writelines(sequence)
  ```
-## io_rw 
+## io_rw 
 [`io_rw`](./13_examples_io/io_rw)
 ```python
 
@@ -1668,7 +1668,7 @@ with open("test.txt", "rt") as in_file:
     text = in_file.read()
  
 print(text) ```
-# 14_examples_os_dir 
+# 14_examples_os_dir 
 [**14_examples_os_dir**](./14_examples_os_dir)
 ## os_access 
 [`os_access`](./14_examples_os_dir/os_access)
@@ -1705,7 +1705,7 @@ print('是否可执行：%s' % os.access('/tmp/open.sh', os.X_OK)) # True # *.sh
 
 
 print('是否可执行可写可读：%s' % os.access('/tmp/open.sh', os.X_OK|os.W_OK|os.R_OK)) # True # *.sh 文件可以执行 ```
-## os_chdir 
+## os_chdir 
 [`os_chdir`](./14_examples_os_dir/os_chdir)
 ```python
 
@@ -1733,7 +1733,7 @@ print('当前目录位置：%s' % os.getcwd())
 os.chdir('/var/tmp')
 
 print('当前目录位置：%s' % os.getcwd()) ```
-## os_chmod 
+## os_chmod 
 [`os_chmod`](./14_examples_os_dir/os_chmod)
 ```python
 
@@ -1778,7 +1778,7 @@ mode -- 可用以下选项按位或操作生成， 目录的读权限表示可�
 '''
 
  ```
-## os_chown 
+## os_chown 
 [`os_chown`](./14_examples_os_dir/os_chown)
 ```python
 
@@ -1801,7 +1801,7 @@ import os
 #linux 查看用户组
 #tail /etc/group 
 os.chown("/tmp/open.txt", 1000, -1) ```
-## os_chroot 
+## os_chroot 
 [`os_chroot`](./14_examples_os_dir/os_chroot)
 ```python
 
@@ -1825,7 +1825,7 @@ print('当前目录：%s' % os.getcwd())
 os.chroot("/tmp")
 print("修改根目录成功!!")
 print('当前目录：%s' % os.getcwd()) ```
-## os_dir 
+## os_dir 
 [`os_dir`](./14_examples_os_dir/os_dir)
 ```python
 
@@ -1870,7 +1870,7 @@ import stat
                     通过文件描述符改变当前工作目录
     
  ```
-## os_fchdir 
+## os_fchdir 
 [`os_fchdir`](./14_examples_os_dir/os_fchdir)
 ```python
 
@@ -1909,7 +1909,7 @@ os.close(fd)
 
 
  ```
-## os_fchmod 
+## os_fchmod 
 [`os_fchmod`](./14_examples_os_dir/os_fchmod)
 ```python
 
@@ -1954,7 +1954,7 @@ import stat
         该方法没有返回值。
 '''
  ```
-## os_fchown 
+## os_fchown 
 [`os_fchown`](./14_examples_os_dir/os_fchown)
 ```python
 
@@ -1992,7 +1992,7 @@ os.fchown(fd, 1000, 1000)
 os.close(fd)
 
 print('所有权修改完成') ```
-## os_fpathconf 
+## os_fpathconf 
 [`os_fpathconf`](./14_examples_os_dir/os_fpathconf)
 ```python
 
@@ -2027,7 +2027,7 @@ print('文件最大连接数：%d' % os.fpathconf(fd, 'PC_LINK_MAX'))
 print('文件名最大长度：%d' % os.fpathconf(fd, 'PC_NAME_MAX'))
 
 os.close(fd) ```
-## os_fstat 
+## os_fstat 
 [`os_fstat`](./14_examples_os_dir/os_fstat)
 ```python
 
@@ -2072,7 +2072,7 @@ print('fd info: %s' % info)
 
 # 文件gid
  ```
-## os_fstatvfs 
+## os_fstatvfs 
 [`os_fstatvfs`](./14_examples_os_dir/os_fstatvfs)
 ```python
 
@@ -2117,7 +2117,7 @@ info = os.fstatvfs(fd)
 print('文件信息：%s' % info)
 
  ```
-## os_getcwd 
+## os_getcwd 
 [`os_getcwd`](./14_examples_os_dir/os_getcwd)
 ```python
 
@@ -2152,7 +2152,7 @@ os.fchdir(fd)
 print('当前工作目录: %s' % os.getcwd())
 
 os.close(fd) ```
-## os_getcwdu 
+## os_getcwdu 
 [`os_getcwdu`](./14_examples_os_dir/os_getcwdu)
 ```python
 
@@ -2188,7 +2188,7 @@ os.fchdir(fd)
 print(u'当前工作目录：', os.getcwdu())
 
 os.close(fd) ```
-## os_lchown 
+## os_lchown 
 [`os_lchown`](./14_examples_os_dir/os_lchown)
 ```python
 
@@ -2223,7 +2223,7 @@ os.lchown('/tmp/foo.txt', 1000, 1000)
 print('状态：%s' % os.fstat(fd))
 
 os.close(fd) ```
-## os_link 
+## os_link 
 [`os_link`](./14_examples_os_dir/os_link)
 ```python
 
@@ -2251,7 +2251,7 @@ import os
 #os.link('/tmp/mydir', '/tmp/dir/tmp_my_dir')
 
 os.link('/tmp/foo.txt', '/tmp/dir/foo.txt') ```
-## os_listdir 
+## os_listdir 
 [`os_listdir`](./14_examples_os_dir/os_listdir)
 ```python
 
@@ -2284,7 +2284,7 @@ dirs = os.listdir('/tmp/')
 
 for dir in dirs:
     print('dir: %s' % dir) ```
-## os_lstat 
+## os_lstat 
 [`os_lstat`](./14_examples_os_dir/os_lstat)
 ```python
 
@@ -2308,7 +2308,7 @@ import os
 print('stat：%s' % os.lstat('/tmp/foo.txt'))
 
 print('stat：%s' % os.lstat('/tmp/')) ```
-## os_makedirs 
+## os_makedirs 
 [`os_makedirs`](./14_examples_os_dir/os_makedirs)
 ```python
 
@@ -2335,7 +2335,7 @@ import os
 os.makedirs('/tmp/da/db', 0x755)
 
 print('创建文件夹') ```
-## os_mkdir 
+## os_mkdir 
 [`os_mkdir`](./14_examples_os_dir/os_mkdir)
 ```python
 
@@ -2364,7 +2364,7 @@ os.mkdir('/tmp/m', 0x777)
 os.makedirs('/tmp/mm/nn', 0x755)
 
 print('创建文件夹完成') ```
-## os_readlink 
+## os_readlink 
 [`os_readlink`](./14_examples_os_dir/os_readlink)
 ```python
 
@@ -2393,7 +2393,7 @@ os.symlink('/var/tmp', '/tmp/var_tmp')
 lk = os.readlink('/tmp/var_tmp')
 print('link: %s' % lk)
  ```
-## os_removedirs 
+## os_removedirs 
 [`os_removedirs`](./14_examples_os_dir/os_removedirs)
 ```python
 
@@ -2422,7 +2422,7 @@ os.removedirs('/tmp/da/db')
 os.removedirs('/tmp/m')
 
 print ("目录为: %s" % os.listdir('/tmp')) ```
-## os_rmdir 
+## os_rmdir 
 [`os_rmdir`](./14_examples_os_dir/os_rmdir)
 ```python
 
@@ -2454,7 +2454,7 @@ print('file list: %s' % os.listdir(os.getcwd()))
 os.rmdir('ppf2')      
 
 print('file list: %s' % os.listdir(os.getcwd())) ```
-## os_sys 
+## os_sys 
 [`os_sys`](./14_examples_os_dir/os_sys)
 ```python
 
@@ -2499,7 +2499,7 @@ os.EX_OSERR - 操作系统错误
 os.EX_OSFILE - 系统文件不存在
 os.EX_CANTCREAT - 无法创建指定的输出文件
  ```
-## os_unlink 
+## os_unlink 
 [`os_unlink`](./14_examples_os_dir/os_unlink)
 ```python
 
@@ -2528,7 +2528,7 @@ print('dirs: %s' % os.listdir('/tmp'))
 os.unlink('/tmp/my_dir')
 
 print('dirs: %s' % os.listdir('/tmp')) ```
-## os_utime 
+## os_utime 
 [`os_utime`](./14_examples_os_dir/os_utime)
 ```python
 
@@ -2564,7 +2564,7 @@ os.utime('/tmp/foo.txt', (1522073000, 1522073000))
 info = os.stat('/tmp/foo.txt')
 print('st_ctime: %s' % info.st_ctime)
 print('st_mtime: %s' % info.st_mtime) ```
-## _os_chflags 
+## _os_chflags 
 [`_os_chflags`](./14_examples_os_dir/_os_chflags)
 ```python
 
@@ -2588,7 +2588,7 @@ flags -- 可以是以下值：
 '''
 
 print('非转储文件：%s' % os.chflags('/tmp/open.txt', stat.UF_NODUMP)) ```
-## _os_lchflags 
+## _os_lchflags 
 [`_os_lchflags`](./14_examples_os_dir/_os_lchflags)
 ```python
 
@@ -2632,7 +2632,7 @@ os.close( fd )
 ret = os.lchflags(path, os.UF_IMMUTABLE )
 
 print ("修改文件标记成功!!") ```
-## _os_lchmod 
+## _os_lchmod 
 [`_os_lchmod`](./14_examples_os_dir/_os_lchmod)
 ```python
 
@@ -2677,7 +2677,7 @@ import os
 返回值
         该方法没有返回值。
  ```
-# 15_examples_os_file 
+# 15_examples_os_file 
 [**15_examples_os_file**](./15_examples_os_file)
 ## os_close 
 [`os_close`](./15_examples_os_file/os_close)
@@ -2709,7 +2709,7 @@ os.write(fd, "This is test")
 os.close(fd)
 
 print ("关闭文件成功!!") ```
-## os_closerange 
+## os_closerange 
 [`os_closerange`](./15_examples_os_file/os_closerange)
 ```python
 
@@ -2748,7 +2748,7 @@ os.write(fd, "This is test2")
 os.closerange(fd, fd)
 
 print("关闭文件成功!!") ```
-## os_dup 
+## os_dup 
 [`os_dup`](./15_examples_os_file/os_dup)
 ```python
 
@@ -2782,7 +2782,7 @@ os.write(dup_fd, 'write new text')
 os.closerange(fd, dup_fd)
 
 print('操作完成') ```
-## os_dup2 
+## os_dup2 
 [`os_dup2`](./15_examples_os_file/os_dup2)
 ```python
 
@@ -2824,7 +2824,7 @@ print('读取文件内容：%s' % os.read(fd2, 100))
 os.close(fd)
 #os.closerange(fd, fd2)
 print('操作完成') ```
-## os_fdatasync 
+## os_fdatasync 
 [`os_fdatasync`](./15_examples_os_file/os_fdatasync)
 ```python
 
@@ -2865,7 +2865,7 @@ print('读到内容：%s' % str)
 
 os.close(fd)
  ```
-## os_fdopen 
+## os_fdopen 
 [`os_fdopen`](./15_examples_os_file/os_fdopen)
 ```python
 
@@ -2910,7 +2910,7 @@ print('读到文本：%s' % str)
 print('当前位置: %d' % file.tell())
 
  ```
-## os_file 
+## os_file 
 [`os_file`](./15_examples_os_file/os_file)
 ```python
 
@@ -2955,7 +2955,7 @@ import stat
                     通过文件描述符改变当前工作目录
     
  ```
-## os_fpathconf 
+## os_fpathconf 
 [`os_fpathconf`](./15_examples_os_file/os_fpathconf)
 ```python
 
@@ -2989,7 +2989,7 @@ print('pathconf_names: %s' % os.pathconf_names)
 print('最大连接数：%s' % os.fpathconf(fd, 'PC_LINK_MAX'))
 
 os.close(fd) ```
-## os_fsync 
+## os_fsync 
 [`os_fsync`](./15_examples_os_file/os_fsync)
 ```python
 
@@ -3026,7 +3026,7 @@ os.lseek(fd, 0, 0)
 print('读取文件内容：%s' % os.read(fd, 100))
 
 os.close(fd) ```
-## os_ftruncate 
+## os_ftruncate 
 [`os_ftruncate`](./15_examples_os_file/os_ftruncate)
 ```python
 
@@ -3063,7 +3063,7 @@ os.lseek(fd, 0, 0)
 print('读取文件内容：%s' % os.read(fd, 100))
 
 os.close(fd) ```
-## os_isatty 
+## os_isatty 
 [`os_isatty`](./15_examples_os_file/os_isatty)
 ```python
 
@@ -3092,7 +3092,7 @@ fd = os.open('/tmp/foo.txt', os.O_CREAT|os.O_RDWR)
 print('判断文件与设备相连: %s' % os.isatty(fd))
 
 os.close(fd) ```
-## os_lseek 
+## os_lseek 
 [`os_lseek`](./15_examples_os_file/os_lseek)
 ```python
 
@@ -3133,7 +3133,7 @@ print('读取内容：%s' % os.read(fd, 100))
 # 移动到文件末尾
 os.lseek(fd, 0, 1)
 print('读取内容：%s' % os.read(fd, 100)) ```
-## os_major 
+## os_major 
 [`os_major`](./15_examples_os_file/os_major)
 ```python
 
@@ -3161,7 +3161,7 @@ print('stat info: %s' % info)
 
 print('major 设备号: %s' % os.major(info.st_dev))
 print('minor 设备号: %s' % os.minor(info.st_dev)) ```
-## os_makedev 
+## os_makedev 
 [`os_makedev`](./15_examples_os_file/os_makedev)
 ```python
 
@@ -3194,7 +3194,7 @@ print('minor 设备号: %s' % os.minor(info.st_dev))
 
 print('makedev 设备号: %s' % os.makedev(os.major(info.st_dev), os.minor(info.st_dev)))
  ```
-## os_mkfifo 
+## os_mkfifo 
 [`os_mkfifo`](./15_examples_os_file/os_mkfifo)
 ```python
 
@@ -3222,7 +3222,7 @@ os.mkfifo('/tmp/ab3.txt', 0x777)
 os.mkfifo('/tmp/abe', 0x777)
 
 print('创建完成') ```
-## os_mknod 
+## os_mknod 
 [`os_mknod`](./15_examples_os_file/os_mknod)
 ```python
 
@@ -3253,7 +3253,7 @@ os.mknod('/tmp/dir/abcd', 0x600|stat.S_IFCHR)
 os.mknod('/tmp/dir/zz.txt', 0x600|stat.S_IFCHR)
 
  ```
-## os_open 
+## os_open 
 [`os_open`](./15_examples_os_file/os_open)
 ```python
 
@@ -3298,7 +3298,7 @@ print('打开文件：%s' % fd)
 os.write(fd, '写入新数据')
 
  ```
-## os_openpty 
+## os_openpty 
 [`os_openpty`](./15_examples_os_file/os_openpty)
 ```python
 
@@ -3327,7 +3327,7 @@ print('pty: %s' % pty)
 print('tty: %s' % tty)
 
 print('ttyname: %s' % os.ttyname(pty)) ```
-## os_pipe 
+## os_pipe 
 [`os_pipe`](./15_examples_os_file/os_pipe)
 ```python
 
@@ -3372,7 +3372,7 @@ else:
     os.close(r)
     w = os.fdopen(w, 'w')
  ```
-## os_popen 
+## os_popen 
 [`os_popen`](./15_examples_os_file/os_popen)
 ```python
 
@@ -3405,7 +3405,7 @@ print('fd：%s' % fd)
 fd = os.popen('ping localhost', 'r', 1)
 
 print('fd：%s' % fd) ```
-## os_read 
+## os_read 
 [`os_read`](./15_examples_os_file/os_read)
 ```python
 
@@ -3437,7 +3437,7 @@ fd = os.open('/tmp/foo.txt', os.O_RDWR|os.O_CREAT)
 print('read: %s' % os.read(fd, 100))
 
 os.close(fd) ```
-## os_remove 
+## os_remove 
 [`os_remove`](./15_examples_os_file/os_remove)
 ```python
 
@@ -3466,7 +3466,7 @@ os.remove('/tmp/ab.txt')
 
 os.remove('/tmp/ab3.txt')
 os.remove('/tmp/abe') ```
-## os_rename 
+## os_rename 
 [`os_rename`](./15_examples_os_file/os_rename)
 ```python
 
@@ -3498,7 +3498,7 @@ print ("目录为: %s" % os.listdir(os.getcwd()))
 
 os.rename('open2.txt', '123.txt')
 os.rename('ppf', '123') ```
-## os_renames 
+## os_renames 
 [`os_renames`](./15_examples_os_file/os_renames)
 ```python
 
@@ -3526,7 +3526,7 @@ os.chdir('/tmp')
 os.renames('123', '456/abc')
 
 os.renames('123.txt', '456/abc.txt') ```
-## os_stat 
+## os_stat 
 [`os_stat`](./15_examples_os_file/os_stat)
 ```python
 
@@ -3565,7 +3565,7 @@ print('stat: %s' % st)
 print('st_size: %s' % st.st_size)
 print('st_mode: %s' % st.st_mode)
 print('st_ctime: %s' % st.st_ctime) ```
-## os_statvfs 
+## os_statvfs 
 [`os_statvfs`](./15_examples_os_file/os_statvfs)
 ```python
 
@@ -3606,7 +3606,7 @@ print('st info: %s' % st)
 
 print('f_namemax: %s' % st.f_namemax)
 print('f_ffree: %s' % st.f_ffree) ```
-## os_stat_float_times 
+## os_stat_float_times 
 [`os_stat_float_times`](./15_examples_os_file/os_stat_float_times)
 ```python
 
@@ -3641,7 +3641,7 @@ st = os.stat_float_times()
 print('stat_float_times: %s' % st)
 
 print('stat: %s' % os.stat('/tmp/foo.txt')) ```
-## os_symlink 
+## os_symlink 
 [`os_symlink`](./15_examples_os_file/os_symlink)
 ```python
 
@@ -3668,7 +3668,7 @@ import os
 os.symlink('/home/jojo', '/tmp/my_dir')
 
 print('创建软连接完成') ```
-## os_tcgetpgrp 
+## os_tcgetpgrp 
 [`os_tcgetpgrp`](./15_examples_os_file/os_tcgetpgrp)
 ```python
 
@@ -3696,7 +3696,7 @@ fd = os.open("/dev/tty", os.O_RDONLY)
 f = os.tcgetpgrp(fd)
 
 print('tcgetpgrp: %s' % f) ```
-## os_tcsetpgrp 
+## os_tcsetpgrp 
 [`os_tcsetpgrp`](./15_examples_os_file/os_tcsetpgrp)
 ```python
 
@@ -3717,7 +3717,7 @@ f = os.tcgetpgrp(fd)
 print('tcgetpgrp: %s' % f)
 
  ```
-## os_tempnam 
+## os_tempnam 
 [`os_tempnam`](./15_examples_os_file/os_tempnam)
 ```python
 
@@ -3745,7 +3745,7 @@ tmp = os.tempnam('/tmp/aiay', 'data')
 print('tmp: %s' % tmp)
 
  ```
-## os_tmpfile 
+## os_tmpfile 
 [`os_tmpfile`](./15_examples_os_file/os_tmpfile)
 ```python
 
@@ -3777,7 +3777,7 @@ tmp.seek(0)
 print('read: %s' % tmp.read())
 
 tmp.close() ```
-## os_tmpnam 
+## os_tmpnam 
 [`os_tmpnam`](./15_examples_os_file/os_tmpnam)
 ```python
 
@@ -3804,7 +3804,7 @@ import os
 tmp = os.tmpnam()
 
 print('临时唯一路径：%s' % tmp) ```
-## os_ttyname 
+## os_ttyname 
 [`os_ttyname`](./15_examples_os_file/os_ttyname)
 ```python
 
@@ -3832,7 +3832,7 @@ fd = os.open('/dev/tty', os.O_RDONLY)
 print('ttyname: %s' % os.ttyname(fd))
 
 os.close(fd) ```
-## os_walk 
+## os_walk 
 [`os_walk`](./15_examples_os_file/os_walk)
 ```python
 
@@ -3864,7 +3864,7 @@ for root, dirs, files in os.walk("/tmp", topdown=False):
         print('files: %s' % os.path.join(root, name))
     for name in dirs:
         print('dirs: %s' % os.path.join(root, name)) ```
-## os_write 
+## os_write 
 [`os_write`](./15_examples_os_file/os_write)
 ```python
 
@@ -3905,7 +3905,7 @@ print ("写入成功")
 # 关闭文件
 os.close(fd)
 print ("关闭文件成功!!") ```
-# 16_examples_exception 
+# 16_examples_exception 
 [**16_examples_exception**](./16_examples_exception)
 ## clean_exception 
 [`clean_exception`](./16_examples_exception/clean_exception)
@@ -3952,7 +3952,7 @@ error
 for line in open("myfile.txt"):
     print(line, end="")
  ```
-## custom_exception 
+## custom_exception 
 [`custom_exception`](./16_examples_exception/custom_exception)
 ```python
 
@@ -3968,7 +3968,7 @@ try:
     raise MyError('boom!')
 except MyError as e: # 捕获自定义异常
     print('炸裂', e.value)     ```
-## exception 
+## exception 
 [`exception`](./16_examples_exception/exception)
 ```python
 
@@ -4013,7 +4013,7 @@ except:
 
 
  ```
-## my_exception 
+## my_exception 
 [`my_exception`](./16_examples_exception/my_exception)
 ```python
 
@@ -4058,7 +4058,7 @@ except InputError as e:
     
 
  ```
-## raise_exception 
+## raise_exception 
 [`raise_exception`](./16_examples_exception/raise_exception)
 ```python
 
@@ -4071,7 +4071,7 @@ try:
 except NameError as e:
     print('捕获到异常：', e)
     raise ```
-# 17_examples_object 
+# 17_examples_object 
 [**17_examples_object**](./17_examples_object)
 ## class 
 [`class`](./17_examples_object/class)
@@ -4112,7 +4112,7 @@ print('student.age: %s' % stu.age)
 # 访问方法
 print('student info: %s' % stu.getInfo()) 
  ```
-## extend 
+## extend 
 [`extend`](./17_examples_object/extend)
 ```python
 
@@ -4157,7 +4157,7 @@ class Student(Person):
         print('my grade: %s' % self.grade)    
         
  ```
-## init 
+## init 
 [`init`](./17_examples_object/init)
 ```python
 
@@ -4191,7 +4191,7 @@ cla = Class('453122645', 'tom')
 
 print('name: %s' % cla.name)
 print('Num: %s, Author: %s' % (cla.Num, cla.Author))     ```
-## method 
+## method 
 [`method`](./17_examples_object/method)
 ```python
 
@@ -4221,7 +4221,7 @@ person.info()
 # print(person.__height)
 
          ```
-## overload 
+## overload 
 [`overload`](./17_examples_object/overload)
 ```python
 
@@ -4266,7 +4266,7 @@ print(c2)
 print(c1 + c2)
 
  ```
-## overwrite 
+## overwrite 
 [`overwrite`](./17_examples_object/overwrite)
 ```python
 
@@ -4286,7 +4286,7 @@ class Mobile(Phone):
 
 mobile = Mobile()
 mobile.getMessage()             ```
-## private 
+## private 
 [`private`](./17_examples_object/private)
 ```python
 
@@ -4311,7 +4311,7 @@ pri = Private()
 # 公有方法访问私有属性
 pri.println()
          ```
-# 18_examples_standand_lib 
+# 18_examples_standand_lib 
 [**18_examples_standand_lib**](./18_examples_standand_lib)
 ## doctest_lib 
 [`doctest_lib`](./18_examples_standand_lib/doctest_lib)
@@ -4358,7 +4358,7 @@ class TestStatisticalFunctions(unittest.TestCase):
         self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
         self.assertRaises(ZeroDivisionError, average, [])
  ```
-## glob_lib 
+## glob_lib 
 [`glob_lib`](./18_examples_standand_lib/glob_lib)
 ```python
 
@@ -4379,7 +4379,7 @@ os.chdir('F:\Example Exercise\Python')
 print(glob.glob('*lib*', recursive=False)) # ['example_8_standand_lib']
 
 print(glob.iglob('*.py', recursive=True)) # <generator object _iglob at 0x00000000029A3B48> ```
-## os_lib 
+## os_lib 
 [`os_lib`](./18_examples_standand_lib/os_lib)
 ```python
 
@@ -4412,7 +4412,7 @@ os.system('ping www.baidu.com -t')
 os.system('mkdir haha')
 
 os.system('del haha') ```
-## random_lib 
+## random_lib 
 [`random_lib`](./18_examples_standand_lib/random_lib)
 ```python
 
@@ -4439,7 +4439,7 @@ print(random.choices(['apple', 'pear', 'banana'])) #['banana']
 print(random.randint(1, 10))
 
 print(random.gauss(3, 10)) ```
-## re_lib 
+## re_lib 
 [`re_lib`](./18_examples_standand_lib/re_lib)
 ```python
 
@@ -4475,7 +4475,7 @@ print(re.split(r' ', 'which foot or hand fell fastest', 2))
 
 compile = re.compile(r'f[a-z]*', 0)
  ```
-## shutil_lib 
+## shutil_lib 
 [`shutil_lib`](./18_examples_standand_lib/shutil_lib)
 ```python
 
@@ -4501,7 +4501,7 @@ shutil.copy('F:\\foo.txt', 'F:\\foo.txt2')
 # 压缩文件
 shutil.make_archive('C:\Logs', 'zip', root_dir='C:\Logs')
 # shutil.make_archive('C:\Logs', 'xztar') ```
-## sys_lib 
+## sys_lib 
 [`sys_lib`](./18_examples_standand_lib/sys_lib)
 ```python
 
@@ -4526,7 +4526,7 @@ sys.stderr.write('Warning, log file not found starting a new one\n')
 
 # 退出
 sys.exit() ```
-## timeit_lib 
+## timeit_lib 
 [`timeit_lib`](./18_examples_standand_lib/timeit_lib)
 ```python
 
@@ -4562,7 +4562,7 @@ print('done!')
 '''
 # 执行一段代码 number=2 次
 print(timeit.timeit(stmt=s, number=2)) ```
-## urllib_lib 
+## urllib_lib 
 [`urllib_lib`](./18_examples_standand_lib/urllib_lib)
 ```python
 
@@ -4607,7 +4607,7 @@ auth_handler.add_password(realm='PDQ Application',
 opener = urllib.request.build_opener(auth_handler)
 # ...and install it globally so it can be used with urlopen.
  ```
-## zlib_lib 
+## zlib_lib 
 [`zlib_lib`](./18_examples_standand_lib/zlib_lib)
 ```python
 
@@ -4632,7 +4632,7 @@ print('compress length: %s' % len(s))
 # 加密
 print('crc32： %s' % zlib.crc32(s))
 print('adler32： %s' % zlib.adler32(s)) ```
-# 19_examples_json 
+# 19_examples_json 
 [**19_examples_json**](./19_examples_json)
 ## json_sample 
 [`json_sample`](./19_examples_json/json_sample)
@@ -4679,7 +4679,7 @@ null                         None
 data = {
     'no' : 1,
  ```
-## json_translate 
+## json_translate 
 [`json_translate`](./19_examples_json/json_translate)
 ```python
 
@@ -4724,7 +4724,7 @@ with open('git-emoji-list.rst', 'r', encoding=u'utf-8') as f:
         if len(items) > 3:
             names = items[1].strip().split("(")
  ```
-# 20_examples_regex 
+# 20_examples_regex 
 [**20_examples_regex**](./20_examples_regex)
 ## regex 
 [`regex`](./20_examples_regex/regex)
@@ -4771,7 +4771,7 @@ re.match 尝试从字符串的起始位置匹配一个模式，如果不是起�
     re+    匹配1个或多个的表达式。
     re?    匹配0个或1个由前面的正则表达式定义的片段，非贪婪方式
  ```
-# 21_examples_socket 
+# 21_examples_socket 
 [**21_examples_socket**](./21_examples_socket)
 ## client 
 [`client`](./21_examples_socket/client)
@@ -4796,7 +4796,7 @@ data = s.recv(1024)
 s.close()
 
 print('Received', repr(data)) ```
-## client2 
+## client2 
 [`client2`](./21_examples_socket/client2)
 ```python
 
@@ -4841,7 +4841,7 @@ data = s.recv(1024)
 s.close()
 
  ```
-## server 
+## server 
 [`server`](./21_examples_socket/server)
 ```python
 
@@ -4872,7 +4872,7 @@ while True:
     # 向客户端发送信息
     conn.send(data)
 conn.close() ```
-## server2 
+## server2 
 [`server2`](./21_examples_socket/server2)
 ```python
 
@@ -4917,7 +4917,7 @@ if s is None:
 conn, addr = s.accept()
 print('Connected by', addr)
  ```
-## sk 
+## sk 
 [`sk`](./21_examples_socket/sk)
 ```python
 
@@ -4945,7 +4945,7 @@ print(s.recvfrom(65565))
 
 # disabled promiscuous mode
 s.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF) ```
-## socket_client 
+## socket_client 
 [`socket_client`](./21_examples_socket/socket_client)
 ```python
 
@@ -4969,7 +4969,7 @@ while True:
 client.close()
 
 print('关闭链接') ```
-## socket_server 
+## socket_server 
 [`socket_server`](./21_examples_socket/socket_server)
 ```python
 
@@ -5014,7 +5014,7 @@ Socket 对象(内建)方法
     s.settimeout(timeout)     设置套接字操作的超时期，timeout是一个浮点数，单位是秒。值为None表示没有超时期。一般，超时期应该在刚创建套接字时设置，因为它们可能用于连接的操作（如connect()）
     s.gettimeout()            返回当前超时期的值，单位是秒，如果没有设置超时期，则返回None。
  ```
-# 22_examples_email 
+# 22_examples_email 
 [**22_examples_email**](./22_examples_email)
 ## mail_stmp 
 [`mail_stmp`](./22_examples_email/mail_stmp)
@@ -5061,7 +5061,7 @@ message['Subject'] = Header(subject, 'utf-8')
 
 try:
  ```
-## send_mail 
+## send_mail 
 [`send_mail`](./22_examples_email/send_mail)
 ```python
 
@@ -5106,7 +5106,7 @@ try:
     server.sendmail(user, recveres, message.as_string())
     
  ```
-## send_mail2 
+## send_mail2 
 [`send_mail2`](./22_examples_email/send_mail2)
 ```python
 
@@ -5148,7 +5148,7 @@ if ret:
 else:
     print("邮件发送失败")
  ```
-## send_mail_html 
+## send_mail_html 
 [`send_mail_html`](./22_examples_email/send_mail_html)
 ```python
 
@@ -5193,7 +5193,7 @@ ret = mail()
 if ret:
     print("邮件发送成功")
  ```
-## send_mail_image 
+## send_mail_image 
 [`send_mail_image`](./22_examples_email/send_mail_image)
 ```python
 
@@ -5238,7 +5238,7 @@ def mail():
         fp = open('test.png', 'rb')
         image = MIMEImage(fp.read())
  ```
-## send_mail_part 
+## send_mail_part 
 [`send_mail_part`](./22_examples_email/send_mail_part)
 ```python
 
@@ -5283,7 +5283,7 @@ def mail():
         
         # 构造附件2，传送当前目录下的mail_stmp.py 文件
  ```
-# 23_examples_thread 
+# 23_examples_thread 
 [**23_examples_thread**](./23_examples_thread)
 ## thread_function 
 [`thread_function`](./23_examples_thread/thread_function)
@@ -5323,7 +5323,7 @@ except:
 while 1:
    pass
  ```
-## thread_module 
+## thread_module 
 [`thread_module`](./23_examples_thread/thread_module)
 ```python
 
@@ -5368,7 +5368,7 @@ class MyThread(threading.Thread):
         print('exit')
         # threading.Thread.exit() 
  ```
-## thread_queue 
+## thread_queue 
 [`thread_queue`](./23_examples_thread/thread_queue)
 ```python
 
@@ -5413,7 +5413,7 @@ class MyThread(threading.Thread):
         
         print('线程开始：%s' % self.name)
  ```
-## thread_schedul 
+## thread_schedul 
 [`thread_schedul`](./23_examples_thread/thread_schedul)
 ```python
 
@@ -5430,7 +5430,7 @@ def hello():
 # 定时3秒后运行
 t = Timer(3.0, hello)
 t.start()  # after 30 seconds, "hello, world" will be printed ```
-## thread_sync 
+## thread_sync 
 [`thread_sync`](./23_examples_thread/thread_sync)
 ```python
 
@@ -5475,7 +5475,7 @@ class MyThread(threading.Thread):
         threadLock.release()
         
  ```
-# 24_examples_db 
+# 24_examples_db 
 [**24_examples_db**](./24_examples_db)
 ## db_call_proc 
 [`db_call_proc`](./24_examples_db/db_call_proc)
@@ -5506,7 +5506,7 @@ except OSError as e:
         
 # 关闭数据库连接
 db.close() ```
-## db_call_proc_params 
+## db_call_proc_params 
 [`db_call_proc_params`](./24_examples_db/db_call_proc_params)
 ```python
 
@@ -5533,7 +5533,7 @@ except OSError as e:
         
 # 关闭数据库连接
 db.close() ```
-## db_connect 
+## db_connect 
 [`db_connect`](./24_examples_db/db_connect)
 ```python
 
@@ -5557,7 +5557,7 @@ import pymysql
     NotSupportedError        不支持错误，指使用了数据库不支持的函数或API等。例如在连接对象上 使用.rollback()函数，然而数据库并不支持事务或者事务已关闭。 必须是DatabaseError的子类。
 '''
  ```
-## db_create_table 
+## db_create_table 
 [`db_create_table`](./24_examples_db/db_create_table)
 ```python
 
@@ -5588,7 +5588,7 @@ print(cursor.execute(create_table_sql))
 
 # 关闭数据库连接
 db.close() ```
-## db_delete 
+## db_delete 
 [`db_delete`](./24_examples_db/db_delete)
 ```python
 
@@ -5620,7 +5620,7 @@ except:
 
 # 关闭数据库连接
 db.close() ```
-## db_inject 
+## db_inject 
 [`db_inject`](./24_examples_db/db_inject)
 ```python
 
@@ -5652,7 +5652,7 @@ except:
 
 # 关闭数据库连接
 db.close() ```
-## db_insert 
+## db_insert 
 [`db_insert`](./24_examples_db/db_insert)
 ```python
 
@@ -5684,7 +5684,7 @@ except:
 
 # 关闭数据库连接
 db.close() ```
-## db_insert_format 
+## db_insert_format 
 [`db_insert_format`](./24_examples_db/db_insert_format)
 ```python
 
@@ -5715,7 +5715,7 @@ except OSError as e:
 
 # 关闭数据库连接
 db.close() ```
-## db_insert_many 
+## db_insert_many 
 [`db_insert_many`](./24_examples_db/db_insert_many)
 ```python
 
@@ -5749,7 +5749,7 @@ except OSError as e:
 
 # 关闭数据库连接
 db.close() ```
-## db_query_all 
+## db_query_all 
 [`db_query_all`](./24_examples_db/db_query_all)
 ```python
 
@@ -5786,7 +5786,7 @@ except OSError as e:
         
 # 关闭数据库连接
 db.close() ```
-## db_query_cursors 
+## db_query_cursors 
 [`db_query_cursors`](./24_examples_db/db_query_cursors)
 ```python
 
@@ -5831,7 +5831,7 @@ try:
     
     for row in result:
  ```
-## db_query_fetch 
+## db_query_fetch 
 [`db_query_fetch`](./24_examples_db/db_query_fetch)
 ```python
 
@@ -5876,7 +5876,7 @@ try:
     for row in result:
         print('row: FIRST_NAME->%s, LAST_NAME->%s, AGE->%s, SEX->%s, INCOME->%s' % row)
  ```
-## db_query_one 
+## db_query_one 
 [`db_query_one`](./24_examples_db/db_query_one)
 ```python
 
@@ -5912,7 +5912,7 @@ except OSError as e:
         
 # 关闭数据库连接
 db.close() ```
-## db_template 
+## db_template 
 [`db_template`](./24_examples_db/db_template)
 ```python
 
@@ -5953,7 +5953,7 @@ with mysql_template() as cursor:
     
     print(row_count)
     print(row)   ```
-## db_transtion 
+## db_transtion 
 [`db_transtion`](./24_examples_db/db_transtion)
 ```python
 
@@ -5996,7 +5996,7 @@ except:
 
 # 关闭数据库连接
 db.close() ```
-## db_update 
+## db_update 
 [`db_update`](./24_examples_db/db_update)
 ```python
 
@@ -6028,7 +6028,7 @@ except:
 
 # 关闭数据库连接
 db.close() ```
-# 25_examples_shell 
+# 25_examples_shell 
 [**25_examples_shell**](./25_examples_shell)
 ## shell_cmd 
 [`shell_cmd`](./25_examples_shell/shell_cmd)
@@ -6075,7 +6075,7 @@ call(*popenargs, timeout=None, **kwargs)
         To capture standard error in the result, use stderr=STDOUT.
         
  ```
-# 50_samples_varables 
+# 50_samples_varables 
 [**50_samples_varables**](./50_samples_varables)
 ## var_assignment_process 
 [`var_assignment_process`](./50_samples_varables/var_assignment_process)
@@ -6122,7 +6122,7 @@ print('phones: ', phones) # ['773-555-1212', '847-555-1212']
 
 #-------------------------------------------------------------------------------
  ```
-## var_multi_assignment 
+## var_multi_assignment 
 [`var_multi_assignment`](./50_samples_varables/var_multi_assignment)
 ```python
 
@@ -6167,7 +6167,7 @@ print('c: ', c) # c
 print('d: ', d) # 2.2
 print()
  ```
-# app_generator_copyright 
+# app_generator_copyright 
 [**app_generator_copyright**](./app_generator_copyright)
 ## generator-copyright 
 [`generator-copyright`](./app_generator_copyright/generator-copyright)
@@ -6214,7 +6214,7 @@ COPYRIGHT_INFORMATION = '''#!/bin/bash
 
 #-------------------------------------------------------------------------------
  ```
-# app_generator_toc 
+# app_generator_toc 
 [**app_generator_toc**](./app_generator_toc)
 ## generator-toc 
 [`generator-toc`](./app_generator_toc/generator-toc)
@@ -6261,5 +6261,5 @@ class GeneratorTOCUtils:
         self.__save()
     
  ```
-#  
+#  
 [****](./)
