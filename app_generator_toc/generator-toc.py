@@ -99,7 +99,7 @@ class GeneratorTOCUtils:
         for content in contents:
             data += content
             
-        return "```python\n%s ```\n\r" % data
+        return "\n\r```python \n\r%s \r\n```\n\r" % data
         
         
     def __fetchContent(self, file):
