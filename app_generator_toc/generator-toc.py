@@ -71,7 +71,7 @@ class GeneratorTOCUtils:
     def __makeFolderChapter(self, path):
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
         
-        return "+ [`%s`](%s)\n" % (path, "./" + path)
+        return "+ [**%s**](%s)\n" % (path, "./" + path)
     
     def __makeFileChapter(self, path, name):
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
