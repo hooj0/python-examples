@@ -71,12 +71,12 @@ class GeneratorTOCUtils:
     def __makeFolderChapter(self, path):
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
         
-        return "+ [%s](%s)\n" % (path, "./" + path)
+        return "+ [`%s`](%s)\n" % (path, "./" + path)
     
     def __makeFileChapter(self, path, name):
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
         
-        return "\t- [%s](%s)\n" % (name, "./" + path + "/" + name)
+        return "\t- [`%s`](%s)\n" % (name, "./" + path + "/" + name)
     
     
     def __makeCommentChapter(self, path, name, line, comment):
@@ -100,7 +100,6 @@ class GeneratorTOCUtils:
                         line = line.replace("#", "").replace("\n", "").strip()
                         
                         first, last = line[0:1], line[len(line) - 1:]
-                        print(first, last, self.is_chinese(first), self.is_chinese(last))
                         if self.is_chinese(first) or self.is_chinese(last):
                             comments[lineNumber] = line
                 
@@ -136,7 +135,7 @@ class GeneratorTOCUtils:
                 
                 print('files: %s' % name)
                 
-                chapter = self.__makeFileChapter(parent, name)
+                chapter = self.__makeFileChapter(parent, name.replace(suffix, ""))
                 self.__tableOfContents.append(chapter)
 
                 comments = self.__fetchContent(file)
