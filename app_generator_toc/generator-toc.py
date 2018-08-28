@@ -99,7 +99,7 @@ class GeneratorTOCUtils:
         for content in contents:
             data += content
             
-        return "```python\n%s ```\n" % data
+        return "```python\n%s ```\n\r" % data
         
         
     def __fetchContent(self, file):
@@ -221,7 +221,7 @@ class GeneratorTOCUtils:
             print('dirs: %s' % folder)
             #self.scanFile(folder, suffix)
     
-util = GeneratorTOCUtils("F:\\Example Exercise\\Python\\", "F:\\Example Exercise\\Python\\readme.md")    
+util = GeneratorTOCUtils("F:\\Example Exercise\\Python\\", "F:\\Example Exercise\\Python\\tutorial.md")    
 #util.genMakedownTOC(".py") 
 util.genMakedownReadMe(".py")
 
