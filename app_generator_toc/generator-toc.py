@@ -7,6 +7,7 @@
 # @copyright by hoojo @2018
 # @changelog Generator Project makedown —— TOC 
 import os
+import re
 
 
 #===============================================================================
@@ -32,25 +33,12 @@ class GeneratorTOCUtils:
         
         print("目标工程位置：%s，生成文件保存位置：%s" % (rootDirectory, makedownFile))
     
-    
-    # 保存文件
-    def save(self):
-    
-        with open(self.__makedownFile, "w", encoding=u'utf-8') as file:  
-            file.seek(0)
-            file.truncate()   #清空文件
-        
-            file.writelines(self.__tableOfContents)
-            file.close()
-            
-            
     #-------------------------------------------------------------------------------
     # generator makedown toc file
     #-------------------------------------------------------------------------------    
     def genMakedownTOC(self, suffix):
-        self.scan(self.__rootDirectory, suffix)
-        
-        self.save()
+        self.__scan(self.__rootDirectory, suffix)
+        self.__save()
     
     
     #-------------------------------------------------------------------------------
@@ -59,26 +47,45 @@ class GeneratorTOCUtils:
     def genMakedownReadMe(self):
         pass
     
+    # 保存文件
+    def __save(self):
+        with open(self.__makedownFile, "w", encoding=u'utf-8') as file:  
+            file.seek(0)
+            file.truncate()   #清空文件
+        
+            file.writelines(self.__tableOfContents)
+            file.close()
+            
+    def is_chinese(self, uchar):
+        #zh_pattern = re.compile(u'[\u4e00-\u9fa5]+')
+        #global zh_pattern
+        return re.compile(u'[\u4e00-\u9fa5]+').search(uchar)
     
-    
-    def makeFolderChapter(self, path):
+        """判断一个unicode是否是汉字
+        if uchar >= u'/u4e00' and uchar <= u'/u9fa5':
+            return True
+        else:
+            return False
+        """    
+                    
+    def __makeFolderChapter(self, path):
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
         
         return "+ [%s](%s)\n" % (path, "./" + path)
     
-    def makeFileChapter(self, path, name):
+    def __makeFileChapter(self, path, name):
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
         
         return "\t- [%s](%s)\n" % (name, "./" + path + "/" + name)
     
     
-    def makeCommentChapter(self, path, name, line, comment):
+    def __makeCommentChapter(self, path, name, line, comment):
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
         
         return "\t\t+ [%s#L%d](%s#L%d)\n" % (comment, line, "./" + path + "/" + name, line)
         
         
-    def fetchContent(self, file):
+    def __fetchContent(self, file):
         
         comments, lineNumber = {}, 0 
         with open(file, "r", encoding=u'utf-8') as file:  
@@ -87,10 +94,15 @@ class GeneratorTOCUtils:
             lineNumber += 1
             
             while len(line) > 0: 
-                if line.startswith("#") and not line.startswith("#-")  and not line.startswith("#=") and lineNumber >= 9:
+                if line.startswith("#") and not line.startswith("#-") and not line.startswith("# -") and not line.startswith("#=") and not line.startswith("# =") and lineNumber >= 9:
                     
-                    if lineNumber not in comments:
-                        comments[lineNumber] = line.replace("#", "").replace("\n", "").strip()
+                    if lineNumber not in comments and (lineNumber - 1) not in comments:
+                        line = line.replace("#", "").replace("\n", "").strip()
+                        
+                        first, last = line[0:1], line[len(line) - 1:]
+                        print(first, last, self.is_chinese(first), self.is_chinese(last))
+                        if self.is_chinese(first) or self.is_chinese(last):
+                            comments[lineNumber] = line
                 
                 line = file.readline()
                 lineNumber += 1    
@@ -100,7 +112,7 @@ class GeneratorTOCUtils:
     #-------------------------------------------------------------------------------
     # each target folder, add comment to python file
     #-------------------------------------------------------------------------------
-    def scan(self, dir, suffix):
+    def __scan(self, dir, suffix):
         
         for parent, dirs, files in os.walk(dir, topdown=False):
             
@@ -113,7 +125,7 @@ class GeneratorTOCUtils:
             
             print('parent: %s' % parent)
             
-            chapter = self.makeFolderChapter(parent)
+            chapter = self.__makeFolderChapter(parent)
             self.__tableOfContents.append(chapter)
 
             for name in files:
@@ -124,12 +136,12 @@ class GeneratorTOCUtils:
                 
                 print('files: %s' % name)
                 
-                chapter = self.makeFileChapter(parent, name)
+                chapter = self.__makeFileChapter(parent, name)
                 self.__tableOfContents.append(chapter)
 
-                comments = self.fetchContent(file)
+                comments = self.__fetchContent(file)
                 for line, comment in comments.items():
-                    content = self.makeCommentChapter(parent, name, line, comment)
+                    content = self.__makeCommentChapter(parent, name, line, comment)
                     print(content)
                     self.__tableOfContents.append(content)
                 
@@ -137,7 +149,7 @@ class GeneratorTOCUtils:
     #-------------------------------------------------------------------------------
     # each target folder, add comment to python file
     #-------------------------------------------------------------------------------        
-    def scanFile(self, dir, suffix):
+    def __scanFile(self, dir, suffix):
         
         for root, dirs, files in os.walk(dir, topdown=False):
             
@@ -154,7 +166,7 @@ class GeneratorTOCUtils:
                 self.__tableOfContents.append(file + "\n")
                 
     
-    def scanFolder(self, dirs):
+    def __scanFolder(self, dirs):
         
         for name in dirs:
             folder = os.path.join(root, name)
@@ -169,3 +181,6 @@ class GeneratorTOCUtils:
     
 util = GeneratorTOCUtils("F:\\Example Exercise\\Python\\", "F:\\Example Exercise\\Python\\toc.md")    
 util.genMakedownTOC(".py") 
+
+#util = GeneratorTOCUtils("F:\\Example Exercise\\Bash", "F:\\Example Exercise\\Bash\\readme.md")    
+#util.genMakedownTOC(".sh") 
