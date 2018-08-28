@@ -44,8 +44,9 @@ class GeneratorTOCUtils:
     #-------------------------------------------------------------------------------
     # generator makedown readME file
     #-------------------------------------------------------------------------------    
-    def genMakedownReadMe(self):
-        pass
+    def genMakedownReadMe(self, suffix):
+        self.__scan(self.__rootDirectory, suffix, isReadMe=True)
+        self.__save()
     
     # 保存文件
     def __save(self):
@@ -68,24 +69,60 @@ class GeneratorTOCUtils:
             return False
         """    
                     
-    def __makeFolderChapter(self, path):
-        path = path.replace(self.__rootDirectory, "").replace("\\", "/")
+    def __makeFolderChapter(self, path, isReadMe=False):
         
-        return "+ [**%s**](%s)\n" % (path, "./" + path)
+        path = path.replace(self.__rootDirectory, "").replace("\\", "/")
+
+        if isReadMe:
+            return "# %s \n[**%s**](%s)\n" % (path, path, "./" + path)
+        else:
+            return "+ [**%s**](%s)\n" % (path, "./" + path)
     
-    def __makeFileChapter(self, path, name):
+    
+    def __makeFileChapter(self, path, name, isReadMe=False):
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
         
-        return "\t- [`%s`](%s)\n" % (name, "./" + path + "/" + name)
+        if isReadMe:
+            return "## %s \n[`%s`](%s)\n" % (name, name, "./" + path + "/" + name)
+        else:
+            return "\t- [`%s`](%s)\n" % (name, "./" + path + "/" + name)
     
     
     def __makeCommentChapter(self, path, name, line, comment):
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
         
         return "\t\t+ [%s#L%d](%s#L%d)\n" % (comment, line, "./" + path + "/" + name, line)
+
+    def __makeContentChapter(self, contents):
+        
+        data = ""
+        for content in contents:
+            data += content
+            
+        return "```python\n%s ```\n" % data
         
         
     def __fetchContent(self, file):
+        contents, lineNumber = [], 0
+        
+        with open(file, "r", encoding=u'utf-8') as file:  
+            
+            line = file.readline()
+            lineNumber += 1
+            while len(line) > 0:
+                
+                if lineNumber >= 10: 
+                    contents.append(line)
+                if lineNumber >= 50:
+                    break
+                    
+                line = file.readline()
+                lineNumber += 1
+                
+        return contents
+    
+    
+    def __fetchComments(self, file):
         
         comments, lineNumber = {}, 0 
         with open(file, "r", encoding=u'utf-8') as file:  
@@ -106,12 +143,12 @@ class GeneratorTOCUtils:
                 line = file.readline()
                 lineNumber += 1    
                 
-        return comments        
+        return comments      
         
     #-------------------------------------------------------------------------------
     # each target folder, add comment to python file
     #-------------------------------------------------------------------------------
-    def __scan(self, dir, suffix):
+    def __scan(self, dir, suffix, isReadMe=False):
         
         for parent, dirs, files in os.walk(dir, topdown=False):
             
@@ -124,7 +161,7 @@ class GeneratorTOCUtils:
             
             print('parent: %s' % parent)
             
-            chapter = self.__makeFolderChapter(parent)
+            chapter = self.__makeFolderChapter(parent, isReadMe)
             self.__tableOfContents.append(chapter)
 
             for name in files:
@@ -135,14 +172,20 @@ class GeneratorTOCUtils:
                 
                 print('files: %s' % name)
                 
-                chapter = self.__makeFileChapter(parent, name.replace(suffix, ""))
+                chapter = self.__makeFileChapter(parent, name.replace(suffix, ""), isReadMe)
                 self.__tableOfContents.append(chapter)
 
-                comments = self.__fetchContent(file)
-                for line, comment in comments.items():
-                    content = self.__makeCommentChapter(parent, name, line, comment)
-                    print(content)
+                if isReadMe:
+                    contents = self.__fetchContent(file)
+                    content = self.__makeContentChapter(contents)
                     self.__tableOfContents.append(content)
+
+                else:
+                    comments = self.__fetchComments(file)
+                    for line, comment in comments.items():
+                        content = self.__makeCommentChapter(parent, name, line, comment)
+                        print(content)
+                        self.__tableOfContents.append(content)
                 
     
     #-------------------------------------------------------------------------------
@@ -178,8 +221,9 @@ class GeneratorTOCUtils:
             print('dirs: %s' % folder)
             #self.scanFile(folder, suffix)
     
-util = GeneratorTOCUtils("F:\\Example Exercise\\Python\\", "F:\\Example Exercise\\Python\\toc.md")    
-util.genMakedownTOC(".py") 
+util = GeneratorTOCUtils("F:\\Example Exercise\\Python\\", "F:\\Example Exercise\\Python\\readme.md")    
+#util.genMakedownTOC(".py") 
+util.genMakedownReadMe(".py")
 
 #util = GeneratorTOCUtils("F:\\Example Exercise\\Bash", "F:\\Example Exercise\\Bash\\readme.md")    
 #util.genMakedownTOC(".sh") 
