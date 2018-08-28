@@ -20,11 +20,24 @@ import os
 #-------------------------------------------------------------------------------
 # global env
 #-------------------------------------------------------------------------------
+'''
 targetFolder="F:\\Example Exercise\\Python"
 fiilter="py"
 
-COPYRIGHT_INFORMATION = '''#!/usr/bin/env python3
+COPYRIGHT_INFORMATION = ''#!/usr/bin/env python3
 # encoding: utf-8
+# @author: hoojo
+# @email: hoojo_@126.com
+# @github: https://github.com/hooj0
+%s
+# @copyright by hoojo@2018
+# @changelog %s
+'''
+
+targetFolder="F:\\Example Exercise\\Bash"
+fiilter="sh"
+
+COPYRIGHT_INFORMATION = '''#!/bin/bash
 # @author: hoojo
 # @email: hoojo_@126.com
 # @github: https://github.com/hooj0
@@ -37,7 +50,7 @@ COPYRIGHT_INFORMATION = '''#!/usr/bin/env python3
 #-------------------------------------------------------------------------------
 # fetch comment keyword
 #-------------------------------------------------------------------------------
-SKIP_PREFIXS = [ "#!/usr", "# -*-", "#-*-", "# encoding", "# @author" ]
+SKIP_PREFIXS = [ "#!/usr", "# -*-", "#-*-", "# encoding", "# @author", "#!/bin/bash" ]
 def fetchCommentKeyword():
     
     for comment in COPYRIGHT_INFORMATION.splitlines():
