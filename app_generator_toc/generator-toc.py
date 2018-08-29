@@ -79,13 +79,13 @@ class GeneratorTOCUtils:
             return "+ [**%s**](%s)\n" % (path, "./" + path)
     
     
-    def __makeFileChapter(self, path, name, isReadMe=False):
+    def __makeFileChapter(self, path, name, suffix, isReadMe=False):
         path = path.replace(self.__rootDirectory, "").replace("\\", "/")
         
         if isReadMe:
-            return "## %s \n[`%s`](%s)\n" % (name, name, "./" + path + "/" + name)
+            return "## %s \n[`%s`](%s)\n" % (name.replace(suffix, ""), name.replace(suffix, ""), "./" + path + "/" + name)
         else:
-            return "\t- [`%s`](%s)\n" % (name, "./" + path + "/" + name)
+            return "\t- [`%s`](%s)\n" % (name.replace(suffix, ""), "./" + path + "/" + name)
     
     
     def __makeCommentChapter(self, path, name, line, comment):
@@ -172,7 +172,7 @@ class GeneratorTOCUtils:
                 
                 print('files: %s' % name)
                 
-                chapter = self.__makeFileChapter(parent, name.replace(suffix, ""), isReadMe)
+                chapter = self.__makeFileChapter(parent, name, suffix, isReadMe)
                 self.__tableOfContents.append(chapter)
 
                 if isReadMe:
@@ -221,9 +221,10 @@ class GeneratorTOCUtils:
             print('dirs: %s' % folder)
             #self.scanFile(folder, suffix)
     
-util = GeneratorTOCUtils("F:\\Example Exercise\\Python\\", "F:\\Example Exercise\\Python\\tutorial.md")    
+#util = GeneratorTOCUtils("F:\\Example Exercise\\Python\\", "F:\\Example Exercise\\Python\\readme.md")    
 #util.genMakedownTOC(".py") 
-util.genMakedownReadMe(".py")
+#util.genMakedownReadMe(".py")
 
-#util = GeneratorTOCUtils("F:\\Example Exercise\\Bash", "F:\\Example Exercise\\Bash\\readme.md")    
+util = GeneratorTOCUtils("F:\\Example Exercise\\Bash", "F:\\Example Exercise\\Bash\\tutorial.md")    
 #util.genMakedownTOC(".sh") 
+util.genMakedownReadMe(".sh") 
