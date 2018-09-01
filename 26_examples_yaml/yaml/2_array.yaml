@@ -1,0 +1,10 @@
+languages:
+  - Ruby
+  - Perl
+  - Python
+frameworks:
+- spring
+- struts
+- mybatis
+websites: [yaml.org, ruby-lang.org, python.org, use.perl.org]
+numbers: [ [1, 2], [3, 4] ]
