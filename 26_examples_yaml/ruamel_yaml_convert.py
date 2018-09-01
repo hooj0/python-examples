@@ -52,3 +52,14 @@ convter('yaml/3.1_objects.yaml')
 
 # output
 #-------------------------------------------------------------------------------
+# ordereddict([('languages', ordereddict([('Ruby', 'The simplest language'), ('Perl', 'Ultra-simple language')])), ('This is a key\nthat has multiple lines\n', 'and this is its value'), ('json_map', ordereddict([('key', 'value')])), ('json_seq', [3, 2, 1, 'takeoff']), ('and quotes are optional', ordereddict([('key', [3, 2, 1, 'takeoff'])]))])
+
+#-------------------------------------------------------------------------------
+# yaml complex type converter Json Object
+#------------------------------------------------------------------------------- 
+print("------------------------------yaml complex type ==> Json Object------------------------------")   
+convter('yaml/5_complex_type.yaml')  
+
+# output
+#-------------------------------------------------------------------------------
+# ordereddict([('explicit_string', '0.5'), ('python_complex_number', <ruamel.yaml.comments.TaggedScalar object at 0x0000000002AF1908>), ((5, 7), 'Fifty Seven')])
