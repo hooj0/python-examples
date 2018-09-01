@@ -1,0 +1,20 @@
+languages:
+  Ruby: "The simplest language"
+  Perl: "Ultra-simple language"
+  
+# complex key——multi string key  
+# "This is a key\nthat has multiple lines\n": "and this is its value",
+? |
+  This is a key
+  that has multiple lines
+: and this is its value
+
+
+# complex key —— array key，部分解析器会出现 Error
+#? - Manchester United
+#  - Real Madrid
+#: [ 2001-01-01, 2002-02-02 ]
+
+json_map: {"key": "value"}
+json_seq: [3, 2, 1, "takeoff"]
+and quotes are optional: {key: [3, 2, 1, takeoff]} 
