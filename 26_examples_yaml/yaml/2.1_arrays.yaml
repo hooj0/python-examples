@@ -1,0 +1,26 @@
+a_sequence:
+  - Item 1
+  - Item 2
+  - 0.5 # sequences can contain disparate types.
+  - Item 4
+  
+  # object item
+  # { "another_key": "another_value", "key": "value" }
+  - key: value
+    another_key: another_value
+  
+  # 效果和上面的一致  
+  - 
+    key: value
+    another_key: another_value  
+  
+  # array item  
+  # [ "This is a sequence", "inside another sequence" ]
+  -
+    - This is a sequence
+    - inside another sequence
+    
+  # Nesting array item
+  #[ ["Nested sequence indicators", "can be collapsed"] ]
+  - - - Nested sequence indicators
+      - can be collapsed
