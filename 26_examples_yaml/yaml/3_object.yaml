@@ -1,0 +1,14 @@
+languages:
+  Ruby: "The simplest language"
+  Perl: "Ultra-simple language"
+  Python: "Best language"
+websites:
+  YAML: yaml.org
+  Ruby: ruby-lang.org
+  Python: python.org
+  Perl: use.perl.orgF
+  Java:
+    desc: Best language
+    spring: "java framework"
+    # error
+    #0.25: a float key   
