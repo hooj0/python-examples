@@ -35,10 +35,10 @@ def convter(file):
     
     yaml_json = yaml.load(yaml_bytes)
     
-    #print('%s yaml convert json: %s' % (file, yaml_json))
+    print('%s yaml convert json: %s' % (file, yaml_json))
     #print('---------------------------------------------------------------')
     # 排序并且缩进两个字符输出
-    print('%s convert formatter json: %s' % (file, json.dumps(yaml_json, sort_keys=True, indent=2))) 
+    #print('%s convert formatter json: %s' % (file, json.dumps(yaml_json, sort_keys=True, indent=2))) 
     
     
 
@@ -52,6 +52,7 @@ def converter(file):
         
     # 排序并且缩进两个字符输出
     print('%s convert formatter json: %s' % (file, json.dumps(yaml_data, sort_keys=True, indent=2))) 
+
 
 #-------------------------------------------------------------------------------
 # yaml Object converter Json Array
@@ -253,5 +254,56 @@ yaml/4_anchor.yaml convert formatter json: {
     "age": 10,
     "name": "Everyone has same name"
   }
+}
+'''
+
+
+#-------------------------------------------------------------------------------
+# yaml complex type converter Json Object
+#------------------------------------------------------------------------------- 
+print("------------------------------yaml complex type ==> Json Object------------------------------")   
+convter('yaml/5_complex_type.yaml')  
+
+# output
+#-------------------------------------------------------------------------------
+'''
+yaml/5_complex_type.yaml yaml convert json: {
+    'explicit_string': '0.5', 
+    'python_complex_number': (1+2j), 
+    (5, 7): 'Fifty Seven'
+}
+'''
+
+
+#-------------------------------------------------------------------------------
+# yaml complex type converter Json Object
+#------------------------------------------------------------------------------- 
+print("------------------------------yaml complex type ==> Json Object------------------------------")   
+convter('yaml/6_extra_type.yaml')  
+
+# output
+#-------------------------------------------------------------------------------
+'''
+yaml/6_extra_type.yaml yaml convert json:
+{
+    'datetime': datetime.datetime(2001, 12, 15, 2, 59, 43, 100000),
+    'datetime_with_spaces': datetime.datetime(2001, 12, 15, 2, 59, 43, 100000),
+    'date': datetime.date(2002, 12, 14),
+    'gif_file': b "GIF89a\x0c\x00\x0c\x00\x84\x00\x00\xff\xff\xf7\xf5\xf5\xee\xe9\xe9\xe5fff\x00\x00\x00\xe7\xe7\xe7^^^\xf3\xf3\xed\x8e\x8e\x8e\xe0\xe0\xe0\x9f\x9f\x9f\x93\x93\x93\xa7\xa7\xa7\x9e\x9e\x9eiiiccc\xa3\xa3\xa3\x84\x84\x84\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9\xff\xfe\xf9!\xfe\x0eMade with GIMP\x00,\x00\x00\x00\x00\x0c\x00\x0c\x00\x00\x05,  \x8e\x810\x9e\xe3@\x14\xe8i\x10\xc4\xd1\x8a\x08\x1c\xcf\x80M$z\xef\xff0\x85p\xb8\xb01f\r\x1b\xce\x01\xc3\x01\x1e\x10' \x82\n\x01\x00;",
+    'set': {
+        'item1': None,
+        'item2': None,
+        'item3': None
+    },
+    'or-set': {
+        'item1': None,
+        'item2': None,
+        'item3': None
+    },
+    'set2': {
+        'item1': None,
+        'item2': None,
+        'item3': None
+    }
 }
 '''
