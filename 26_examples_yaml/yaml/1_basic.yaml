@@ -1,0 +1,54 @@
+# 字符串类型
+# string type
+name: jack
+
+# number type
+age: 23
+
+# boolean type
+sex: true
+
+# Scientific type
+scientific_notation: 1e+12
+
+# spaces value string
+another_key: Another value goes here.
+class: "3 grade 1 class"
+
+# null value
+null_value: null
+
+# key space
+key with spaces: value
+
+# No quotes, but also support
+however: 'A string, enclosed in quotes.'
+'Keys can be quoted too.': "Useful if you want to put a ':' in your key."
+
+# single quota espace
+single quotes: 'have ''one'' escape pattern'
+# double quota espace
+double quotes: "have many: \", \0, \t, \u263A, \x0d\x0a == \r\n, and more."
+
+# Multiple-line strings literal block(using |)
+# 缩进为4个空格，保留格式，其中换行也正常显示，，顶头对齐不算换行
+literal_block: |
+    This entire block of text will be the value of the 'literal_block' key,
+    with line breaks being preserved.
+
+    The literal continues until de-dented, and the leading indentation is
+    stripped.
+
+        Any lines that are 'more-indented' keep the rest of their indentation -
+        these lines will be indented by 4 spaces.
+
+# Multiple-line strings folded block(using >)   
+# 保留缩进，强制空行算一个换行，顶头对齐不算换行     
+folded_style: >
+    This entire block of text will be the value of 'folded_style', but this
+    time, all newlines will be replaced with a single space.
+
+    Blank lines, like above, are converted to a newline character.
+
+        'More-indented' lines keep their newlines, too -
+        this text will appear over two lines.        
