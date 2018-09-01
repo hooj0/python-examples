@@ -41,7 +41,7 @@ COPYRIGHT_INFORMATION = '''#!/bin/bash
 # @author: hoojo
 # @email: hoojo_@126.com
 # @github: https://github.com/hooj0
-%s
+# @create date: %s
 # @copyright by hoojo@2018
 # @changelog %s
 '''
@@ -50,7 +50,7 @@ COPYRIGHT_INFORMATION = '''#!/bin/bash
 #-------------------------------------------------------------------------------
 # fetch comment keyword
 #-------------------------------------------------------------------------------
-SKIP_PREFIXS = [ "#!/usr", "# -*-", "#-*-", "# encoding", "# @author", "#!/bin/bash" ]
+SKIP_PREFIXS = [ "#!/usr", "# -*-", "#-*-", "# encoding", "# @author", "#!/bin/" ]
 def fetchCommentKeyword():
     
     for comment in COPYRIGHT_INFORMATION.splitlines():
@@ -66,7 +66,7 @@ def fetchUpdatedDate(file):
     st = os.stat(file)
     #print('st_ctime: ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(st.st_ctime)))
     #print('st_mtime: ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(st.st_mtime)))
-    return "# @create date: %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(st.st_ctime))
+    return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(st.st_ctime))
     
     
 #-------------------------------------------------------------------------------
@@ -90,14 +90,9 @@ def read(targetFile):
     with open(targetFile, "r", encoding=u'utf-8') as file:
         text = file.readline()
         
-        while len(text) > 0:
+        while text != "":
             if text.startswith("#"):
-                
-                if text.find("ate") != -1:
-                    #updateDate = text.replace("\n", "");
-                    #print("fetch date ==>>>", updateDate)
-                    pass
-                elif skipLine(text):
+                if skipLine(text):
                     #print("remove text: %s" % text)
                     pass
                 else:
@@ -134,8 +129,10 @@ def cleanEmptyLine(contentLines):
             emptyLine = emptyLine + 1
         else:
             skip = True
-            
-    return contentLines[emptyLine - 3:]
+
+    if emptyLine >= 3:     
+        return contentLines[emptyLine - 3:]
+    return contentLines
 
             
 #-------------------------------------------------------------------------------
@@ -183,7 +180,7 @@ def eachFolder(targetFolder):
         for name in files:
             targetFile = os.path.join(root, name)
             
-            if targetFile.find("samples_") == -1 and targetFile.find("examples_") == -1:
+            if targetFile.find("samples_") == -1 and targetFile.find("example") == -1:
                 continue
             
             if targetFile.find("pycache") != -1:
