@@ -26,10 +26,12 @@ class GeneratorTOCUtils:
     __makedownFile = ""
     
     __tableOfContents = []
+    __language = "Python"
     
-    def __init__(self, rootDirectory, makedownFile):
+    def __init__(self, rootDirectory, makedownFile, language="Python"):
         self.__rootDirectory = rootDirectory
         self.__makedownFile = makedownFile
+        self.__language = language
         
         print("目标工程位置：%s，生成文件保存位置：%s" % (rootDirectory, makedownFile))
     
@@ -99,7 +101,7 @@ class GeneratorTOCUtils:
         for content in contents:
             data += content
             
-        return "\n\r```python \n\r%s \r\n```\n\r" % data
+        return "\n\r```%s \n\r%s \r\n```\n\r" % (self.__language, data)
         
         
     def __fetchContent(self, file):
@@ -109,7 +111,7 @@ class GeneratorTOCUtils:
             
             line = file.readline()
             lineNumber += 1
-            while len(line) > 0:
+            while line != "":
                 
                 if lineNumber >= 10: 
                     contents.append(line)
@@ -225,6 +227,7 @@ class GeneratorTOCUtils:
 #util.genMakedownTOC(".py") 
 #util.genMakedownReadMe(".py")
 
-util = GeneratorTOCUtils("F:\\Example Exercise\\Bash", "F:\\Example Exercise\\Bash\\tutorial.md")    
-#util.genMakedownTOC(".sh") 
-util.genMakedownReadMe(".sh") 
+util = GeneratorTOCUtils("F:\\Example Exercise\\Bash\\", "F:\\Example Exercise\\Bash\\readme.md")    
+util.genMakedownTOC(".sh") 
+#util = GeneratorTOCUtils("F:\\Example Exercise\\Bash\\", "F:\\Example Exercise\\Bash\\tutorial.md", "bash")    
+#util.genMakedownReadMe(".sh") 
