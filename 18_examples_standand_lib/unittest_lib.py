@@ -5,7 +5,7 @@
 # @github:   https://github.com/hooj0
 # @create date: 2018-09-12
 # @copyright by hoojo @2018
-# @changelog unittest lib TestCase code
+# @changelog Added python3 `unittest lib` TestCase example
 
 
 # ===============================================================================
