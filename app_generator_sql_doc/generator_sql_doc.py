@@ -27,7 +27,7 @@ class SqlFile2WordUtils:
     def __init__(self):
         print("init....")
 
-    def read_sql_file(self, sql_file):
+    def read_sql_file(self, sql_file=None):
 
         if sql_file is None:
             print("sql file path 为空")
@@ -35,49 +35,88 @@ class SqlFile2WordUtils:
             print('%s is not found!' % sql_file)
             raise IOError('%s is not found!' % sql_file)
 
+        records = {}
         with open(sql_file, 'r', encoding=u'utf-8') as file:
-            data = file.read()
+            line = file.readline()
 
-        return "settings"
+            table_name, keys = None, []
+            while len(line) > 0:
+                line = line.strip()
+                match_tab_name = re.match(r'CREATE\s+TABLE\s+(.*)', line, re.M | re.I)
 
-    def new_doc(fee_data, doc_path, fee):  # 新建一个word文档,写入汇总表的数据
+                if match_tab_name:
+                    table_name = re.sub(r'\W', "", match_tab_name.group(1)).lower()
+                    records[table_name] = []
+                elif table_name:
+                    if line.endswith(");"):
+                        records[table_name][0] = records[table_name][0][:-1] + (" ".join(keys),)
+                        records[table_name] = tuple(records[table_name])
+                        table_name = None
+                        keys.clear()
+                    else:
+                        line = line.lower()
+                        fields = re.split(r'\s+', line, re.M | re.I)
+
+                        if line.find("primary key") != -1:
+                            keys.append(line.replace("primary key", "pk"))
+                        elif line.find("foreign key") != -1:
+                            keys.append(line.replace("foreign key", "fk"))
+                        elif line.find("references") != -1:
+                            keys.append(line)
+                        elif len(fields) > 1:
+                            field_name = re.sub(r'\W', "", fields[0])
+                            record = (field_name, fields[1].upper(), re.sub(r'\D', "", line), "")
+
+                            records[table_name].append(record)
+
+                line = file.readline()
+
+        return records
+
+    def add_table(self, records, doc_path):
+        """
+            records = {
+                'tab1': ((1, 'aaa', 'bbb', "zzz"), (2, 'bbb', 'ccc', "zzz")),
+                'tab2': ((1, 'aaa', 'bbb', "zzz"), (2, 'bbb', 'ccc', "zzz")),
+                'tab3': ((1, 'aaa', 'bbb', "zzz"), (2, 'bbb', 'ccc', "zzz"))
+            }
+        """
         document = Document()
-        p_total = document.add_paragraph()
-        r_total = p_total.add_run(u'测试订单费用汇总表：')
+
+        title = document.add_paragraph()
+        r_total = title.add_run(u'生成表格：')
         r_total.font.bold = True
-        table = document.add_table(1, 5, style="Light List Accent 5")
-        heading_cells = table.rows[0].cells
-        heading_cells[0].text = u'序号'
-        heading_cells[1].text = u'订单号'
-        heading_cells[2].text = u'订单总额'
-        heading_cells[3].text = u'运费'
-        heading_cells[4].text = u'实付金额'
-        total = 0
-        for i in range(0, len(fee_data)):
-            cells = table.add_row().cells
-            cells[0].text = str(i + 1)
-            cells[1].text = str(fee_data[i][0])
-            cells[2].text = str(float(fee_data[i][1]) / 100)
-            cells[3].text = str(float(fee_data[i][2]) / 100)
-            cells[4].text = str(float(fee_data[i][3]) / 100)
-            total = total + fee_data[i][3]
-            if total > fee:  # 如果实付总额大于传入的金额，终止写入数据,并记录序号
-                number = i
-                break
-        total = str(float(total) / 100)
-        document.add_paragraph(u'实付金额总计：' + total + u' 元。')
-        document.add_paragraph()
-        p_detail = document.add_paragraph()
-        r_detail = p_detail.add_run(u'测试订单明细：')
-        r_detail.font.bold = True
-        for i in range(0, number + 1):
-            order_no = str(fee_data[i][0])
-            paid_amount = str(float(fee_data[i][3]) / 100)
-            row_str = str(i + 1) + '.' + u'订单号：' + order_no + u'实付金额：' + paid_amount + u'元。'
-            document.add_paragraph(row_str)
+
+        for name, record in records.items():
+            document.add_heading(name, level=2)
+
+            table = document.add_table(1, 4, style="Table Grid")
+
+            hdr_cells = table.rows[0].cells
+            hdr_cells[0].text = u'字段名称'
+            hdr_cells[1].text = u'字段类型'
+            hdr_cells[2].text = u'长度范围'
+            hdr_cells[3].text = u'字段说明'
+
+            for field, t, length, remark in record:
+                cells = table.add_row().cells
+
+                cells[0].text = str(field)
+                cells[1].text = str(t)
+                cells[2].text = str(length)
+                cells[3].text = str(remark)
+
+            document.add_paragraph()
+
         document.save(doc_path)
+
+    def transform(self, sql_path, doc_path):
+        records = self.read_sql_file(sql_path)
+        self.add_table(records, doc_path)
 
 
 if __name__ == "__main__":
     util = SqlFile2WordUtils()
-    util.read_sql_file("quartz.sql")
+    util.transform("quartz.sql", "sql.doc")
+    #util.add_table("a.docx")
+    #print(util.read_sql_file("quartz.sql"))
