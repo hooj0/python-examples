@@ -164,7 +164,7 @@ CREATE TABLE QRTZ_LOCKS
     PRIMARY KEY (SCHED_NAME,LOCK_NAME)
 );
 
-CREATE TABLE `qrtz_exception` (
+  CREATE  TABLE  `qrtz_exception` (
   `job_exception_id` bigint(20) NOT NULL,
   `job_interface` varchar(80) DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
