@@ -10,7 +10,6 @@ import os
 import re
 from docx import Document
 
-
 # ===============================================================================
 #     Generator SQL shell to Office word document
 # ===============================================================================
@@ -21,11 +20,7 @@ from docx import Document
 # -------------------------------------------------------------------------------
 # 读取SQL脚本生成 word的文档 工具类
 # -------------------------------------------------------------------------------
-
 class SqlFile2WordUtils:
-
-    def __init__(self):
-        print("init....")
 
     def read_sql_file(self, sql_file=None):
 
