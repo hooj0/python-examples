@@ -285,6 +285,7 @@ class ZooqleTorrentSearcher(TorrentSearcher):
             })
         return {self.site: records}
 
+
 async def executor(keyword, view="TEXT"):
 
     daatkkTorrentSearcher = DaatkkTorrentSearcher(keyword, view)
