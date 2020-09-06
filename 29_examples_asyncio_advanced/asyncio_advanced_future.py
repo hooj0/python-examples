@@ -45,7 +45,7 @@ finally:
     print("关闭循环事件，释放资源")
     loop.close()
 
-print('Future 返回的结果: {}'.format(task.result()))
+print("Future 返回的结果: ", task.result())
 
 
 # output:
