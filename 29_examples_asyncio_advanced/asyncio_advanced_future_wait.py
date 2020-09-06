@@ -40,8 +40,8 @@ async def main():
     # await作用：等 task 返回结果，再往下运行
     data = await task
 
-    print('Future 返回的结果: {}'.format(data))
-    print('Future 返回的结果: {}'.format(task.result()))
+    print("Future 返回的结果: ", data)
+    print("Future 返回的结果: ", task.result())
 
     return data
 
