@@ -48,6 +48,7 @@ def do_work(x, loop):
         loop.stop()
         print("work stop: ", x)
     else:
+        # 延迟 1 秒钟 执行
         handler = loop.call_later(1, do_work, x + 1, loop)
 
         if x + 1 >= 5:
