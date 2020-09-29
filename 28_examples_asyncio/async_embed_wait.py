@@ -3,9 +3,9 @@
 # @author: hoojo
 # @email: hoojo_@126.com
 # @github: https://github.com/hooj0
-# @create date: 2020-09-25 16:07:27
+# @create date: 2020-09-28 16:07:27
 # @copyright by hoojo@2018
-# @changelog python3 `asyncio -> await & gather & as_completed` example
+# @changelog python3 `asyncio -> await` example
 
 
 # ===============================================================================
