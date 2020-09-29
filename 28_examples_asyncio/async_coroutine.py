@@ -10,6 +10,8 @@
 
 # ===============================================================================
 # 标题：python3 asyncio coroutine example
+# asyncio的编程模型就是一个消息循环，我们从asyncio模块中直接获取一个EventLoop的引用，
+# 然后把需要执行的协程扔到EventLoop中执行，就实现了异步IO
 # ===============================================================================
 # 使用：关于asyncio的一些关键字的说明：
 #
@@ -28,6 +30,9 @@
 # -------------------------------------------------------------------------------
 # 定义一个协程对象，
 #   指一个使用async关键字定义的函数，它的调用不会立即执行函数，而是会返回一个协程对象
+#
+#  async 把一个 generator 标记为 coroutine 类型，
+#  然后我们就把这个 coroutine 扔到 EventLoop 中执行
 # -------------------------------------------------------------------------------
 import time
 import asyncio
@@ -44,10 +49,9 @@ async def do_work(x):
 start_time = now_time()
 
 # 协程对象：由于do_work方法是异步，不会直接运行
-coroutine = do_work(2)
+coroutine = do_work(2)  # async 把一个 generator 标记为 coroutine 类型
 
 loop = asyncio.get_event_loop()
-
 # 创建一个任务：一个协程对象就是一个原生可以挂起的函数
 task = loop.create_task(coroutine)
 #
@@ -56,12 +60,12 @@ task = loop.create_task(coroutine)
 print("task: ", task)   # pending
 
 # 协程对象需要注册到事件循环，由事件循环调用
+# 把这个 coroutine 扔到 EventLoop 中执行
 loop.run_until_complete(task)   # 协程方法运行，输出运行结果
 # 协程任务运行完成
 print("task: ", task)   # finished
 
 print("time: ", now_time() - start_time)
-
 
 # output:
 # ---------------------------------------------------------------------------
