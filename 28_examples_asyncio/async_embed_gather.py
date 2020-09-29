@@ -3,9 +3,9 @@
 # @author: hoojo
 # @email: hoojo_@126.com
 # @github: https://github.com/hooj0
-# @create date: 2020-09-25 16:07:27
+# @create date: 2020-09-28 16:07:27
 # @copyright by hoojo@2018
-# @changelog python3 `asyncio -> await & gather & as_completed` example
+# @changelog python3 `asyncio -> gather` example
 
 
 # ===============================================================================
@@ -30,6 +30,8 @@
 # -------------------------------------------------------------------------------
 # 协程嵌套，
 #   在一个协程中挂起其他的协程，让协程中调用其他协程，进行协程嵌套调用
+#   不在main协程函数里处理结果，直接返回await的内容，
+#   那么最外层的run_until_complete将会返回main协程的结果
 # -------------------------------------------------------------------------------
 import time
 import asyncio
@@ -65,11 +67,13 @@ async def main():
     # 此时协程对象被任务包装，可以获取任务状态
     print("task: ", tasks)  # pending / running
 
-    dones, pendings = await asyncio.wait(tasks)
+    # dones, pendings = await asyncio.wait(tasks)
+    # 得到的就是一个结果的列表
+    results = await asyncio.gather(*tasks)
 
     # 返回结果发现耗时 4 秒，按照同步运行一组任务需要 7 秒
-    for task in dones:
-        print("result: ", task.result())
+    for result in results:
+        print("result: ", result)
 
 
 start_time = now_time()
@@ -85,11 +89,11 @@ print("time: ", now_time() - start_time) # time:  3.9912283420562744
 
 # output:
 # ---------------------------------------------------------------------------
-# task:  [<Task pending coro=<do_work() running at D:/work_private/python-examples/28_examples_asyncio/async_wait_gather_completed.py:42>>, <Task pending coro=<do_work() running at D:/work_private/python-examples/28_examples_asyncio/async_wait_gather_completed.py:42>>, <Task pending coro=<do_work() running at D:/work_private/python-examples/28_examples_asyncio/async_wait_gather_completed.py:42>>]
+# task:  [<Task pending coro=<do_work() running at D:/work_private/python-examples/28_examples_asyncio/async_embed_gather.py:44>>, <Task pending coro=<do_work() running at D:/work_private/python-examples/28_examples_asyncio/async_embed_gather.py:44>>, <Task pending coro=<do_work() running at D:/work_private/python-examples/28_examples_asyncio/async_embed_gather.py:44>>]
 # waiting:  1
 # waiting:  3
 # waiting:  4
 # result:  execute do work finish: 1
-# result:  execute do work finish: 4
 # result:  execute do work finish: 3
-# time:  3.9912283420562744
+# result:  execute do work finish: 4
+# time:  3.9902281761169434
