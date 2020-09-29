@@ -45,7 +45,13 @@ async def do_work(x):
     # 等待/阻塞：模拟有耗时操作，如读写文件或网络请求等
     # 模拟了阻塞或者耗时操作，这个时候就会让出控制权
     # 即当遇到阻塞调用的函数的时候，使用await方法将协程的控制权让出，以便loop调用其他协程任务
-    await asyncio.sleep(x)
+    # asyncio.sleep() 也是一个 coroutine，await 可以方便的调用其他的协程
+    await asyncio.sleep(x) # 由于 asyncio.sleep() 也是一个coroutine，所以线程不会等待 asyncio.sleep()，
+                           # 而是直接中断并执行下一个消息循环。当 asyncio.sleep() 返回时，
+                           # 线程就可以从await 拿到返回值（此处是None），然后接着执行下一行语句。
+
+    # 把asyncio.sleep(1)看成是一个耗时1秒的IO操作，在此期间，主线程并未等待，
+    # 而是去执行EventLoop中其他可以执行的coroutine了，因此可以实现并发执行。
     return "execute do work finish: %s" % x
 
 
