@@ -73,9 +73,9 @@ loop.run_until_complete(task)   # 协程方法运行，协程方法 do_work 输�
 print("task: ", task)   # finished / done
 
 # 返回结果发现耗时 3 秒
-print("result: ", task.result()) # result:  execute do work finish: 3
+print("result: ", task.result())  # result:  execute do work finish: 3
 
-print("time: ", now_time() - start_time) # time:  3.001171588897705
+print("time: ", now_time() - start_time)  # time:  3.001171588897705
 
 
 # output:
