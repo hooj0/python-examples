@@ -65,6 +65,9 @@ print("time: ", now_time() - start_time)
 # 线程回调，同步阻塞调用
 new_loop.call_soon_threadsafe(do_work, 5)
 new_loop.call_soon_threadsafe(do_work, 3)
+# 非线程安全
+new_loop.call_soon(do_work, 1)
+
 
 # output:
 # ---------------------------------------------------------------------------
