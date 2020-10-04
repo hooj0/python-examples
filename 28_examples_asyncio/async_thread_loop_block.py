@@ -5,11 +5,11 @@
 # @github: https://github.com/hooj0
 # @create date: 2020-09-28 16:07:27
 # @copyright by hoojo@2018
-# @changelog python3 `asyncio -> thread in loop` example
+# @changelog python3 `asyncio -> call_later` example
 
 
 # ===============================================================================
-# 标题：python3 asyncio thread in loop example
+# 标题：python3 asyncio call_later example
 # ===============================================================================
 # 使用：关于asyncio的一些关键字的说明：
 #
@@ -21,13 +21,14 @@
 # async/await 关键字：python3.5用于定义协程的关键字，async定义一个协程，await用于挂起阻塞的异步调用接口。
 # -------------------------------------------------------------------------------
 # 描述：很多时候我们的事件循环用于注册协程，而有的协程需要动态的添加到事件循环中。
+#
+#       call_later(delay, callback, *args) 延时delay后执行callback，返回一个asyncio.Handle对象，
+#       可以通过cancel取消。类似于这个方法的还有call_at等
 # -------------------------------------------------------------------------------
 
 
 # -------------------------------------------------------------------------------
-# 不同线程的事件循环，
-#   一个简单的方式就是使用多线程，当前线程创建一个事件循环，然后在新建一个线程，在新线程中启动事件循环，
-#   并且当前线程不会被block(阻塞)。
+# 延时delay后执行callback
 # -------------------------------------------------------------------------------
 import time
 import asyncio
@@ -60,14 +61,13 @@ thread = Thread(target=start_loop, args=(new_loop, ))
 # 启动线程，启动事件注册
 thread.start()
 
-print("time: ", now_time() - start_time)
-
 # 线程回调，同步阻塞调用
 new_loop.call_soon_threadsafe(do_work, 5)
 new_loop.call_soon_threadsafe(do_work, 3)
 # 非线程安全
 new_loop.call_soon(do_work, 1)
 
+print("time: ", now_time() - start_time)
 
 # output:
 # ---------------------------------------------------------------------------
