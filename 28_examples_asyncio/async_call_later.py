@@ -35,7 +35,6 @@
 # -------------------------------------------------------------------------------
 import time
 import asyncio
-from threading import Thread
 
 
 now_time = (lambda: time.time())
@@ -44,11 +43,19 @@ now_time = (lambda: time.time())
 # 定义一个模拟阻塞的方法
 def do_work(x, loop):
     print("start work: ", x)
-    time.sleep(x)
-    print("work finished: ", x)
 
-    if x >= 2:
+    if x >= 5:
         loop.stop()
+        print("work stop: ", x)
+    else:
+        handler = loop.call_later(1, do_work, x + 1, loop)
+
+        if x + 1 >= 5:
+            handler.cancel()    # 取消调用
+            loop.stop()
+            print("work cancel: ", x)
+        else:
+            print("work finished: ", x)
 
 
 start_time = now_time()
@@ -57,24 +64,23 @@ start_time = now_time()
 loop = asyncio.get_event_loop()
 # 非线程安全，按顺序执行
 loop.call_soon(do_work, 1, loop)
-loop.call_soon(do_work, 2, loop)
 
 loop.run_forever()
 loop.close()
 
 print("time: ", now_time() - start_time)
 
-
-
-
 # output:
 # ---------------------------------------------------------------------------
 # 启动上述代码之后，当前线程会被block，
-# 新线程中会按照顺序执行 call_soon_threadsafe 方法注册的 do_work 方法， 后者因为 time.sleep 操作是同步阻塞的，
-# 因此运行完毕more_work需要大致 5 + 3
+# 新线程中会按照顺序执行 call_soon 方法注册的 do_work 方法， 后者因为 call_later 延迟调用
 # ---------------------------------------------------------------------------
 # start work:  1
 # work finished:  1
 # start work:  2
 # work finished:  2
-# time:  3.000171422958374
+# start work:  3
+# work finished:  3
+# start work:  4
+# work cancel:  4
+# time:  3.001171588897705
