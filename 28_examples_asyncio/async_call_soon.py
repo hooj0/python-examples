@@ -35,7 +35,6 @@
 # -------------------------------------------------------------------------------
 import time
 import asyncio
-from threading import Thread
 
 
 now_time = (lambda: time.time())
@@ -67,8 +66,7 @@ print("time: ", now_time() - start_time)
 # output:
 # ---------------------------------------------------------------------------
 # 启动上述代码之后，当前线程会被block，
-# 新线程中会按照顺序执行 call_soon_threadsafe 方法注册的 do_work 方法， 后者因为 time.sleep 操作是同步阻塞的，
-# 因此运行完毕more_work需要大致 5 + 3
+# 新线程中会按照顺序执行 call_soon 方法注册的 do_work 方法， 后者因为 time.sleep 操作是同步阻塞的，
 # ---------------------------------------------------------------------------
 # start work:  1
 # work finished:  1
