@@ -5,11 +5,11 @@
 # @github: https://github.com/hooj0
 # @create date: 2020-09-25 16:07:27
 # @copyright by hoojo@2018
-# @changelog python3 `asyncio -> async` example
+# @changelog python3 `asyncio -> chain task` example
 
 
 # ===============================================================================
-# 标题：python3 `asyncio -> async` example
+# 标题：python3 `asyncio -> chain task` example
 # ===============================================================================
 # 使用：asyncio 库中的 async 异步示例
 #
@@ -29,7 +29,6 @@
 # 异步模式：
 #       使用asyncio.async包装的协程，不阻塞，立即返回一个Task对象
 # -------------------------------------------------------------------------------
-import time
 import asyncio
 import itertools
 import sys
