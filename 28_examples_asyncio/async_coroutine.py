@@ -54,18 +54,22 @@ coroutine = do_work(2)  # async 把一个 generator 标记为 coroutine 类型
 loop = asyncio.get_event_loop()
 # 创建一个任务：一个协程对象就是一个原生可以挂起的函数
 task = loop.create_task(coroutine)
-#
+# 或者
 # task = asyncio.ensure_future(coroutine)
+# 或者，但无法获取任务状态
+# task = coroutine
+
 # 此时协程对象被任务包装，可以获取任务状态
 print("task: ", task)   # pending
 
 # 协程对象需要注册到事件循环，由事件循环调用
-# 把这个 coroutine 扔到 EventLoop 中执行
+# 把这个 coroutine 扔到 EventLoop 中执行；内部会调用ensure_future，内部会执行loop.run_forever
 loop.run_until_complete(task)   # 协程方法运行，输出运行结果
 # 协程任务运行完成
 print("task: ", task)   # finished
 
 print("time: ", now_time() - start_time)
+
 
 # output:
 # ---------------------------------------------------------------------------
