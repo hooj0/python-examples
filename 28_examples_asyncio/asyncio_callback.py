@@ -52,12 +52,17 @@ def parser(task):
     print(data, time.time())
 
 
+def resolve(str, task):
+    data = task.result()
+    print(data, time.time())
+
 # 构建多个任务同时请求
 def run():
     for i in range(5):
         task = asyncio.ensure_future(request(url % i))
         # 添加回调函数设置
         task.add_done_callback(parser)
+        # task.add_done_callback(partial(resolve, "say hi"))
         tasks.append(task)
 
 
