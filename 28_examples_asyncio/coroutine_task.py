@@ -24,7 +24,7 @@
 # Future类似，通过Future对象可以了解人物执行的状态数据。事件循环来监控Future对象是否完成。
 # Task类是Future的子类，它的作用就是把协程包装成一个Future对象。
 # -------------------------------------------------------------------------------
-# 描述：用一些示例演示程序、线程、协程
+# 描述：创建 loop.create_task 任务，运行协程
 # -------------------------------------------------------------------------------
 import asyncio
 import time
@@ -41,13 +41,17 @@ async def get_corouting():
 
 
 loop = asyncio.get_event_loop()
-# 传入 协程 对象到事件循环中可直接运行
+# 传入 协程 对象，构建任务对象
+# Task类是Future的子类，它的作用就是把协程包装成一个Future对象
 task = loop.create_task(get_corouting())
+# 传入 任务对象，到事件循环中可直接运行
 result = loop.run_until_complete(task)
 print("result: ", result)
+print("result: ", task.result())
 
 
 # output:
 # ---------------------------------------------------------------------------
 # run get corouting...
-# result:  now time 1602226852.3201892
+# result:  now time 1602313530.4029715
+# result:  now time 1602313530.4029715
