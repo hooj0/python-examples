@@ -5,11 +5,11 @@
 # @github: https://github.com/hooj0
 # @create date: 2020-09-25 16:07:27
 # @copyright by hoojo@2018
-# @changelog python3 `asyncio -> task coroutine` example
+# @changelog python3 `asyncio -> future coroutine` example
 
 
 # ===============================================================================
-# 标题：python3 asyncio task coroutine example
+# 标题：python3 asyncio future coroutine example
 # ===============================================================================
 # 使用：关于asyncio的一些示例演示，说明asyncio存在的意义
 #
@@ -40,9 +40,19 @@ async def get_corouting():
     return "now time %s" % time.time()
 
 
+# 回调函数，参数必须是future
+def cb(future):
+    print("future: ", future)
+    print(future.result())
+
+
 loop = asyncio.get_event_loop()
 # 传入 协程 对象，构建任务对象
 future = asyncio.ensure_future(get_corouting())
+
+# 可以添加回调参数
+# future.add_done_callback(cb)
+
 # 传入 任务对象，到事件循环中可直接运行
 result = loop.run_until_complete(future)
 print("result: ", result)
