@@ -40,10 +40,20 @@ async def get_corouting():
     return "now time %s" % time.time()
 
 
+# 回调函数，参数必须是future
+def cb(future):
+    print("future: ", future)
+    print(future.result())
+
+
 loop = asyncio.get_event_loop()
 # 传入 协程 对象，构建任务对象
 # Task类是Future的子类，它的作用就是把协程包装成一个Future对象
 task = loop.create_task(get_corouting())
+
+# 可以添加回调参数
+# task.add_done_callback(cb)
+
 # 传入 任务对象，到事件循环中可直接运行
 result = loop.run_until_complete(task)
 print("result: ", result)
