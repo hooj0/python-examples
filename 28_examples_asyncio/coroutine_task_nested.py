@@ -34,7 +34,7 @@ import time
 # 原始协程，被async可被视为一个协程对象
 # -------------------------------------------------------------------------------
 async def sum(x, y):
-
+    # 嵌套调用，接收返回值
     data = await compute(x, y)
     print("{0} + {1} = {2}".format(x, y, data))
 
@@ -49,19 +49,13 @@ async def compute(x, y):
 
 
 loop = asyncio.get_event_loop()
-# 传入 协程 对象，构建任务对象
-# Task类是Future的子类，它的作用就是把协程包装成一个Future对象
-task = loop.create_task(sum(2, 3))
-
 # 传入 任务对象，到事件循环中可直接运行
-result = loop.run_until_complete(task)
+result = loop.run_until_complete(sum(2, 3))
 print("result: ", result)
-print("result: ", task.result())
 
 
 # output:
 # ---------------------------------------------------------------------------
 # compute 2 + 3
 # 2 + 3 = 5
-# result:  now time 1602575378.9483352
 # result:  now time 1602575378.9483352
