@@ -52,6 +52,8 @@ tasks_2 = [get_corouting(i) for i in range(5) if i % 2 != 0]
 group_tasks_1 = asyncio.gather(*tasks_1)
 group_tasks_2 = asyncio.gather(*tasks_2)
 result = loop.run_until_complete(asyncio.gather(group_tasks_1, group_tasks_2))
+# 批量取消任务
+# group_tasks_2.cancel()
 
 print("result: ", result)
 
@@ -60,6 +62,6 @@ print("result: ", result)
 # run get corouting... 0
 # run get corouting... 4
 # run get corouting... 2
-# run get corouting... 1
 # run get corouting... 3
-# result:  ['now time 1602573915.4706292', 'now time 1602573915.4706292', 'now time 1602573915.4706292', 'now time 1602573915.4706292', 'now time 1602573915.4706292']
+# run get corouting... 1
+# result:  [['now time 1602577686.0662947', 'now time 1602577686.0662947', 'now time 1602577686.0662947'], ['now time 1602577686.0662947', 'now time 1602577686.0662947']]
