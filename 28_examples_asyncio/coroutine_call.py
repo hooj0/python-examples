@@ -42,11 +42,15 @@ def callback(sleep_times, func_name, loop):
 
 loop = asyncio.get_event_loop()
 
+# 延迟回调
 loop.call_later(3, callback, 3, "call_later", loop)
 loop.call_later(2, callback, 2, "call_later", loop)
+# 延迟 指定时间回调
 loop.call_at(loop.time(), callback, 4, "call_at", loop)
+loop.call_at(loop.time() + 3, callback, 7, "call_at", loop)
+# 立即回调
 loop.call_soon(callback, 5, "call_soon", loop)
-
+# 立即回调，线程安全
 loop.call_soon_threadsafe(callback, 2, "call_soon_threadsafe", loop)
 
 loop.run_forever()
