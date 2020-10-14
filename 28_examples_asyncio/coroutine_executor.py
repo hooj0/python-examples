@@ -58,8 +58,8 @@ loop.run_until_complete(asyncio.wait(tasks))
 # 在这个事件循环中，call_soon、call_soon_threadsafe最先执行，
 # 接着call_at指定的时间是loop当前时间，call_at执行，随后是call_later根据延时的时间大小执行。
 # ---------------------------------------------------------------------------
-# call_soon time 5 loop_time 11602572.582
-# call_soon_threadsafe time 2 loop_time 11602572.582
-# call_at time 4 loop_time 11602572.582
-# call_later time 2 loop_time 11602574.579
-# call_later time 3 loop_time 11602575.577
+# work 1 success
+# work 2 success
+# work 3 success
+# work 4 success
+# work 5 success
