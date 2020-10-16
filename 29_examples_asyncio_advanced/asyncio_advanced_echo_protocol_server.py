@@ -3,7 +3,7 @@
 # @author: hoojo
 # @email: hoojo_@126.com
 # @github: https://github.com/hooj0
-# @create date: 2020-10-14
+# @create date: 2020-10-15
 # @copyright by hoojo@2018
 # @changelog python3 `asyncio advanced -> protocol server` example
 
@@ -20,53 +20,94 @@
 # 3、asyncio模块：协程并发处理
 # -------------------------------------------------------------------------------
 # 描述：利用 asyncio.Protocol 实现服务端和客户端数据相互传送
+# State machine of calls:
+#
+#       start -> CM [-> DR*] [-> ER?] -> CL -> end
+#
+#     * CM: connection_made()
+#     * DR: data_received()
+#     * ER: eof_received()
+#     * CL: connection_lost()
 # -------------------------------------------------------------------------------
 import asyncio
+import logging
+import sys
 
 
 # -------------------------------------------------------------------------------
-# 实现服务端和
+# 实现服务端
 # -------------------------------------------------------------------------------
-async def do_work():
-    print("start do work")
-    return "say start work"
+SERVER_ADDRESS = ["localhost", 8080]
 
 
-async def main():
-    print("构建任务对象")
-    task = loop.create_task(do_work())
-    print("等待task的结果: ", task)  # pending 状态
+class EchoProtocolServer(asyncio.Protocol):
 
-    # await作用：等 task 返回结果，再往下运行
-    data = await task   # 遇到await，发现需要返回值结果，立即运行上面的task
-    # 需要等待 task 返回结果，才能获得返回值
-    # data = task
-    # data = task.result()
+    # 获取链接
+    def connection_made(self, transport):
+        self.transport = transport
+        self.address = transport.get_extra_info("peername")
+        self.log = logging.getLogger("EchoProtocolServer[{}:{}]".format(*self.address))
 
-    print("返回的结果data: ", data)
-    print("返回的结果result: ", task.result())
+        self.log.debug("accept client connect: %s:%s", *self.address)
 
-    print("已完成任务: ", task)  # finished 状态；经过上面的运行，task里面已经有result执行结果
+    # 接收数据
+    def data_received(self, data):
+        self.log.debug("received data: %s", data)
 
-    return data
+        # 向客户端发送数据
+        text = b"server received [%s], thx!" % data
+        self.transport.write(text)
+        self.log.debug("send data: %s", text)
+
+    # 接收退出信号
+    def eof_received(self):
+        self.log.debug("received data EOF")
+        # 发送退出信号
+        if self.transport.can_write_eof():
+            self.transport.write_eof()
+
+    # 关闭链接
+    def connection_lost(self, exc):
+        if exc:
+            self.log.error("connection error: ", exc)
+        else:
+            self.log.debug("connection closed...")
+            # 停止循环事件
+            # loop.stop()
+            
+        super(EchoProtocolServer, self).connection_lost(exc)
+
+
+# 配置日志
+logging.basicConfig(level=logging.DEBUG, stream=sys.stderr, format="%(name)s: %(message)s")
+# 获取日志对象
+log = logging.getLogger("main")
 
 loop = asyncio.get_event_loop()
+# 创建server
+factory = loop.create_server(EchoProtocolServer, *SERVER_ADDRESS)
+# 利用事件循环运行server
+server = loop.run_until_complete(factory)
+log.debug("server start, ip: %s, port: %s", *SERVER_ADDRESS)
 
 try:
-    result = loop.run_until_complete(main())
-    print("返回结果：", result)
+    loop.run_forever()
 finally:
-    print("关闭循环事件，释放资源")
+    log.debug("close server")
+    server.close()
+    loop.run_until_complete(server.wait_closed())
+    log.debug("close loop event")
     loop.close()
 
 
 # output:
 # ---------------------------------------------------------------------------
-# 构建任务对象
-# 等待task的结果:  <Task pending coro=<do_work() running at D:/work_private/python-examples/29_examples_asyncio_advanced/asyncio_advanced_task.py:30>>
-# start do work
-# 返回的结果data:  say start work
-# 返回的结果result:  say start work
-# 已完成任务:  <Task finished coro=<do_work() done, defined at D:/work_private/python-examples/29_examples_asyncio_advanced/asyncio_advanced_task.py:30> result='say start work'>
-# 返回结果： say start work
-# 关闭循环事件，释放资源
+# asyncio: Using selector: SelectSelector
+# main: server start, ip: localhost, port: 8080
+# EchoProtocolServer[127.0.0.1:5496]: accept client connect: 127.0.0.1:5496
+# EchoProtocolServer[127.0.0.1:5496]: received data: b'This is the message. '
+# EchoProtocolServer[127.0.0.1:5496]: send data: b'server received [This is the message. ], thx!'
+# EchoProtocolServer[127.0.0.1:5496]: received data: b'It will be sent in parts.'
+# EchoProtocolServer[127.0.0.1:5496]: send data: b'server received [It will be sent in parts.], thx!'
+# EchoProtocolServer[127.0.0.1:5496]: received data EOF
+# EchoProtocolServer[127.0.0.1:5496]: connection closed...
