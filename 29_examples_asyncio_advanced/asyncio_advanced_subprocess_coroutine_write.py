@@ -3,13 +3,13 @@
 # @author: hoojo
 # @email: hoojo_@126.com
 # @github: https://github.com/hooj0
-# @create date: 2020-10-14
+# @create date: 2020-10-16
 # @copyright by hoojo@2018
-# @changelog python3 `asyncio advanced -> subprocess coroutine write` example
+# @changelog python3 `asyncio advanced -> subprocess coroutine communicate` example
 
 
 # ===============================================================================
-# 标题：python3 asyncio advanced subprocess coroutine write example
+# 标题：python3 asyncio advanced subprocess coroutine communicate example
 # ===============================================================================
 # 使用：asyncio模块作用，构建协程并发应用的工具
 #
@@ -19,85 +19,61 @@
 # 2、threading模块：多线程并发处理
 # 3、asyncio模块：协程并发处理
 # -------------------------------------------------------------------------------
-# 描述：利用协程的方式实现子进程的调用
+# 描述：利用协程管道传数据给子进程的调用处理
 # -------------------------------------------------------------------------------
 import asyncio
 import os
+import sys
 
 
 # -------------------------------------------------------------------------------
 # 实现子进程的调用
 # -------------------------------------------------------------------------------
-def parser_result(output):
-    print("parser result...")
-    if not output:
-        return []
+async def tr_command(input):
+    print("start run tr command")
 
-    lines = output.splitlines()
-    headers = lines[0].split()
-    devices = lines[1:]
+    cmd_process = asyncio.create_subprocess_exec("tr", "[:lower:]", "[:upper:]", stdout=asyncio.subprocess.PIPE, stdin=asyncio.subprocess.PIPE)
 
-    return [dict(zip(headers, line.split())) for line in devices]
+    print("wait subprocess execute finished")
+    sub_process = await cmd_process
+    print("subprocess process startup:", sub_process.pid)
 
+    # 查看子进程运行的标准输出和错误
+    print("subprocess output & error")
+    stdout, stderr = sub_process.communicate(input.encode())
 
-async def df_command():
-    print("start run cmd df -hl")
-    buffer = bytearray()
+    print("wait subprocess finished")
+    await sub_process.wait()
 
-    if os.name == 'nt':
-        cmd_process = asyncio.create_subprocess_exec("cmd", "/c", "dir", "c:\\Users", stdout=asyncio.subprocess.PIPE)
-        # cmd_process = asyncio.create_subprocess_exec("cmd", "/c", "dir", stdout=asyncio.subprocess.PIPE)
-        # cmd_process = asyncio.create_subprocess_exec("diskpart", "list disk", stdout=asyncio.subprocess.PIPE)
-    else:
-        cmd_process = asyncio.create_subprocess_exec("df", "-h", stdout=asyncio.subprocess.PIPE)
-    print("execute process")
-
-    proc = await cmd_process
-    print("process startup: ", proc.pid)
-
-    while True:
-        line = await proc.stdout.readline()
-        print("read line: ", line)
-
-        if not line:
-            print("read stdout finished")
-            break
-
-        buffer.extend(line)
-
-    print("wait cmd process finished")
-    await proc.wait()
-
-    return_code = proc.returncode
+    return_code = sub_process.returncode
     print("return code: ", return_code)
 
-    results = []
+    data = ""
     if not return_code:
-        cmd_output = bytes(buffer).decode("GBK")
-        results = parser_result(cmd_output)
+        data = bytes(stdout).decode("gbk")
 
-    return (return_code, results)
+    return (return_code, data)
 
 
-if os.name == 'nt':
-    # On Windows, the ProactorEventLoop is necessary to listen on pipes
-    loop = asyncio.ProactorEventLoop() # for subprocess' pipes on Windows
-    asyncio.set_event_loop(loop)
-else:
-    loop = asyncio.get_event_loop()
+MESSAGE = """
+This message will be converted
+to all caps.
+"""
+
+loop = asyncio.get_event_loop()
 
 try:
     print("going event loop")
+    print("os.name: ", os.name)
+    print("sys.platform: ", sys.platform)
 
-    code, result = loop.run_until_complete(df_command())
+    code, result = loop.run_until_complete(tr_command(MESSAGE))
     print("result：", result)
 
     if code:
         print("error exit: ", code)
     else:
-        print("\n\nFree space:")
-        for item in result:
-            print(item)
+        print("result:", result)
 
     loop.run_forever()
 finally:
