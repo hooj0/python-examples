@@ -32,9 +32,11 @@ def b():
         print(x)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     multiprocessing.Process(target=a, name="p-a").start()
     multiprocessing.Process(target=b, name="p-b").start()
+
+
 # output:
 # ---------------------------------------------------------------------------
 # 0
