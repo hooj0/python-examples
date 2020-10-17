@@ -56,6 +56,7 @@ def resolve(str, task):
     data = task.result()
     print(data, time.time())
 
+
 # 构建多个任务同时请求
 def run():
     for i in range(5):
