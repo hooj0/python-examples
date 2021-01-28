@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ keyword|e }} 的搜索结果</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: center;
+            margin: 3em auto;
+            width: 900px;
+        }
+
+        td, th {
+            border: #aaa solid 1px;
+            color: #333333;
+            font-weight: 400;
+        }
+
+        thead tr {
+            background-color: #F5F5F5;
+        }
+
+        tfoot tr {
+            background-color: #F5F5F5;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>名称</th>
+                <th>大小</th>
+                <th>日期</th>
+                <th>下载</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set ns = namespace(count=0) %}
+            {% for site, records in data.items() %}
+                {% set ns.count = ns.count + records|length %}
+                <tr>
+                    <td colspan="4" align="left">{{ site|e }} 共搜索到 {{ records|length }} 条记录</td>
+                </tr>
+                {% for item in records %}
+                <tr>
+                    <td style="width: 600px; text-align: left; padding-left: 1em;">{{ item.title|e }}</td>
+                    <td>{{ item.size|e }}</td>
+                    <td>{{ item.date|e }}</td>
+                    <td><a href="{{ item.magnet|e }}">下载</a></td>
+                </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" align="left">总共搜索到 {{ ns.count }} 条记录</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
