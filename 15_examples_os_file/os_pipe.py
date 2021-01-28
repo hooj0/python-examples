@@ -40,16 +40,16 @@ if processid:
     # 关闭文件描述符 w
     os.close(w)
     r = os.fdopen(r)
-    print ("Parent reading")
+    print("Parent reading")
     str = r.read()
-    print ("text =", str)
+    print("text =", str)
     sys.exit(0)
 else:
     # 子进程
     os.close(r)
     w = os.fdopen(w, 'w')
-    print ("Child writing")
+    print("Child writing")
     w.write("Text written by child...")
     w.close()
-    print ("Child closing")
+    print("Child closing")
     sys.exit(0)
