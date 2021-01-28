@@ -142,7 +142,3 @@ r = requests.get('http://m.ctrip.com', proxies=proxies)
 proxies = {
     "http": "http://user:pass@10.10.1.10:3128/",
 }
-
-# output:
-# -------------------------------------------------------------------------------
-#
