@@ -54,7 +54,7 @@ sht.range('a1:d4').value = [1, 2, 3, 4]
 sht.range('a2').options(transpose=True).value = [5, 6, 7, 8]
 
 # 同时插入行列
-sht.range('a6').expand('table').value = [['a','b','c'],['d','e','f'],['g','h','i']]
+sht.range('a6').expand('table').value = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']]
 
 # 在当前目录下生成文件
 wb.save('demo1.xlsx')
