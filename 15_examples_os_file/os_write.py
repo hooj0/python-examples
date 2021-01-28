@@ -37,11 +37,11 @@ str = "new content"
 ret = os.write(fd, str)
 
 # 输入返回值
-print ("写入的位数为: ")
-print (ret)
+print("写入的位数为: ")
+print(ret)
 
-print ("写入成功")
+print("写入成功")
 
 # 关闭文件
 os.close(fd)
-print ("关闭文件成功!!")
+print("关闭文件成功!!")
