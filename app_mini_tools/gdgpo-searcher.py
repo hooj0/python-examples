@@ -134,6 +134,9 @@ class Viewer:
 
             row = 2
             for item in items:
+                sht.range("D%s" % row).api.NumberFormat = "yyyy-mm-dd HH:MM:SS"
+                sht.range("G%s" % row).api.NumberFormat = "0.0"
+                sht.range("H%s" % row).api.NumberFormat = "@"
                 sht.range("A%s" % row).value = [item["title"], item["url"], item["purchaser"], item["noticeTime"],
                                                 item["project_name"], item["general_situation"], item["amount"],
                                                 item["time"], item["remark"]]
@@ -198,6 +201,7 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
 
         doc = GDgpoSearcher.parser(self, content)
         rows = doc["data"]
+        info("%s -> request data row count: %s" % (self.site, len(rows)))
 
         site = "https://gdgpo.czt.gd.gov.cn"
         records = []
@@ -223,7 +227,7 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
         return {self.site: records}
 
 
-def executor(start_time, end_time, start=1, count=200):
+def executor(start_time, end_time, start=1, count=300):
 
     # 采取页号，起始页
     # start = 1
