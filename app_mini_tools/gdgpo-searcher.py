@@ -12,6 +12,7 @@
 # -------------------------------------------------------------------------------
 # 描述：一键提取广东 采购意向 搜索的结果数据
 # -------------------------------------------------------------------------------
+import os
 import json
 import sys
 import getopt
@@ -44,7 +45,7 @@ class GDgpoSearcher:
         """
         搜索方法，完成搜索请求
         """
-        info("%s -> start search keyword %s data......" % (self.site, self.keyword))
+        info("%s -> search keyword %s data......" % (self.site, self.keyword))
 
         response = requests.get(self.url % self.keyword, headers=self.headers)
         response.encoding = "UTF-8"
@@ -71,7 +72,7 @@ class GDgpoSearcher:
         将结果提取到数据数据集合列表：[{title, magnet, size, date}]
         """
 
-        info("%s -> start parser %s content......." % (self.site, len(content)))
+        info("%s -> parser %s content......." % (self.site, len(content)))
         if content.startswith("{") or content.startswith("["):
             debug("%s -> json parser." % self.site)
             return json.loads(content)
@@ -84,7 +85,7 @@ class GDgpoSearcher:
         展示方法，完成转换后的结果进行统一显示操作
         """
 
-        info("%s -> start view %s records......" % (self.site, self.keyword))
+        info("%s -> view %s record %s" % (self.site, self.keyword, len(records)))
 
         view = Viewer(self.site, self.keyword, records)
         view.excel()
@@ -94,11 +95,13 @@ class GDgpoSearcher:
         执行
         """
 
-        info("%s -> start executor %s operation ......" % (self.site, self.keyword))
+        info("%s -> executor %s operation ......" % (self.site, self.keyword))
 
         content = self.search()
         records = self.parser(content)
         self.viewer(records)
+
+        info("%s -> %s searcher execute finished" % (self.site, self.keyword))
 
 
 class Viewer:
@@ -111,13 +114,11 @@ class Viewer:
         self.keyword = keyword
         self.records = records
 
-        info("%s -> view %s record %s" % (self.site, self.keyword, len(self.records)))
-
     def excel(self):
         """
         excel 方式展示结果
         """
-        info("%s -> view %s EXCEL record" % (self.site, self.keyword))
+        debug("%s -> view %s EXCEL record" % (self.site, self.keyword))
 
         # visible=True 表示操作过程是否可显示
         app = xw.App(visible=False, add_book=False)
@@ -126,24 +127,25 @@ class Viewer:
         wb = app.books.add()
 
         # 页sheet1
-        for site, items in self.records.items():
-            sht = wb.sheets.add(site)
+        sht = wb.sheets.add("采购报告")
+        # 单个值插入
+        sht.range("A1").value = ["标题", "地址", "发布机构", "发布时间", "采购项目名称",	"采购需求概况", "预算金额(元)", "预计采购时间", "备注"]
+        row = 2
 
-            # 单个值插入
-            sht.range("A1").value = ["标题", "地址", "发布机构", "发布时间", "采购项目名称",	"采购需求概况", "预算金额(元)", "预计采购时间", "备注"]
+        for item in self.records:
 
-            row = 2
-            for item in items:
-                sht.range("D%s" % row).api.NumberFormat = "yyyy-mm-dd HH:MM:SS"
-                sht.range("G%s" % row).api.NumberFormat = "0.0"
-                sht.range("H%s" % row).api.NumberFormat = "@"
-                sht.range("A%s" % row).value = [item["title"], item["url"], item["purchaser"], item["noticeTime"],
-                                                item["project_name"], item["general_situation"], item["amount"],
-                                                item["time"], item["remark"]]
-                row = row + 1
+            sht.range("D%s" % row).api.NumberFormat = "yyyy-mm-dd HH:MM:SS"
+            sht.range("G%s" % row).api.NumberFormat = "0.0"
+            sht.range("H%s" % row).api.NumberFormat = "@"
+            sht.range("A%s" % row).value = [item["title"], item["url"], item["purchaser"], item["noticeTime"],
+                                            item["project_name"], item["general_situation"], item["amount"],
+                                            item["time"], item["remark"]]
+            row = row + 1
 
         # 在当前目录下生成文件
-        wb.save("采购报告-%s.xlsx" % time.strftime('%Y%m%d%H%M%S'))
+        file = "采购报告-%s.xlsx" % time.strftime('%Y%m%d%H%M%S')
+        info("%s -> save EXCEL file to: %s\%s" % (self.site, os.getcwd(), file))
+        wb.save(file)
         wb.close()
         app.quit()
 
@@ -162,7 +164,7 @@ def info(message, *args):
 # ===============================================================================
 class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
 
-    site = "Detail"
+    site = "Purchase Intention"
 
     url = "https://gdgpo.czt.gd.gov.cn/freecms/rest/v1/notice/selectInfoMoreChannel.do?"
     url += "&siteId=cd64e06a-21a7-4620-aebc-0576bab7e07a&channel=fca71be5-fc0c-45db-96af-f513e9abda9d"
@@ -175,23 +177,24 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
         GDgpoSearcher.__init__(self, self.site, self.url, keyword)
 
     def request_detail(self, url):
-        info("%s -> send request detail url: %s" % (self.site, url))
+        site = "Purchase Intention Detail"
+        info("%s -> send request detail url: %s" % (site, url))
 
         response = requests.get(url, headers=self.headers)
         response.encoding = "UTF-8"
 
-        debug("%s -> send request status_code: %s" % (self.site, response.status_code))
+        debug("%s -> send request status_code: %s" % (site, response.status_code))
 
         if response.ok:
-            debug("%s -> send request OK" % self.site)
+            debug("%s -> send request OK" % site)
 
             if response.status_code == 200:
                 return response.text
             else:
-                debug("%s -> send request failure." % self.site)
+                debug("%s -> send request failure." % site)
                 response.raise_for_status()
         else:
-            debug("%s -> send request DONT OK." % self.site)
+            debug("%s -> send request DONT OK." % site)
             return None
 
     def parser(self, content):
@@ -224,7 +227,7 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
                 "remark": pq(tr.find("td")[5]).text(),
             })
 
-        return {self.site: records}
+        return records
 
 
 def executor(start_time, end_time, start=1, count=300):
