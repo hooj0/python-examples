@@ -172,12 +172,11 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
         GDgpoSearcher.__init__(self, self.site, self.url, keyword)
 
     def request_detail(self, url):
-        info("%s -> start request detail url: %s" % (self.site, url))
+        info("%s -> send request detail url: %s" % (self.site, url))
 
         response = requests.get(url, headers=self.headers)
         response.encoding = "UTF-8"
 
-        debug("%s -> send request URL: %s" % (self.site, response.url))
         debug("%s -> send request status_code: %s" % (self.site, response.status_code))
 
         if response.ok:
@@ -280,7 +279,7 @@ def main(argv):
     try:
         long_opts = ["help"]
         opts, args = getopt.getopt(argv, "h", long_opts)
-        print('opts: %s, args: %s' % (opts, args))
+        # print('opts: %s, args: %s' % (opts, args))
     except getopt.GetoptError:
         print(help_usage)
         sys.exit(2)
