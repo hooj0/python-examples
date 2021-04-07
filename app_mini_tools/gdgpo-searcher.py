@@ -104,9 +104,6 @@ class GDgpoSearcher:
 class Viewer:
     """
     视图器父类，完成搜索结果统一展示操作；
-    分别提供text展示、html展示、excel展示
-
-    展示数据集：title, magnet, size, date
     """
 
     def __init__(self, site, keyword, records):
@@ -138,11 +135,12 @@ class Viewer:
             row = 2
             for item in items:
                 sht.range("A%s" % row).value = [item["title"], item["url"], item["purchaser"], item["noticeTime"],
-                                                item["project_name"], item["general_situation"], item["amount"], item["time"], item["remark"]]
+                                                item["project_name"], item["general_situation"], item["amount"],
+                                                item["time"], item["remark"]]
                 row = row + 1
 
         # 在当前目录下生成文件
-        wb.save("数据抓取结果-%s.xlsx" % time.time())
+        wb.save("采购报告-%s.xlsx" % time.strftime('%Y%m%d%H%M%S'))
         wb.close()
         app.quit()
 
@@ -166,10 +164,11 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
     url = "https://gdgpo.czt.gd.gov.cn/freecms/rest/v1/notice/selectInfoMoreChannel.do?"
     url += "&siteId=cd64e06a-21a7-4620-aebc-0576bab7e07a&channel=fca71be5-fc0c-45db-96af-f513e9abda9d"
     url += "&selectTimeName=noticeTime&noticeType=%s"
-    # url += "&currPage=%s&pageSize=%s"
+    # url += "&currPage=%s&pageSize=%s&operationStartTime=%s&operationEndTime=%s""
 
-    def __init__(self, keyword, start, count):
+    def __init__(self, keyword, start, count, start_time, end_time):
         self.url = self.url + "&currPage=%s&pageSize=%s" % (start, count)
+        self.url = self.url + "&operationStartTime=%s&operationEndTime=%s" % (start_time, end_time)
         GDgpoSearcher.__init__(self, self.site, self.url, keyword)
 
     def request_detail(self, url):
@@ -225,45 +224,57 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
         return {self.site: records}
 
 
-def executor(start=1, count=100):
+def executor(start_time, end_time, start=1, count=200):
 
     # 采取页号，起始页
     # start = 1
     # 单次采取数据量，越大越慢
-    # count = 100
+    # count = 200
 
     # 59 采购意向
     # 001051 单一来源公示
 
-    info("提取数据，提取页：%s，提取条数：%s" % (start, count))
-    searcher = GDgpoPurchaseIntentionSearcher("59", start, count)
+    now_date = time.strftime('%Y-%m-%d')
+    if start_time is None:
+        start_time = now_date + " 00:00:00"
+    else:
+        start_time = start_time + " 00:00:00"
+    if end_time is None:
+        end_time = now_date + " 23:59:59"
+    else:
+        end_time = end_time + " 23:59:59"
+
+    info("提取[%s  %s]数据，提取页：%s，提取条数：%s" % (start_time, end_time, start, count))
+    searcher = GDgpoPurchaseIntentionSearcher("59", start, count, start_time, end_time)
     searcher.executor()
+
 
 def main(argv):
     # print('argv: %s' % argv)
 
     help_usage = '''
-    USAGE: python gdgpo-searcher.py [OPTIONS] start count
+    USAGE: python gdgpo-searcher.py [OPTIONS] start_time end_time start count
     
     OPTIONS: 
-      -h,--help         use the help manual.
+      -h,--help     use the help manual.
       
     COMMANDS:
-      help        use the help manual
+      help          use the help manual
         
     EXAMPLES: 
       python gdgpo-searcher.py -h
       python gdgpo-searcher.py help
     
       python gdgpo-searcher.py
-      python gdgpo-searcher.py 1
-      
-      python gdgpo-searcher.py 1 100
+      python gdgpo-searcher.py 20201-04-07
+      python gdgpo-searcher.py 20201-04-07 20201-04-08
+      python gdgpo-searcher.py 20201-04-07 20201-04-08 1
+      python gdgpo-searcher.py 20201-04-07 20201-04-08 1 50
     '''
 
     # default run current path
     if len(argv) < 1:
-        executor()
+        executor(None, None)
         sys.exit()
 
     try:
@@ -283,7 +294,14 @@ def main(argv):
         if arg == 'help':
             print(help_usage)
         else:
-            executor(args[0], args[1])
+            if len(args) == 1:
+                executor(args[0], args[0])
+            elif len(args) == 2:
+                executor(args[0], args[1])
+            elif len(args) == 3:
+                executor(args[0], args[1], args[2])
+            elif len(args) == 4:
+                executor(args[0], args[1], args[2], args[3])
         sys.exit()
 
     if len(args) < 0:
