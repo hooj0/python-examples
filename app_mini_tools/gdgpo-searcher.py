@@ -45,12 +45,12 @@ class GDgpoSearcher:
         """
         搜索方法，完成搜索请求
         """
-        info("%s -> search keyword %s data......" % (self.site, self.keyword))
+        info("%s -> search keyword %s data" % (self.site, self.keyword))
 
         response = requests.get(self.url % self.keyword, headers=self.headers)
         response.encoding = "UTF-8"
 
-        debug("%s -> send request URL: %s" % (self.site, response.url))
+        info("%s -> send request URL: %s" % (self.site, response.url))
         debug("%s -> send request status_code: %s" % (self.site, response.status_code))
 
         if response.ok:
@@ -72,7 +72,7 @@ class GDgpoSearcher:
         将结果提取到数据数据集合列表：[{title, magnet, size, date}]
         """
 
-        info("%s -> parser %s content......." % (self.site, len(content)))
+        info("%s -> parser %s content" % (self.site, len(content)))
         if content.startswith("{") or content.startswith("["):
             debug("%s -> json parser." % self.site)
             return json.loads(content)
@@ -95,7 +95,7 @@ class GDgpoSearcher:
         执行
         """
 
-        info("%s -> executor %s operation ......" % (self.site, self.keyword))
+        info("%s -> executor %s operation" % (self.site, self.keyword))
 
         content = self.search()
         records = self.parser(content)
@@ -272,10 +272,10 @@ def main(argv):
       python gdgpo-searcher.py help
     
       python gdgpo-searcher.py
-      python gdgpo-searcher.py 20201-04-07
-      python gdgpo-searcher.py 20201-04-07 20201-04-08
-      python gdgpo-searcher.py 20201-04-07 20201-04-08 1
-      python gdgpo-searcher.py 20201-04-07 20201-04-08 1 50
+      python gdgpo-searcher.py 2021-04-07
+      python gdgpo-searcher.py 2021-04-07 2021-04-08
+      python gdgpo-searcher.py 2021-04-07 2021-04-08 1
+      python gdgpo-searcher.py 2021-04-07 2021-04-08 1 50
     '''
 
     # default run current path
