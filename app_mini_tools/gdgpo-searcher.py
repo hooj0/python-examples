@@ -47,7 +47,7 @@ class GDgpoSearcher:
         """
         info("%s -> search keyword %s data" % (self.site, self.keyword))
 
-        response = requests.get(self.url % self.keyword, headers=self.headers)
+        response = requests.get(self.url % self.keyword, headers=self.headers, timeout=100000)
         response.encoding = "UTF-8"
 
         info("%s -> send request URL: %s" % (self.site, response.url))
@@ -72,7 +72,12 @@ class GDgpoSearcher:
         将结果提取到数据数据集合列表：[{title, magnet, size, date}]
         """
 
-        info("%s -> parser %s content" % (self.site, len(content)))
+        if content:
+            info("%s -> parser %s content" % (self.site, len(content)))
+        else:
+            info("%s -> parser content is null, please try again." % self.site)
+            return None
+
         if content.startswith("{") or content.startswith("["):
             debug("%s -> json parser." % self.site)
             return json.loads(content)
@@ -99,7 +104,11 @@ class GDgpoSearcher:
 
         content = self.search()
         records = self.parser(content)
-        self.viewer(records)
+
+        if records:
+            self.viewer(records)
+        else:
+            info("%s -> no data to view, please try again." % self.site)
 
         info("%s -> %s searcher execute finished" % (self.site, self.keyword))
 
@@ -180,7 +189,7 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
         site = "Purchase Intention Detail"
         info("%s -> send request detail url: %s" % (site, url))
 
-        response = requests.get(url, headers=self.headers)
+        response = requests.get(url, headers=self.headers, timeout=100000)
         response.encoding = "UTF-8"
 
         debug("%s -> send request status_code: %s" % (site, response.status_code))
@@ -215,17 +224,18 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
             doc = pq(detail_result)
             tr = doc.find("table.noticeTable tr:eq(1)")
 
-            records.append({
-                "title": row["title"],
-                "url": detail_url,
-                "purchaser": row["fieldValues"]["f_purchaser"],
-                "noticeTime": row["fieldValues"]["f_noticeTime"],
-                "project_name": pq(tr.find("td")[1]).text(),
-                "general_situation": pq(tr.find("td")[2]).text(),
-                "amount": pq(tr.find("td")[3]).text(),
-                "time": pq(tr.find("td")[4]).text(),
-                "remark": pq(tr.find("td")[5]).text(),
-            })
+            if tr:
+                records.append({
+                    "title": row["title"],
+                    "url": detail_url,
+                    "purchaser": row["fieldValues"]["f_purchaser"],
+                    "noticeTime": row["fieldValues"]["f_noticeTime"],
+                    "project_name": pq(tr.find("td")[1]).text(),
+                    "general_situation": pq(tr.find("td")[2]).text(),
+                    "amount": pq(tr.find("td")[3]).text(),
+                    "time": pq(tr.find("td")[4]).text(),
+                    "remark": pq(tr.find("td")[5]).text(),
+                })
 
         return records
 
