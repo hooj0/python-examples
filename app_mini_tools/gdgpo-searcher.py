@@ -50,6 +50,10 @@ class GDgpoSearcher:
         response = requests.get(self.url % self.keyword, headers=self.headers, timeout=100000)
         response.encoding = "UTF-8"
 
+        if response.url.endswith("tipsPage.html"):
+            info("%s -> ERROR...SOS.... please try again." % self.site)
+            return None
+
         info("%s -> send request URL: %s" % (self.site, response.url))
         debug("%s -> send request status_code: %s" % (self.site, response.status_code))
 
