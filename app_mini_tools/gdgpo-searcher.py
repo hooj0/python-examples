@@ -109,7 +109,7 @@ class GDgpoSearcher:
         content = self.search()
         records = self.parser(content)
 
-        if records:
+        if records is not None and records:
             self.viewer(records)
         else:
             info("%s -> no data to view, please try again." % self.site)
@@ -142,17 +142,16 @@ class Viewer:
         # 页sheet1
         sht = wb.sheets.add("采购报告")
         # 单个值插入
-        sht.range("A1").value = ["标题", "地址", "发布机构", "发布时间", "采购项目名称",	"采购需求概况", "预算金额(元)", "预计采购时间", "备注"]
+        sht.range("A1").value = ["标题", "地址", "发布机构", "发布时间", "采购项目名称",	"采购需求概况", "落实政府采购政策情况", "预算金额(元)", "预计采购时间", "备注"]
         row = 2
 
         for item in self.records:
-
             sht.range("D%s" % row).api.NumberFormat = "yyyy-mm-dd HH:MM:SS"
             sht.range("G%s" % row).api.NumberFormat = "0.0"
             sht.range("H%s" % row).api.NumberFormat = "@"
             sht.range("A%s" % row).value = [item["title"], item["url"], item["purchaser"], item["noticeTime"],
-                                            item["project_name"], item["general_situation"], item["amount"],
-                                            item["time"], item["remark"]]
+                                            item["project_name"], item["general_situation"], item["general_policy"],
+                                            item["amount"], item["time"], item["remark"]]
             row = row + 1
 
         # 在当前目录下生成文件
@@ -225,26 +224,44 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
 
             detail_url = site + row["pageurl"]
             detail_result = self.request_detail(detail_url)
-            doc = pq(detail_result)
-            tr = doc.find("table.noticeTable tr:eq(1)")
+            if detail_result is None or not detail_result:
+                break
 
-            if tr:
-                records.append({
-                    "title": row["title"],
-                    "url": detail_url,
-                    "purchaser": row["fieldValues"]["f_purchaser"],
-                    "noticeTime": row["fieldValues"]["f_noticeTime"],
-                    "project_name": pq(tr.find("td")[1]).text(),
-                    "general_situation": pq(tr.find("td")[2]).text(),
-                    "amount": pq(tr.find("td")[3]).text(),
-                    "time": pq(tr.find("td")[4]).text(),
-                    "remark": pq(tr.find("td")[5]).text(),
-                })
+            doc = pq(detail_result)
+            tr_all = doc("table.noticeTable tr").eq(0).nextAll()
+            for tr_el in tr_all:
+                tr = pq(tr_el)
+                if len(tr.find("td")) == 7:
+                    records.append({
+                        "title": row["title"],
+                        "url": detail_url,
+                        "purchaser": row["purchaser"],
+                        "noticeTime": row["noticeTime"],
+                        "project_name": pq(tr.find("td")[1]).text(),
+                        "general_situation": pq(tr.find("td")[2]).text(),
+                        "general_policy": pq(tr.find("td")[3]).text(),
+                        "amount": pq(tr.find("td")[4]).text(),
+                        "time": pq(tr.find("td")[5]).text(),
+                        "remark": pq(tr.find("td")[6]).text(),
+                    })
+                else:
+                    records.append({
+                        "title": row["title"],
+                        "url": detail_url,
+                        "purchaser": row["purchaser"],
+                        "noticeTime": row["noticeTime"],
+                        "project_name": pq(tr.find("td")[1]).text(),
+                        "general_situation": pq(tr.find("td")[2]).text(),
+                        "general_policy": "/",
+                        "amount": pq(tr.find("td")[3]).text(),
+                        "time": pq(tr.find("td")[4]).text(),
+                        "remark": pq(tr.find("td")[5]).text(),
+                    })
 
         return records
 
 
-def executor(start_time, end_time, start=1, count=300):
+def executor(start_time, end_time, start=1, count=10):
 
     # 采取页号，起始页
     # start = 1
