@@ -188,9 +188,9 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
         self.url = self.url + "&operationStartTime=%s&operationEndTime=%s" % (start_time, end_time)
         GDgpoSearcher.__init__(self, self.site, self.url, keyword)
 
-    def request_detail(self, url):
+    def request_detail(self, url, seq):
         site = "Purchase Intention Detail"
-        info("%s -> send request detail url: %s" % (site, url))
+        info("%s -> send request detail url[%s]: %s" % (site, seq, url))
 
         response = requests.get(url, headers=self.headers, timeout=100000)
         response.encoding = "UTF-8"
@@ -213,24 +213,31 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
         """
         转换方法，完成搜索结果转换统一标准
         """
-
+        records = []
         doc = GDgpoSearcher.parser(self, content)
+        if not doc or doc is None:
+            return records
+
         rows = doc["data"]
         info("%s -> request data row count: %s" % (self.site, len(rows)))
 
         site = "https://gdgpo.czt.gd.gov.cn"
-        records = []
+        seq = 1
         for row in rows:
 
             detail_url = site + row["pageurl"]
-            detail_result = self.request_detail(detail_url)
+            detail_result = self.request_detail(detail_url, seq)
+            seq += 1
+
             if detail_result is None or not detail_result:
-                break
+                continue
 
             doc = pq(detail_result)
             tr_all = doc("table.noticeTable tr").eq(0).nextAll()
+
             for tr_el in tr_all:
                 tr = pq(tr_el)
+
                 if len(tr.find("td")) == 7:
                     records.append({
                         "title": row["title"],
@@ -261,7 +268,7 @@ class GDgpoPurchaseIntentionSearcher(GDgpoSearcher):
         return records
 
 
-def executor(start_time, end_time, start=1, count=10):
+def executor(start_time, end_time, start=1, count=300):
 
     # 采取页号，起始页
     # start = 1
