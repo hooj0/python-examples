@@ -150,3 +150,16 @@ print("------------------------------------------------------------------------"
 # -------------------------------------------------------------------------------
 # check 参数引发异常
 subprocess.run("exit 1", shell=True, check=True)
+
+# -------------------------------------------------------------------------------
+# 执行 uglifyjs 命令
+# -------------------------------------------------------------------------------
+process = subprocess.run("uglifyjs --help", stdout=subprocess.PIPE, shell=True, universal_newlines=True, encoding="utf-8")
+print(process)
+print("args: ", process.args)
+print("return code:", process.returncode)
+# 没有设置universal_newlines=True，返回字节
+# print("stdout: ", process.stdout.decode("utf-8"))
+print("stdout: ", process.stdout)
+# 没有设置参数 stderr
+print("stderr: ", process.stderr)   # None
