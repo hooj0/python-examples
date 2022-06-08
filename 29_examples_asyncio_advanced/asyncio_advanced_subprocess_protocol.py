@@ -89,7 +89,7 @@ async def df_command():
     # factory = functools.partial(DFCommandProtocol, done_future)
 
     if os.name == 'nt':
-        cmd_process = loop.subprocess_exec(lambda: DFCommandProtocol(done_future), "cmd", "dir", stderr=None, stdin=None)
+        cmd_process = loop.subprocess_exec(lambda: DFCommandProtocol(done_future), "cmd", "/c", "dir", stderr=None, stdin=None)
     else:
         cmd_process = loop.subprocess_exec(lambda: DFCommandProtocol(done_future), "df", "-hl", stderr=None, stdin=None)
 
