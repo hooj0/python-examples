@@ -251,3 +251,10 @@ print(time.monotonic())     # 16429.728
 print(time.perf_counter()) # 3.0229956427163254
 print(time.process_time()) # 0.156001
 
+t = time.time()
+print(t)                       #原始时间数据
+print(int(t))                  #秒级时间戳
+print(int(round(t * 1000)))    #毫秒级时间戳
+
+nowTime = lambda: int(round(time.time() * 1000))
+print(nowTime())              #毫秒级时间戳，基于lambda
