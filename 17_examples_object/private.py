@@ -28,4 +28,31 @@ pri = Private()
 
 # 公有方法访问私有属性
 pri.println()
-        
+
+
+
+#测试私有属性、私有方法
+class Employee:
+    __company = 'xxx公司'      #私有类属性，通过dir可以查到_Employee__company
+    
+    def __init__(self,name,age):
+        self.name = name
+        self.__age = age      #私有实例属性
+
+    def __work(self):     #私有实例方法，通过dir可以查到_Employee__work
+        print('好好工作，努力赚钱')
+
+    def say_company(self):
+        print('我的公司是：',Employee.__company)    #类内部可以直接访问私有属性，通过类名.属性名
+        print(self.name,'年龄是：',self.__age)
+        self.__work()
+
+p = Employee('jack',18)
+print(p.name)
+print(dir(p))
+p.say_company()
+print(p._Employee__age)     #通过这种方式可以直接访问到私有属性
+p._Employee__work()         #通过这种方式可以直接访问到私有方法
+
+#print(p.__age)         #直接访问私有属性报错
+#p.__work()             #直接访问私有方法报错        
