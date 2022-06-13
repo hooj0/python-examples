@@ -8,6 +8,7 @@
 # @changelog Added python3 `object -> @property` example
 
 '''
+    @property @xx.setter @xx.deleter
 	@property装饰器-get和set方法
 	@property 可以将一个方法的调用方式变成“属性调用”
 	@property 主要用于帮助我们处理属性的读操作、写操作。
