@@ -123,3 +123,6 @@ print('A-> {0[java]}, B-> {0[python]:d}'.format(var))   # A-> 234234, B-> 34590
 
 # 直接用key访问字典，** 参数转换
 print('A-> {java}, B-> {python:d}'.format(**var))       # A-> 234234, B-> 34590
+
+# f'age: {var["name"]}' 格式化输出
+print(f'age: {var["name"]}')
