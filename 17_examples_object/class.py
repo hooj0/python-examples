@@ -79,17 +79,29 @@ print('student info: %s' % stu.getInfo())
 
 
 class Province:
+
     country = "中国"  # 静态字段，在类中保存，将对象中共有的字段和值可以保存到静态字段
+    __city = "广州"   # 私有属性
+
     def __init__(self, name):
         self.name = name  # 普通字段
 
     @staticmethod
     def xxoo(arg1, arg2): # 静态方法
         print(arg1, arg2)
+        print(Province.country) # 通过类名 可以访问静态属性
+        # print(Province.__city) # 通过类名 不可以访问私有属性
+
+    @classmethod
+    def create(cls, name):
+        pro = cls(name=name)    # 可以实例化对象
+        return pro
 
     @classmethod
     def xo(cls):  # 类方法  会将类传递过来
         print(cls)
+        print(cls.country)  # cls 可以访问静态属性
+        print(cls.__city)   # 通过类名 可以访问私有属性
 
     @property
     def xx(self):  # 属性（特性），将方法伪装成字段  getter
@@ -99,6 +111,8 @@ class Province:
     @xx.setter
     def xx(self, value):  
         self.val = value
+        print(self.country)  # cls 可以访问静态属性
+        print(self.__city)   # 通过类名 可以访问私有属性
 
 
 hubei = Province("湖北")
