@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd /var/erp
-git pull
-source venv/bin/activate
-python manage.py migrate
+sudo git pull
+sudo source venv/bin/activate
+sudo python manage.py makemigrations
+sudo python manage.py migrate
