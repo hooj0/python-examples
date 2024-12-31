@@ -10,9 +10,9 @@ from app_webhook.model import MessageContent
 # 钉钉群机器人的 Webhook URL
 WEBHOOK_URL = "https://oapi.dingtalk.com/robot/send"
 # 访问 token
-ACCESS_TOKEN = "2bbdd023507b1ce91b377e3d23f4c75536c275cb2d75f96e2f49b53d6155215e"
+ACCESS_TOKEN = "2bbdd023507b1ce91b3775cb2d75f96e2f49b53d6155215e"
 # 加签密钥
-SECRET = "SEC03c4d1cb7abead6cbd325ecb068ff6fab1293a392af2e7861e90e332fda1203b"
+SECRET = "SEC03c4d1cb7abead6cbd325ec92af2e7861e90e332fda1203b"
 
 
 class DingTalkPush:

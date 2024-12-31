@@ -11,14 +11,14 @@ import requests
 from flask import Flask, request, jsonify
 
 # GitLab 项目设置的 Secret Token
-SECRET_TOKEN = 'c755461021cd52dddf6f8384600b1d78f1eaebc393ddad82194ae0a088687756'
+SECRET_TOKEN = 'c755461021cd52dddf6f8384600b182194ae0a088687756'
 
 # 钉钉群机器人的 Webhook URL
 WEBHOOK_URL = "https://oapi.dingtalk.com/robot/send"
 # 访问 token
-ACCESS_TOKEN = "2bbdd023507b1ce91b377e3d23f4c75536c275cb2d75f96e2f49b53d6155215e"
+ACCESS_TOKEN = "2bbdd023507b1ce91b37c275cb2d75f96e2f49b53d6155215e"
 # 加签密钥
-SECRET = "SEC03c4d1cb7abead6cbd325ecb068ff6fab1293a392af2e7861e90e332fda1203b"
+SECRET = "SEC03c4d1cb7abead6cbd325ec93a392af2e7861e90e332fda1203b"
 
 
 @dataclass

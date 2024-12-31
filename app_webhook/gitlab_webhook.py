@@ -7,7 +7,7 @@ from app_webhook.dingtalk_push import DingTalkPush, ACCESS_TOKEN, SECRET
 from app_webhook.model import MessageContent
 
 # GitLab 项目设置的 Secret Token
-SECRET_TOKEN = 'c755461021cd52dddf6f8384600b1d78f1eaebc393ddad82194ae0a088687756'
+SECRET_TOKEN = 'c755461021cd52dddf6f8384600bbc393ddad82194ae0a088687756'
 
 
 class WebhookHandler:
