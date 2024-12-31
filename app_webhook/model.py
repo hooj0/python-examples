@@ -21,12 +21,12 @@ class MessageContent:
 
     def __str__(self):
         return f"""### {self.title}   
-                    **仓库：** {self.repo}   
-                    **分支：** {self.branch}   
-                    **作者：** {self.user}   
-                    **时间：** {self.published_at()}   
-                    **状态：** {self.state_text()}   
-                    **文件更改数量：** {self.commit}   
-                    **更新命令日志：**
-                    \n> {self.log}
-                    """
+**仓库：** {self.repo}   
+**分支：** {self.branch}   
+**作者：** {self.user}   
+**时间：** {self.published_at()}   
+**状态：** {self.state_text()}   
+**文件更改数量：** {self.commit}   
+**更新命令日志：**
+\n> {self.log}
+"""

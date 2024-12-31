@@ -47,12 +47,12 @@ class WebhookHandler:
         print(f"Author: {user}")
         print(f"Commits: {commit}")
 
-        title = self.__get_update_title(branch)
+        title, branch_name = self.__get_update_title(branch)
 
         # 执行 Shell 代码
         state, message = self.__execute_shell_command("./script/update.sh")
 
-        message_content = MessageContent("宝乡通ERP服务更新", title, repo, branch, user, state, message, commit)
+        message_content = MessageContent("宝乡通ERP服务更新", title, repo, branch_name, user, state, message, commit)
         self.dingtalk_push.send_for(message_content)
 
 
@@ -103,13 +103,9 @@ class WebhookHandler:
 
         for key, title in branch_to_title.items():
             if key in branch:
-                return title
+                return title, key
 
         return "未知环境更新"
-
-    def __send_message(self, message):
-        # 在这里实现对消息的推送逻辑
-        print(f"Sending message: {message}")
 
 
 if __name__ == '__main__':

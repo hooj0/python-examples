@@ -17,6 +17,7 @@ def webhook():
 
     # 验证签名
     if not handler.verify_signature(token_signature):
+        print(flush=True)
         return jsonify({'error': 'Invalid or no X-Gitlab-Token'}), 403
 
     # 解析 JSON 数据
@@ -29,7 +30,7 @@ def webhook():
     # 检查事件类型
     event = request.headers.get('X-Gitlab-Event')
     if data['ref'] == 'refs/heads/main':
-        return jsonify({'status': 'ignore execution'}), 200
+        return jsonify({'status': f'{data["ref"]}, ignore execution'}), 200
 
     if event == 'Push Hook':
         # 处理推送事件
@@ -41,6 +42,7 @@ def webhook():
         # 其他类型的事件可以在这里处理
         pass
 
+    print(flush=True)
     return jsonify({'status': 'success'}), 200
 
 
