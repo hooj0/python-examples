@@ -39,10 +39,11 @@ def sign_xml(public_cert, private_key):
             method=signxml.algorithms.SignatureConstructionMethod.enveloped,
             signature_algorithm=signxml.algorithms.SignatureMethod.RSA_SHA256,  # 指定使用 sha256WithRSA 算法
             digest_algorithm=signxml.algorithms.DigestAlgorithm.SHA256,
+            c14n_algorithm=signxml.algorithms.CanonicalizationMethod.CANONICAL_XML_1_0,
         ).sign(root, key=key)
 
         # 将签名后的 XML 转换为字符串
-        signed_xml = etree.tostring(signed_root, encoding='utf-8', xml_declaration=True, pretty_print=True)
+        signed_xml = etree.tostring(signed_root, encoding='utf-8', xml_declaration=False, pretty_print=True)
 
         print("Signed XML with SHA256withRSA:")
         print(signed_xml.decode('utf-8'))
