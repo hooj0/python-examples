@@ -1,55 +1,52 @@
 import xmlsec
 from lxml import etree
 
+__encoding = "utf-8"
+
 # Load the private key used to sign the document.
 private_key = xmlsec.Key.from_file('private_key.pem', xmlsec.constants.KeyDataFormatPem)
 
-# Create a new XML document to sign.
-root = etree.Element('Example')
-etree.SubElement(root, 'Content').text = 'This is some content.'
+with open("unsigned.xml", 'rb') as file:
+    xml_text = file.read()
 
+print(xml_text)
 # Wrap the root element into an ElementTree object.
+root = etree.fromstring(xml_text, parser=etree.XMLParser(encoding=__encoding, remove_blank_text=True, remove_pis=True, remove_comments=True))
 doc = etree.ElementTree(root)
 
-# Create a signature template for RSA-SHA256 enveloped signature.
-signature_node = xmlsec.template.create(
-    doc,
-    c14n_method=xmlsec.constants.TransformExclC14N,
-    sign_method=xmlsec.constants.SignatureMethodRsaSha256
-)
+# Sign the document
+def sign_document(doc, key):
+    # Create a signature template for RSA-SHA1 enveloped signature
+    signature_node = xmlsec.template.create(
+        doc,
+        c14n_method=xmlsec.Transform.EXCL_C14N,
+        sign_method=xmlsec.Transform.RSA_SHA1,
+    )
 
-# Add the <ds:Signature/> node as the last child of the root element.
-root.append(signature_node)
+    # Add the <ds:Signature/> node to the document:
+    doc.getroot().append(signature_node)
 
-# Add the reference to the signed part of the document (the whole document in this case).
-ref = xmlsec.template.add_reference(
-    signature_node,
-    digest_algorithm=xmlsec.constants.TransformSha256
-)
+    # Create a reference to the enveloped document:
+    ref = xmlsec.template.add_reference(signature_node, xmlsec.Transform.SHA1)
 
-# Add the enveloped transform to the reference.
-xmlsec.template.add_transform(ref, xmlsec.constants.TransformEnveloped)
+    # Add an enveloped transform descriptor:
+    xmlsec.template.add_transform(ref, xmlsec.Transform.ENVELOPED)
 
-# Optionally, add a KeyInfo with an X509Certificate if you want to include it in the signature.
-key_info = xmlsec.template.ensure_key_info(signature_node)
-if public_cert_path := 'public_cert.pem':  # Only if you have a path to a public certificate file.
-    x509_data = xmlsec.template.add_x509_data(key_info)
-    cert = xmlsec.crypto.load_cert_from_file(public_cert_path, xmlsec.constants.KeyDataFormatCertPem)
-    xmlsec.template.x509data_add_certificate(x509_data, cert)
-    xmlsec.template.add_key_name(key_info).text = "MyKeyName"  # Optional
+    # Add the <ds:KeyInfo/> and <ds:KeyName/> nodes:
+    ki = xmlsec.template.ensure_key_info(signature_node)
+    xmlsec.template.add_key_name(ki, "MyKey")
 
-# Apply the signature using the private key.
-context = xmlsec.SignatureContext()
-context.key = private_key
-try:
-    context.sign(signature_node)
-except Exception as e:
-    print(f"Failed to sign the document: {e}")
-    raise
+    # Create a digital signature context (no key manager is needed):
+    ctx = xmlsec.SignatureContext()
 
-# Convert the signed document to a string and save it to a file.
-signed_xml_str = etree.tostring(doc, encoding='utf-8', pretty_print=True)
-with open('signed.xml', 'wb') as f:
-    f.write(signed_xml_str)
+    # Sign the template:
+    ctx.key = key
+    ctx.sign(signature_node)
 
-print("Document signed and saved to 'signed.xml'.")
+    return doc
+
+
+if __name__ == '__main__':
+    signed_doc = sign_document(doc, private_key)
+    signed_doc_xml = etree.tostring(signed_doc, encoding=__encoding, xml_declaration=False, pretty_print=True).decode(__encoding)
+    print(signed_doc_xml)
