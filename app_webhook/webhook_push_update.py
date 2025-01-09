@@ -11,14 +11,14 @@ import requests
 from flask import Flask, request, jsonify
 
 # GitLab 项目设置的 Secret Token
-SECRET_TOKEN = 'c755461021cd52dddf6f8384600b182194ae0a088687756'
+SECRET_TOKEN = 'c755461021cd52dddf6f8384600b1d78f1eaebc393ddad82194ae0a088687756'
 
 # 钉钉群机器人的 Webhook URL
 WEBHOOK_URL = "https://oapi.dingtalk.com/robot/send"
 # 访问 token
-ACCESS_TOKEN = "2bbdd023507b1ce91b37c275cb2d75f96e2f49b53d6155215e"
+ACCESS_TOKEN = "2bbdd023507b1ce91b377e3d23f4c75536c275cb2d75f96e2f49b53d6155215e"
 # 加签密钥
-SECRET = "SEC03c4d1cb7abead6cbd325ec93a392af2e7861e90e332fda1203b"
+SECRET = "SEC03c4d1cb7abead6cbd325ecb068ff6fab1293a392af2e7861e90e332fda1203b"
 
 
 @dataclass
@@ -106,6 +106,7 @@ class WebhookHandler:
         else:
             print(f"Calculated Signature: {calculated_signature}")
             print(f"Received Signature: {signature}")
+            print(flush=True)
 
     def handle_event(self, data, event_type):
         if event_type == 'push':
@@ -114,6 +115,7 @@ class WebhookHandler:
             self.__process_merge_request_event(data)
         else:
             print(f"Unknown event type: {event_type}")
+        print(flush=True)
 
     def __process_push_event(self, data):
         # 在这里实现你对推送事件的处理逻辑
@@ -123,14 +125,17 @@ class WebhookHandler:
         user = data['user_name']
         commit = len(data['commits'])
 
-        # print(f"Repository: {repo}")
-        # print(f"Ref: {branch}")
-        # print(f"Author: {user}")
-        # print(f"Commits: {commit}")
+        print(f"Repository: {repo}")
+        print(f"Ref: {branch}")
+        print(f"Author: {user}")
+        print(f"Commits: {commit}")
 
         title, branch_name = self.__get_update_title(branch)
         # 执行 Shell 代码
-        state, message = self.__execute_shell_command("./script/update.sh")
+        if repo == "erp":
+            state, message = self.__execute_shell_command("./script/update.sh")
+        elif repo == "bxt-h5":
+            state, message = self.__execute_shell_command("./script/publicize-update.sh")
 
         message_content = MessageContent("宝乡通ERP服务更新", title, repo, branch_name, user, state, message, commit)
         self.dingtalk_push.send_for(message_content)
@@ -184,7 +189,7 @@ class WebhookHandler:
             if key in branch:
                 return title, key
 
-        return "未知环境更新"
+        return "测试环境更新", branch
 
 
 app = Flask(__name__)
@@ -202,7 +207,6 @@ def webhook():
 
     # 验证签名
     if not handler.verify_signature(token_signature):
-        print(flush=True)
         return jsonify({'error':'Invalid or no X-Gitlab-Token'}), 403
 
     # 解析 JSON 数据
@@ -233,3 +237,4 @@ def webhook():
 
 if __name__ == '__main__':
     app.run(debug=True, port=12521, host='0.0.0.0')
+    # app.run(port=12521, host='0.0.0.0')
